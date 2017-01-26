@@ -11,7 +11,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.features.home.MainActivity;
+import com.bitmesra.bitotsav.features.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

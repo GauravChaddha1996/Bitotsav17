@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.home;
+package com.bitmesra.bitotsav.features;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,6 +17,7 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.csa.CSAFragment;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
+import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.livechat.LiveChatFragment;
 import com.bitmesra.bitotsav.features.maps.MapsFragment;
 import com.bitmesra.bitotsav.features.passes.PassesFragment;
