@@ -2,6 +2,7 @@ package com.bitmesra.bitotsav.features.start;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.features.base.BaseAppCompatActivity;
+import com.bitmesra.bitotsav.features.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +20,7 @@ public class StartActivity extends BaseAppCompatActivity implements StartViewInt
 
     @BindView(R.id.startLogo)
     ImageView startLogo;
-    private StartPresenterImpl StartPresenter;
+    private StartPresenterImpl startPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,19 @@ public class StartActivity extends BaseAppCompatActivity implements StartViewInt
                 FLAG_FULLSCREEN);
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
-        StartPresenter = new StartPresenterImpl(this);
-        ObjectAnimator animator = ObjectAnimator.ofFloat(startLogo,"rotationY",0,-360*120).setDuration(5*60*1000);
+
+        startAnimation();
+        startPresenter = new StartPresenterImpl(this);
+    }
+
+    @Override
+    public void goToHomeActivity() {
+        startActivity(new Intent(this, HomeActivity.class));
+    }
+
+    //Handles all animation on this start activity
+    private void startAnimation() {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(startLogo, "rotationY", 0, -360 * 120).setDuration(5 * 60 * 1000);
         animator.setInterpolator(new LinearInterpolator());
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.setRepeatCount(ValueAnimator.INFINITE);
