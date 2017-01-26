@@ -11,7 +11,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.features.home.HomeActivity;
+import com.bitmesra.bitotsav.features.home.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,7 +41,7 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
 
     @Override
     public void goToHomeActivity() {
-        startActivity(new Intent(this, HomeActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 

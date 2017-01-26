@@ -16,11 +16,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements HomeViewInterface{
 
     @BindView(R.id.homeSliderLayout)
     SliderLayout homeSliderLayout;
 
+    HomePresenter homePresenter;
     public HomeFragment() {
     }
 
@@ -30,6 +31,7 @@ public class HomeFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
         setUpSliderLayout();
+        homePresenter = new HomePresenter(getActivity(),this);
         return view;
     }
 
