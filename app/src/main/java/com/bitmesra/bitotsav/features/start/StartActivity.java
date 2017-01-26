@@ -4,19 +4,19 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.features.base.BaseAppCompatActivity;
 import com.bitmesra.bitotsav.features.home.HomeActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StartActivity extends BaseAppCompatActivity implements StartViewInterface {
+public class StartActivity extends AppCompatActivity implements StartViewInterface {
 
     @BindView(R.id.startLogo)
     ImageView startLogo;
@@ -25,6 +25,10 @@ public class StartActivity extends BaseAppCompatActivity implements StartViewInt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*todo press home button when this activity is running, it will start home activity
+        * after 5 seconds. Ask for intended behaviour and then implement it */
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.
                 FLAG_FULLSCREEN);
@@ -38,6 +42,7 @@ public class StartActivity extends BaseAppCompatActivity implements StartViewInt
     @Override
     public void goToHomeActivity() {
         startActivity(new Intent(this, HomeActivity.class));
+        finish();
     }
 
     //Handles all animation on this start activity
