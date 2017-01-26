@@ -5,7 +5,7 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
@@ -29,8 +29,8 @@ public class StartActivity extends BaseAppCompatActivity implements StartViewInt
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
         StartPresenter = new StartPresenterImpl(this);
-        ObjectAnimator animator = ObjectAnimator.ofFloat(startLogo,"rotationY",0,360).setDuration(2500);
-        animator.setInterpolator(new AnticipateOvershootInterpolator());
+        ObjectAnimator animator = ObjectAnimator.ofFloat(startLogo,"rotationY",0,-360*120).setDuration(5*60*1000);
+        animator.setInterpolator(new LinearInterpolator());
         animator.setRepeatMode(ValueAnimator.REVERSE);
         animator.setRepeatCount(ValueAnimator.INFINITE);
         animator.start();
