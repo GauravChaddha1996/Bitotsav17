@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.base;
+package com.bitmesra.bitotsav.base;
 
 import android.support.v4.app.Fragment;
 
