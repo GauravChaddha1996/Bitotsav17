@@ -5,11 +5,11 @@ import android.os.Message;
 
 import com.bitmesra.bitotsav.database.DataManager;
 
-public class StartPresenterImpl implements StartPresenterInterface {
+class StartPresenterImpl implements StartPresenterInterface {
     private DataManager manager;
     private StartViewInterface viewInterface;
 
-    public StartPresenterImpl(StartViewInterface viewInterface) {
+    StartPresenterImpl(StartViewInterface viewInterface) {
         this.viewInterface = viewInterface;
         manager = DataManager.getDataManager();
         startHomeActivityTimer();
@@ -22,6 +22,6 @@ public class StartPresenterImpl implements StartPresenterInterface {
                 viewInterface.goToHomeActivity();
             }
         };
-        handler.sendEmptyMessageDelayed(0,5000);
+        handler.sendEmptyMessageDelayed(0, 5000);
     }
 }

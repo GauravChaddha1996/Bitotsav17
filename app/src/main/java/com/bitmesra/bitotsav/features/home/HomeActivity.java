@@ -1,6 +1,7 @@
 package com.bitmesra.bitotsav.features.home;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -27,9 +28,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
     private BaseFragment currentFragment;
-    private BaseFragment newFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +46,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if(currentFragment.getBackToClazz()!=null) {
+            if (currentFragment.getBackToClazz() != null) {
                 setFragment(currentFragment.getBackToClazz());
-            }else{
+            } else {
                 super.onBackPressed();
             }
         }
@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
@@ -71,9 +71,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_passes) {
 
-        } else if (id == R.id.nav_livechat) {
+        } else if (id == R.id.nav_live_chat) {
 
-        } else if (id == R.id.nav_contactaboutsponsor) {
+        } else if (id == R.id.nav_contact_about_sponsor) {
 
         }
         drawer.closeDrawer(GravityCompat.START);
@@ -81,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setUpNavigationDrawer() {
-        toggle = new ActionBarDrawerToggle(
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private BaseFragment handleNavViewTransition(IdForFragment idForFragment) {
         BaseFragment toReturnFragment = new HomeFragment();
-        switch (idForFragment){
+        switch (idForFragment) {
             case HOME:
                 navView.setCheckedItem(R.id.nav_home);
                 toReturnFragment = new HomeFragment();
@@ -112,20 +112,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_passes);
                 break;
             case LIVECHAT:
-                navView.setCheckedItem(R.id.nav_livechat);
+                navView.setCheckedItem(R.id.nav_live_chat);
                 break;
             case CSA:
-                navView.setCheckedItem(R.id.nav_contactaboutsponsor);
+                navView.setCheckedItem(R.id.nav_contact_about_sponsor);
                 break;
         }
         return toReturnFragment;
     }
 
     private void setFragment(IdForFragment idForFragment) {
-        if(currentFragment!=null && idForFragment == currentFragment.getFragmentId()) {
+        if (currentFragment != null && idForFragment == currentFragment.getFragmentId()) {
             return;
         }
-        newFragment = handleNavViewTransition(idForFragment);
+        BaseFragment newFragment = handleNavViewTransition(idForFragment);
         currentFragment = newFragment;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();

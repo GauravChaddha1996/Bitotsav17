@@ -5,8 +5,16 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="events">Events</string>
+    <string name="maps">Maps</string>
+    <string name="register">Register</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="passes">Passes</string>
+    <string name="live_chat">Live chat</string>
+    <string name="contact_us_sponsors_about_us">Contact Us | Sponsors | About Us</string>
+    <string name="events_fragment">Events Fragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="brought_to_you_by">Brought to you by Amazon</string>
+    <string name="bitotsav_theme">Play | Pause | Reload</string>
 </resources>

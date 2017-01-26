@@ -13,5 +13,6 @@ public abstract class BaseFragment extends Fragment {
     * who the activity should go to, and what should be the animation*/
     // TODO: 26/1/17 think of a architecture way to implement animations between fragments
     abstract public IdForFragment getFragmentId();
+
     abstract public IdForFragment getBackToClazz();
 }
