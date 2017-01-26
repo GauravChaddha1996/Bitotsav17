@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/startLogo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-32dp"
         android:fontFamily="cursive"
         android:text="@string/app_name"
         android:textSize="75sp"
@@ -39,16 +38,17 @@
         android:id="@+id/startPPRImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/startSponsor"
+        android:layout_above="@+id/startPPRText"
         android:layout_centerHorizontal="true"
         android:scaleType="center"
         android:src="@drawable/logo" />
 
     <TextView
+        android:id="@+id/startPPRText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/startPPRImage"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:layout_alignParentBottom="true"
         android:text="Play | Pause | Reload"
         android:textSize="25sp" />
