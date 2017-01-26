@@ -17,4 +17,12 @@
     <string name="home_fragment">Home Fragment</string>
     <string name="brought_to_you_by">Brought to you by Amazon</string>
     <string name="bitotsav_theme">Play | Pause | Reload</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="scoreboard_fragment">ScoreBoard Fragment</string>
+    <string name="register_fragment">Register Fragment</string>
+    <string name="passes_fragment">Passes Fragment</string>
+    <string name="maps_fragment">Maps Fragment</string>
+    <string name="live_chat_fragment">Live Chat Fragment</string>
 </resources>

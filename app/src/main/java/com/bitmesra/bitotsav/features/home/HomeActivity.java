@@ -15,7 +15,13 @@ import android.view.MenuItem;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
+import com.bitmesra.bitotsav.features.csa.CSAFragment;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
+import com.bitmesra.bitotsav.features.livechat.LiveChatFragment;
+import com.bitmesra.bitotsav.features.maps.MapsFragment;
+import com.bitmesra.bitotsav.features.passes.PassesFragment;
+import com.bitmesra.bitotsav.features.register.RegisterFragment;
+import com.bitmesra.bitotsav.features.scoreboard.ScoreBoardFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,17 +70,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_events) {
             setFragment(IdForFragment.EVENTS);
         } else if (id == R.id.nav_maps) {
-
+            setFragment(IdForFragment.MAPS);
         } else if (id == R.id.nav_register) {
-
+            setFragment(IdForFragment.REGISTER);
         } else if (id == R.id.nav_scoreboard) {
-
+            setFragment(IdForFragment.SCOREBOARD);
         } else if (id == R.id.nav_passes) {
-
+            setFragment(IdForFragment.PASSES);
         } else if (id == R.id.nav_live_chat) {
-
+            setFragment(IdForFragment.LIVECHAT);
         } else if (id == R.id.nav_contact_about_sponsor) {
-
+            setFragment(IdForFragment.CSA);
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -93,29 +99,43 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         switch (idForFragment) {
             case HOME:
                 navView.setCheckedItem(R.id.nav_home);
+                getSupportActionBar().setTitle("Home");
                 toReturnFragment = new HomeFragment();
                 break;
             case EVENTS:
                 navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Events");
                 toReturnFragment = new EventsFragment();
                 break;
             case MAPS:
                 navView.setCheckedItem(R.id.nav_maps);
+                getSupportActionBar().setTitle("Maps");
+                toReturnFragment = new MapsFragment();
                 break;
             case REGISTER:
                 navView.setCheckedItem(R.id.nav_register);
+                getSupportActionBar().setTitle("Register");
+                toReturnFragment = new RegisterFragment();
                 break;
             case SCOREBOARD:
                 navView.setCheckedItem(R.id.nav_scoreboard);
+                getSupportActionBar().setTitle("Scoreboard");
+                toReturnFragment = new ScoreBoardFragment();
                 break;
             case PASSES:
                 navView.setCheckedItem(R.id.nav_passes);
+                getSupportActionBar().setTitle("Passes");
+                toReturnFragment = new PassesFragment();
                 break;
             case LIVECHAT:
                 navView.setCheckedItem(R.id.nav_live_chat);
+                getSupportActionBar().setTitle("Live Chat");
+                toReturnFragment = new LiveChatFragment();
                 break;
             case CSA:
                 navView.setCheckedItem(R.id.nav_contact_about_sponsor);
+                getSupportActionBar().setTitle("Contact|About|Sponsor");
+                toReturnFragment = new CSAFragment();
                 break;
         }
         return toReturnFragment;
