@@ -10,10 +10,13 @@ import android.view.ViewGroup;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
+import com.bitmesra.bitotsav.database.models.home.BitotsavNotification;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -92,5 +95,11 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         homeNotificationRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         homeNotificationAdapter = new HomeNotificationAdapter(getActivity(), homePresenter.getNotificationData());
         homeNotificationRecyclerView.setAdapter(homeNotificationAdapter);
+    }
+
+    @Override
+    public void updateNotificationData(List<BitotsavNotification> notifications) {
+        homeNotificationAdapter.setItems(notifications);
+        homeNotificationAdapter.notifyDataSetChanged();
     }
 }

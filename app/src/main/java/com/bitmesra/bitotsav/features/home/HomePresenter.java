@@ -25,6 +25,10 @@ public class HomePresenter implements HomePresenterInterface {
 
     @Override
     public List<BitotsavNotification> getNotificationData() {
+        dataManager.getHomeNotifications(context)
+                .subscribe(notificationWrapper -> viewInterface.
+                                updateNotificationData(notificationWrapper.getNotificationList()),
+                        Throwable::printStackTrace);
         BitotsavNotification b1 = new BitotsavNotification(0, "This is notif 1", "time at 8:30");
         BitotsavNotification b2 = new BitotsavNotification(1, "This is notif 2", "time at 7:30");
         BitotsavNotification b3 = new BitotsavNotification(2, "This is notif 3", "time at 6:30");

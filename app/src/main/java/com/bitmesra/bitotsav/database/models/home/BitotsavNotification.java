@@ -38,4 +38,9 @@ public class BitotsavNotification {
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "id:" + id + " title:" + title + " time:" + time + "\n";
+    }
 }

@@ -60,4 +60,8 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<HomeNotificati
             ButterKnife.bind(this, view);
         }
     }
+
+    public void setItems(List<BitotsavNotification> items) {
+        this.items = items;
+    }
 }
