@@ -2,6 +2,8 @@ package com.bitmesra.bitotsav.features.home;
 
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
+import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
@@ -16,12 +19,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HomeFragment extends BaseFragment implements HomeViewInterface{
+public class HomeFragment extends BaseFragment implements HomeViewInterface {
 
-    @BindView(R.id.homeSliderLayout)
-    SliderLayout homeSliderLayout;
 
     HomePresenter homePresenter;
+    @BindView(R.id.homeSliderLayout)
+    SliderLayout homeSliderLayout;
+    @BindView(R.id.homeNotificationRecyclerView)
+    RecyclerView homeNotificationRecyclerView;
+    private HomeNotificationAdapter homeNotificationAdapter;
+
     public HomeFragment() {
     }
 
@@ -30,8 +37,9 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
+        homePresenter = new HomePresenter(getActivity(), this);
         setUpSliderLayout();
-        homePresenter = new HomePresenter(getActivity(),this);
+        setUpNotificationRecyclerView();
         return view;
     }
 
@@ -77,5 +85,12 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface{
         homeSliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
         homeSliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         homeSliderLayout.setDuration(4000);
+    }
+
+    private void setUpNotificationRecyclerView() {
+        homeNotificationRecyclerView.setHasFixedSize(true);
+        homeNotificationRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        homeNotificationAdapter = new HomeNotificationAdapter(getActivity(), homePresenter.getNotificationData());
+        homeNotificationRecyclerView.setAdapter(homeNotificationAdapter);
     }
 }

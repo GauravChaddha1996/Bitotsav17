@@ -22,6 +22,6 @@ class StartPresenterImpl implements StartPresenterInterface {
                 viewInterface.goToHomeActivity();
             }
         };
-        handler.sendEmptyMessageDelayed(0, 5000);
+        handler.sendEmptyMessageDelayed(0, 1000);
     }
 }
