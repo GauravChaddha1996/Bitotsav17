@@ -49,6 +49,10 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<HomeNotificati
         return items.size();
     }
 
+    public void setItems(List<BitotsavNotification> items) {
+        this.items = items;
+    }
+
     class NotificationViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.notification_title)
         TextView title;
@@ -59,9 +63,5 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<HomeNotificati
             super(view);
             ButterKnife.bind(this, view);
         }
-    }
-
-    public void setItems(List<BitotsavNotification> items) {
-        this.items = items;
     }
 }

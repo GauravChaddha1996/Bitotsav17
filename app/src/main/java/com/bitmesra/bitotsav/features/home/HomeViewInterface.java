@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public interface HomeViewInterface {
-        void updateNotificationData(List<BitotsavNotification> notifications);
+    void updateNotificationData(List<BitotsavNotification> notifications);
 }
