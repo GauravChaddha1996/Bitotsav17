@@ -1,5 +1,7 @@
 package com.bitmesra.bitotsav.database;
 
+import android.content.Context;
+
 import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
 import com.bitmesra.bitotsav.network.home.HomeNotificationAPI;
@@ -19,8 +21,12 @@ import rx.schedulers.Schedulers;
 class NetworkManager {
     private Retrofit retrofit;
     private OkHttpClient client;
+    private FakeInterceptor fakeInterceptor;
+    private Context context;
 
-    NetworkManager(FakeInterceptor fakeInterceptor) {
+    NetworkManager(Context context) {
+        this.context = context;
+        fakeInterceptor = new FakeInterceptor(context);
         client = new OkHttpClient
                 .Builder()
                 .addInterceptor(fakeInterceptor)

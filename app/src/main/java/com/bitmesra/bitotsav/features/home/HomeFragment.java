@@ -93,8 +93,9 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     private void setUpNotificationRecyclerView() {
         homeNotificationRecyclerView.setHasFixedSize(true);
         homeNotificationRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        homeNotificationAdapter = new HomeNotificationAdapter(getActivity(), homePresenter.getNotificationData());
+        homeNotificationAdapter = new HomeNotificationAdapter(getActivity());
         homeNotificationRecyclerView.setAdapter(homeNotificationAdapter);
+        homePresenter.getNotificationData();
     }
 
     @Override

@@ -22,9 +22,8 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<HomeNotificati
     private final Context context;
     private List<BitotsavNotification> items;
 
-    public HomeNotificationAdapter(Context context, List<BitotsavNotification> items) {
+    public HomeNotificationAdapter(Context context) {
         this.context = context;
-        this.items = items;
     }
 
     @Override

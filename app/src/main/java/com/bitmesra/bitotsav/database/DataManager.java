@@ -3,7 +3,6 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
-import com.bitmesra.bitotsav.network.FakeInterceptor;
 
 import rx.Observable;
 
@@ -26,7 +25,7 @@ public class DataManager {
 
     private void createNetworkManager(Context context) {
         if (networkManager == null) {
-            networkManager = new NetworkManager(new FakeInterceptor(context));
+            networkManager = new NetworkManager(context);
         }
     }
 
