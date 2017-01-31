@@ -50,8 +50,8 @@ public class FakeInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         try {
-            Log.d("NetworkSlowdown", "Sleeping for 10 seconds");
-            Thread.sleep(5 * 1000);
+            Log.d("NetworkSlowdown", "Sleeping for 2 seconds");
+            Thread.sleep(2 * 1000);
         } catch (InterruptedException e) {
             Log.e("NetworkSlowdown", "Interrupted", e);
         }

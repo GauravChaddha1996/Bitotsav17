@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.squareup.leakcanary.LeakCanary;
 
+import io.realm.Realm;
+
 public class BitotsavApplication extends Application {
     public BitotsavApplication() {
         super();
@@ -13,6 +15,7 @@ public class BitotsavApplication extends Application {
     public void onCreate() {
         super.onCreate();
         LeakCanary.install(this);
+        Realm.init(this);
     }
 }
 

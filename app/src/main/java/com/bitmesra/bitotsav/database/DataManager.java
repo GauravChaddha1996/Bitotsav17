@@ -3,12 +3,14 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
+import com.bitmesra.bitotsav.features.home.RealmManager;
 
 import rx.Observable;
 
 public class DataManager {
 
     NetworkManager networkManager = null;
+    RealmManager realmManager = null;
 
     private DataManager() {
 
@@ -23,9 +25,20 @@ public class DataManager {
         return networkManager.getNotifications();
     }
 
+    public RealmManager getRealmManager() {
+        createRealmManager();
+        return realmManager;
+    }
+
     private void createNetworkManager(Context context) {
         if (networkManager == null) {
             networkManager = new NetworkManager(context);
+        }
+    }
+
+    private void createRealmManager() {
+        if (realmManager == null) {
+            realmManager = new RealmManager();
         }
     }
 

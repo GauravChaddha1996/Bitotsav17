@@ -1,13 +1,18 @@
 package com.bitmesra.bitotsav.database.models.home;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Batdroid on 30/1/17 for Bitotsav.
  */
 
-public class BitotsavNotification {
+public class BitotsavNotification extends RealmObject{
     private long id;
     private String title;
     private String time;
+
+    public BitotsavNotification() {
+    }
 
     public BitotsavNotification(long id, String title, String time) {
         this.id = id;
