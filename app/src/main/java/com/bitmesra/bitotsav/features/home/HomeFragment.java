@@ -4,6 +4,7 @@ package com.bitmesra.bitotsav.features.home;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     @BindView(R.id.homeNotificationRecyclerView)
     RecyclerView homeNotificationRecyclerView;
     private HomeNotificationAdapter homeNotificationAdapter;
-
+    boolean loading=false;
     public HomeFragment() {
     }
 
@@ -92,15 +93,34 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
 
     private void setUpNotificationRecyclerView() {
         homeNotificationRecyclerView.setHasFixedSize(true);
-        homeNotificationRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager manager=new LinearLayoutManager(getActivity());
+        homeNotificationRecyclerView.setLayoutManager(manager);
         homeNotificationAdapter = new HomeNotificationAdapter(getActivity());
         homeNotificationRecyclerView.setAdapter(homeNotificationAdapter);
+
+        homeNotificationRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("is",manager.findLastVisibleItemPosition()+"");
+                Log.d("isa",manager.getItemCount()+"");
+                if(manager.findLastVisibleItemPosition()>manager.getItemCount()-1) {
+                    Log.i("Tag","asking for MORE NOTIF");
+                    if(!loading) {
+                        loading=!loading;
+                        homePresenter.getMoreNotifications();
+                    }
+                }
+            }
+        });
         homePresenter.getNotificationData();
     }
+
 
     @Override
     public void updateNotificationData(List<BitotsavNotification> notifications) {
         homeNotificationAdapter.setItems(notifications);
         homeNotificationAdapter.notifyDataSetChanged();
+        loading=!loading;
     }
 }

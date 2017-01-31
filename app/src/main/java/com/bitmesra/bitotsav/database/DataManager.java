@@ -25,6 +25,11 @@ public class DataManager {
         return networkManager.getNotifications();
     }
 
+    public Observable<NotificationWrapper> getNextNotifications(Context context) {
+        createNetworkManager(context);
+        return networkManager.getNextNotifications();
+    }
+
     public RealmManager getRealmManager() {
         createRealmManager();
         return realmManager;

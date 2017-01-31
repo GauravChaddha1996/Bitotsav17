@@ -1,0 +1,29 @@
+{
+  "notificationList": [
+    {
+      "id": 0,
+      "title": "These are the next 5",
+      "time": "25 Jan"
+    },
+    {
+      "id": 1,
+      "title": "Notif 6",
+      "time": "26 Jan"
+    },
+    {
+      "id": 2,
+      "title": "Notif 7",
+      "time": "27 Jan"
+    },
+    {
+      "id": 3,
+      "title": "Notif 8",
+      "time": "28 Jan"
+    },
+    {
+      "id": 4,
+      "title": "Notif 9",
+      "time": "30 Jan"
+    }
+  ]
+}

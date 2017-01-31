@@ -44,4 +44,9 @@ class NetworkManager {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
+    public Observable<NotificationWrapper> getNextNotifications() {
+        return retrofit.create(HomeNotificationAPI.class).getNextNotifications(10)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
 }

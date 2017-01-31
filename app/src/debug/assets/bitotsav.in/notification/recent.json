@@ -24,6 +24,26 @@
       "id": 4,
       "title": "Notif 5",
       "time": "30 Jan"
+    },
+    {
+      "id": 1,
+      "title": "Notif 2",
+      "time": "26 Jan"
+    },
+    {
+      "id": 2,
+      "title": "Notif 3",
+      "time": "27 Jan"
+    },
+    {
+      "id": 3,
+      "title": "Notif 4",
+      "time": "28 Jan"
+    },
+    {
+      "id": 4,
+      "title": "Notif 5",
+      "time": "30 Jan"
     }
   ]
 }
