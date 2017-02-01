@@ -14,7 +14,6 @@ import android.view.MenuItem;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
-import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.csa.CSAFragment;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
@@ -53,8 +52,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (currentFragment.getBackToClazz() != null) {
-                setFragment(currentFragment.getBackToClazz());
+            if (currentFragment.getBackToFragmentId() != null) {
+                setFragment(currentFragment.getBackToFragmentId());
             } else {
                 super.onBackPressed();
             }

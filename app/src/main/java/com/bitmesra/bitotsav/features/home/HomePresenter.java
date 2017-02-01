@@ -3,7 +3,7 @@ package com.bitmesra.bitotsav.features.home;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
+import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 
 /**
  * Created by Batdroid on 26/1/17 for Bitotsav.
@@ -21,23 +21,28 @@ public class HomePresenter implements HomePresenterInterface {
     }
 
     @Override
-    public void getNotificationData() {
-        dataManager.getHomeNotifications(context)
-                .doOnNext(wrapper -> dataManager.getRealmManager().saveNotificationWrapper(wrapper))
-                .subscribe(notificationWrapper -> viewInterface.
-                                updateNotificationData(notificationWrapper.getNotificationList()),
+    public void getRecentNotifications() {
+        //Making network call to fetch new notifications
+        dataManager.getRecentNotifications(context)
+                .doOnNext(dto -> dataManager.getRealmManager().saveNotificationDto(dto))
+                .subscribe(dto -> viewInterface.updateRecentNotifications(dto.getNotificationList()),
                         Throwable::printStackTrace);
-        NotificationWrapper wrapper = dataManager.getRealmManager().getNotificationsWrapper();
-        if (wrapper != null) {
-            viewInterface.updateNotificationData(wrapper.getNotificationList());
+        //Setting notifications stored in Realm
+        NotificationDto dto = dataManager.getRealmManager().getNotificationDto();
+        if (dto != null) {
+            viewInterface.updateRecentNotifications(dto.getNotificationList());
         }
     }
 
     @Override
-    public void getMoreNotifications() {
-        dataManager.getNextNotifications(context)
-                .subscribe(wrapper -> {
-                    viewInterface.updateNotificationData(wrapper.getNotificationList());
-                });
+    public void getNextNotifications(long id) {
+        dataManager.getNextNotifications(context, id)
+                .subscribe(dto -> viewInterface.updateNextNotifications(dto.getNotificationList()));
+    }
+
+    @Override
+    public void getLatestNotifications(long id) {
+        dataManager.getLatestNotifications(context, id)
+                .subscribe(dto -> viewInterface.updateLatestNotifications(dto.getNotificationList()));
     }
 }

@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.home;
 
-import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
+import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -12,7 +12,9 @@ import rx.Observable;
 
 public interface HomeNotificationAPI {
     @GET("/notification/recent")
-    Observable<NotificationWrapper> getNotifications();
+    Observable<NotificationDto> getRecentNotifications();
     @GET("/notification/next")
-    Observable<NotificationWrapper> getNextNotifications(@Query("id")long id);
+    Observable<NotificationDto> getNextNotifications(@Query("id")long id);
+    @GET("/notification/latest")
+    Observable<NotificationDto> getLatestNotifications(@Query("id")long id);
 }

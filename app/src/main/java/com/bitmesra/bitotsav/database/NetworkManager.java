@@ -2,7 +2,7 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
-import com.bitmesra.bitotsav.database.models.home.NotificationWrapper;
+import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
 import com.bitmesra.bitotsav.network.home.HomeNotificationAPI;
 
@@ -39,13 +39,20 @@ class NetworkManager {
                 .build();
     }
 
-    public Observable<NotificationWrapper> getNotifications() {
-        return retrofit.create(HomeNotificationAPI.class).getNotifications()
+    public Observable<NotificationDto> getRecentNotifications() {
+        return retrofit.create(HomeNotificationAPI.class).getRecentNotifications()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
-    public Observable<NotificationWrapper> getNextNotifications() {
-        return retrofit.create(HomeNotificationAPI.class).getNextNotifications(10)
+
+    public Observable<NotificationDto> getNextNotifications(long id) {
+        return retrofit.create(HomeNotificationAPI.class).getNextNotifications(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<NotificationDto> getLatestNotifications(long id) {
+        return retrofit.create(HomeNotificationAPI.class).getLatestNotifications(id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

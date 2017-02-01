@@ -14,5 +14,5 @@ public abstract class BaseFragment extends Fragment {
     // TODO: 26/1/17 think of a architecture way to implement animations between fragments
     abstract public IdForFragment getFragmentId();
 
-    abstract public IdForFragment getBackToClazz();
+    abstract public IdForFragment getBackToFragmentId();
 }

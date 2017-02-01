@@ -1,8 +1,8 @@
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bitmesra.bitotsav.features.home.HomeFragment">
 
     <com.daimajia.slider.library.SliderLayout
@@ -10,10 +10,17 @@
         android:layout_width="match_parent"
         app:layout_heightPercent="30%" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/homeNotificationRecyclerView"
+    <com.yalantis.phoenix.PullToRefreshView
+        android:id="@+id/home_pull_to_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/homeSliderLayout" />
+        android:layout_below="@+id/homeSliderLayout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/homeNotificationRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.yalantis.phoenix.PullToRefreshView>
+
 
 </android.support.percent.PercentRelativeLayout>

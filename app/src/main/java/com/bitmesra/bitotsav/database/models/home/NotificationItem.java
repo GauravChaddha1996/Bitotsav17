@@ -6,15 +6,15 @@ import io.realm.RealmObject;
  * Created by Batdroid on 30/1/17 for Bitotsav.
  */
 
-public class BitotsavNotification extends RealmObject{
+public class NotificationItem extends RealmObject{
     private long id;
     private String title;
     private String time;
 
-    public BitotsavNotification() {
+    public NotificationItem() {
     }
 
-    public BitotsavNotification(long id, String title, String time) {
+    public NotificationItem(long id, String title, String time) {
         this.id = id;
         this.title = title;
         this.time = time;

@@ -5,6 +5,7 @@ package com.bitmesra.bitotsav.features.home;
  */
 
 public interface HomePresenterInterface {
-    public void getNotificationData();
-    public void getMoreNotifications();
+    public void getRecentNotifications();
+    public void getNextNotifications(long id);
+    public void getLatestNotifications(long id);
 }

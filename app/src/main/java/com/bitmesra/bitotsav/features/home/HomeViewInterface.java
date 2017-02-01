@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.home;
 
-import com.bitmesra.bitotsav.database.models.home.BitotsavNotification;
+import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 
 import java.util.List;
 
@@ -9,5 +9,7 @@ import java.util.List;
  */
 
 public interface HomeViewInterface {
-    void updateNotificationData(List<BitotsavNotification> notifications);
+    void updateRecentNotifications(List<NotificationItem> notifications);
+    void updateNextNotifications(List<NotificationItem> notifications);
+    void updateLatestNotifications(List<NotificationItem> notifications);
 }

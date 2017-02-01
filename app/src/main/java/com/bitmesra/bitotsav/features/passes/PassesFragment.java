@@ -28,7 +28,7 @@ public class PassesFragment extends BaseFragment {
     }
 
     @Override
-    public IdForFragment getBackToClazz() {
+    public IdForFragment getBackToFragmentId() {
         return IdForFragment.HOME;
     }
 }

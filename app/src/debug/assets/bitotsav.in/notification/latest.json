@@ -1,0 +1,20 @@
+{
+  "notificationList": [
+    {
+      "id": 0,
+      "title": "These is the latest one",
+      "time": "25 Jan"
+    },
+    {
+      "id": 0,
+      "title": "These is the latest second",
+      "time": "25 Jan"
+    },
+    {
+      "id": 0,
+      "title": "These is the latest third",
+      "time": "25 Jan"
+    }
+
+  ]
+}
