@@ -2,7 +2,12 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
+import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 
@@ -31,6 +36,9 @@ public class DataManager {
         }
     }
 
+    /**
+     * Home - Notifications functions
+     */
     public Observable<NotificationDto> getRecentNotifications(Context context) {
         createNetworkManager(context);
         return networkManager.getRecentNotifications();
@@ -44,6 +52,17 @@ public class DataManager {
     public Observable<NotificationDto> getLatestNotifications(Context context, long id) {
         createNetworkManager(context);
         return networkManager.getLatestNotifications(id);
+    }
+
+    /**
+     * Event functions
+     */
+    public List<EventItem> getEventList() {
+        List<EventItem> list = new ArrayList<>();
+        list.add(new EventItem("Timeline", R.drawable.home2));
+        list.add(new EventItem("Flagship", R.drawable.home1));
+        list.add(new EventItem("Informal", R.drawable.home2));
+        return list;
     }
 
     public RealmManager getRealmManager() {
