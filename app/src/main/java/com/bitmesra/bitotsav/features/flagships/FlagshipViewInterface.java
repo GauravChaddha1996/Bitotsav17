@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.events.flagship;
+package com.bitmesra.bitotsav.features.flagships;
 
 /**
  * Created by Batdroid on 5/2/17 for Bitotsav.

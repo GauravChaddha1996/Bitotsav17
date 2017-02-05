@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.events.flagship;
+package com.bitmesra.bitotsav.features.flagships;
 
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 

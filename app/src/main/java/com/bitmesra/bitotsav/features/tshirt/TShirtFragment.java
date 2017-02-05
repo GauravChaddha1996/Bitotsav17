@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.scoreboard;
+package com.bitmesra.bitotsav.features.tshirt;
 
 
 import android.os.Bundle;
@@ -10,22 +10,22 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
 
-public class ScoreBoardFragment extends BaseFragment {
+public class TShirtFragment extends BaseFragment {
 
 
-    public ScoreBoardFragment() {
+    public TShirtFragment() {
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_score_board, container, false);
+        return inflater.inflate(R.layout.fragment_tshirt, container, false);
     }
 
     @Override
     public IdForFragment getFragmentId() {
-        return IdForFragment.SCOREBOARD;
+        return IdForFragment.TSHIRT;
     }
 
     @Override

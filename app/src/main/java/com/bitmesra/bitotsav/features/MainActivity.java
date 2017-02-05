@@ -17,15 +17,11 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.csa.CSAFragment;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
-import com.bitmesra.bitotsav.features.events.flagship.FlagshipFragment;
 import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
-import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
+import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
-import com.bitmesra.bitotsav.features.livechat.LiveChatFragment;
-import com.bitmesra.bitotsav.features.maps.MapsFragment;
-import com.bitmesra.bitotsav.features.passes.PassesFragment;
 import com.bitmesra.bitotsav.features.register.RegisterFragment;
-import com.bitmesra.bitotsav.features.scoreboard.ScoreBoardFragment;
+import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -73,18 +69,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_home) {
             setFragment(IdForFragment.HOME);
+        } else if (id == R.id.nav_flagship) {
+            setFragment(IdForFragment.FLAGSHIP);
         } else if (id == R.id.nav_events) {
             setFragment(IdForFragment.EVENTS);
-        } else if (id == R.id.nav_maps) {
-            setFragment(IdForFragment.MAPS);
         } else if (id == R.id.nav_register) {
             setFragment(IdForFragment.REGISTER);
-        } else if (id == R.id.nav_scoreboard) {
-            setFragment(IdForFragment.SCOREBOARD);
-        } else if (id == R.id.nav_passes) {
-            setFragment(IdForFragment.PASSES);
-        } else if (id == R.id.nav_live_chat) {
-            setFragment(IdForFragment.LIVECHAT);
+        } else if (id == R.id.nav_tshirt) {
+            setFragment(IdForFragment.TSHIRT);
         } else if (id == R.id.nav_contact_about_sponsor) {
             setFragment(IdForFragment.CSA);
         }
@@ -108,50 +100,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Home");
                 toReturnFragment = new HomeFragment();
                 break;
+            case FLAGSHIP:
+                navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Flagships");
+                toReturnFragment = new FlagshipFragment();
+                break;
             case EVENTS:
                 navView.setCheckedItem(R.id.nav_events);
                 getSupportActionBar().setTitle("Events");
                 toReturnFragment = new EventsFragment();
                 break;
-            case TIMELINE:
-                navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Timeline");
-                toReturnFragment = new TimelineFragment();
-                break;
-            case FLAGSHIP:
-                navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Flagship");
-                toReturnFragment = new FlagshipFragment();
-                break;
             case INFORMAL:
                 navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Informal");
+                getSupportActionBar().setTitle("Informals");
                 toReturnFragment = new InformalFragment();
-                break;
-            case MAPS:
-                navView.setCheckedItem(R.id.nav_maps);
-                getSupportActionBar().setTitle("Maps");
-                toReturnFragment = new MapsFragment();
                 break;
             case REGISTER:
                 navView.setCheckedItem(R.id.nav_register);
                 getSupportActionBar().setTitle("Register");
                 toReturnFragment = new RegisterFragment();
                 break;
-            case SCOREBOARD:
-                navView.setCheckedItem(R.id.nav_scoreboard);
-                getSupportActionBar().setTitle("Scoreboard");
-                toReturnFragment = new ScoreBoardFragment();
-                break;
-            case PASSES:
-                navView.setCheckedItem(R.id.nav_passes);
-                getSupportActionBar().setTitle("Passes");
-                toReturnFragment = new PassesFragment();
-                break;
-            case LIVECHAT:
-                navView.setCheckedItem(R.id.nav_live_chat);
-                getSupportActionBar().setTitle("Live Chat");
-                toReturnFragment = new LiveChatFragment();
+            case TSHIRT:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                getSupportActionBar().setTitle("T-Shirt Registration");
+                toReturnFragment = new TShirtFragment();
                 break;
             case CSA:
                 navView.setCheckedItem(R.id.nav_contact_about_sponsor);

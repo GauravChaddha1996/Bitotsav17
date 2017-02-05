@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.events.flagship;
+package com.bitmesra.bitotsav.features.flagships;
 
 
 import android.os.Bundle;

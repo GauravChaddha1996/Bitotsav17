@@ -62,9 +62,11 @@ public class DataManager {
      */
     public List<EventItem> getEventList() {
         List<EventItem> list = new ArrayList<>();
-        list.add(new EventItem("Timeline", R.drawable.home2));
-        list.add(new EventItem("Flagship", R.drawable.home1));
-        list.add(new EventItem("Informal", R.drawable.home2));
+        list.add(new EventItem("Day 1", R.drawable.home1));
+        list.add(new EventItem("Day 2", R.drawable.home2));
+        list.add(new EventItem("Day 3", R.drawable.home1));
+        list.add(new EventItem("Day 4", R.drawable.home2));
+        list.add(new EventItem("Informals", R.drawable.home1));
         return list;
     }
 
