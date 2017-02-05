@@ -1,5 +1,7 @@
 package com.bitmesra.bitotsav.features;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -15,7 +17,7 @@ import android.view.MenuItem;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
-import com.bitmesra.bitotsav.features.csa.CSAFragment;
+import com.bitmesra.bitotsav.features.csa.CSAActivity;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
@@ -78,7 +80,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_tshirt) {
             setFragment(IdForFragment.TSHIRT);
         } else if (id == R.id.nav_contact_about_sponsor) {
-            setFragment(IdForFragment.CSA);
+            startActivity(new Intent(MainActivity.this, CSAActivity.class),
+                    ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -124,11 +127,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_tshirt);
                 getSupportActionBar().setTitle("T-Shirt Registration");
                 toReturnFragment = new TShirtFragment();
-                break;
-            case CSA:
-                navView.setCheckedItem(R.id.nav_contact_about_sponsor);
-                getSupportActionBar().setTitle("Contact|About|Sponsor");
-                toReturnFragment = new CSAFragment();
                 break;
         }
         return toReturnFragment;

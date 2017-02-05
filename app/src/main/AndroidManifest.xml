@@ -31,6 +31,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bitmesra.bitotsav.features.MainActivity" />
         </activity>
+        <activity
+            android:name=".features.csa.CSAActivity"
+            android:theme="@style/CSAStyle" />
     </application>
 
 </manifest>
