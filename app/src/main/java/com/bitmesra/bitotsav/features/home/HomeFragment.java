@@ -13,9 +13,9 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
+import com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.yalantis.phoenix.PullToRefreshView;
 
 import java.util.List;
 
