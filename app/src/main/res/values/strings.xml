@@ -25,4 +25,7 @@
     <string name="passes_fragment">Passes Fragment</string>
     <string name="maps_fragment">Maps Fragment</string>
     <string name="live_chat_fragment">Live Chat Fragment</string>
+    <string name="timeline_fragment">Timeline Fragment</string>
+    <string name="informal_fragment">Informal Fragment</string>
+    <string name="flagship_fragment">Flagship Fragment</string>
 </resources>

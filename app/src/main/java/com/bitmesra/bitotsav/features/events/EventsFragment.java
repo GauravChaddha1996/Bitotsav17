@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
+import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.features.events.adapters.EventListAdapter;
+import com.bitmesra.bitotsav.utils.ItemClickSupport;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +58,20 @@ public class EventsFragment extends BaseFragment implements EventViewInterface {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new EventListAdapter(getActivity(), presenter.getEventList());
         recyclerView.setAdapter(adapter);
+        ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) ->
+        {
+            switch (adapter.getItem(position).getType()) {
+                case "Timeline":
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
+                    break;
+                case "Flagship":
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.FLAGSHIP);
+                    break;
+                case "Informal":
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.INFORMAL);
+                    break;
+            }
+        });
     }
 
 }

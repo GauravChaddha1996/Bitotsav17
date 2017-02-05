@@ -16,6 +16,9 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.csa.CSAFragment;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
+import com.bitmesra.bitotsav.features.events.flagship.FlagshipFragment;
+import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
+import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.livechat.LiveChatFragment;
 import com.bitmesra.bitotsav.features.maps.MapsFragment;
@@ -107,6 +110,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportActionBar().setTitle("Events");
                 toReturnFragment = new EventsFragment();
                 break;
+            case TIMELINE:
+                navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Timeline");
+                toReturnFragment = new TimelineFragment();
+                break;
+            case FLAGSHIP:
+                navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Flagship");
+                toReturnFragment = new FlagshipFragment();
+                break;
+            case INFORMAL:
+                navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Informal");
+                toReturnFragment = new InformalFragment();
+                break;
             case MAPS:
                 navView.setCheckedItem(R.id.nav_maps);
                 getSupportActionBar().setTitle("Maps");
@@ -141,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return toReturnFragment;
     }
 
-    private void setFragment(IdForFragment idForFragment) {
+    public void setFragment(IdForFragment idForFragment) {
         if (currentFragment != null && idForFragment == currentFragment.getFragmentId()) {
             return;
         }

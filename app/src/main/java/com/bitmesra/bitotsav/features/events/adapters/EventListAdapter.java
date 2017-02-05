@@ -50,6 +50,10 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
         return items.size();
     }
 
+    public EventItem getItem(int position) {
+        return items.get(position);
+    }
+
     class EventItemViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.background_image)
         ImageView backgroundImage;
