@@ -2,9 +2,13 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
+import com.bitmesra.bitotsav.database.models.events.TimelineItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
+import com.bitmesra.bitotsav.network.events.timeline.TimelineAPI;
 import com.bitmesra.bitotsav.network.home.HomeNotificationAPI;
+
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -53,6 +57,12 @@ class NetworkManager {
 
     public Observable<NotificationDto> getLatestNotifications(long id) {
         return retrofit.create(HomeNotificationAPI.class).getLatestNotifications(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<List<TimelineItem>> getTimelineEvents(int dayNumber) {
+        return retrofit.create(TimelineAPI.class).getTimeline(dayNumber)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

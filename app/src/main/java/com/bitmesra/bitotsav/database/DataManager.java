@@ -6,6 +6,7 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.database.models.events.InformalItem;
+import com.bitmesra.bitotsav.database.models.events.TimelineItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public class DataManager {
         list.add(new EventItem("Flagship", R.drawable.home1));
         list.add(new EventItem("Informal", R.drawable.home2));
         return list;
+    }
+
+    public Observable<List<TimelineItem>> getTimelineList(Context context, int dayNumber) {
+        createNetworkManager(context);
+        return networkManager.getTimelineEvents(dayNumber);
     }
 
     public List<FlagshipItem> getFlagshipList() {

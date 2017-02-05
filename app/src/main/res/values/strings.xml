@@ -28,4 +28,5 @@
     <string name="timeline_fragment">Timeline Fragment</string>
     <string name="informal_fragment">Informal Fragment</string>
     <string name="flagship_fragment">Flagship Fragment</string>
+    <string name="title_activity_timeline">TimelineActivity</string>
 </resources>
