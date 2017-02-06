@@ -25,9 +25,8 @@ public class SignUpPresenter implements SignUpPresenterInterface {
     public void register(SignUpBody body) {
         DataManager.getDataManager().signUp(context, body)
                 .subscribe(signUpResultBodyResponse -> {
-                    SignUpBody signUpBody = body;
-                    signUpBody.setBitId(signUpResultBodyResponse.body().getBitId());
-                    dataManager.getRealmManager().saveUserDetails(new UserDetailsDto());
+                    body.setBitId(signUpResultBodyResponse.body().getBitId());
+                    dataManager.getRealmManager().saveUserDetails(new UserDetailsDto(body));
                 });
     }
 }

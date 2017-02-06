@@ -21,7 +21,12 @@ public class RealmManager {
     }
 
     public void saveUserDetails(UserDetailsDto detailsDto) {
+        realm.executeTransaction(realm1 -> realm1.delete(UserDetailsDto.class));
         realm.executeTransaction(realm1 -> realm1.copyToRealm(detailsDto));
+    }
+
+    public UserDetailsDto getUserDetails() {
+        return realm.where(UserDetailsDto.class).findFirst();
     }
 
     public NotificationDto getNotificationDto() {
