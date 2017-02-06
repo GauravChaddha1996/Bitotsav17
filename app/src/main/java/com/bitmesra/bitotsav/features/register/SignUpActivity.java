@@ -5,16 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class RegisterActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements SignUpViewInterface {
 
     @BindView(R.id.first_name)
     EditText firstName;
@@ -29,12 +28,17 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.phone_number)
     EditText phoneNumber;
 
+    SignUpPresenter presenter;
+    @BindView(R.id.clicktologin)
+    TextView clickToLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        presenter = new SignUpPresenter(this, this);
     }
 
     @Override
@@ -48,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void register(View view) {
-        //todo check if they are entering correct data
         SignUpBody body = new SignUpBody();
         body.setFirstName(firstName.getText().toString())
                 .setLastName(lastName.getText().toString())
@@ -56,9 +59,16 @@ public class RegisterActivity extends AppCompatActivity {
                 .setdOB(dob.getText().toString())
                 .setEmail(email.getText().toString())
                 .setPhone(phoneNumber.getText().toString());
-        DataManager.getDataManager().signUp(this, body)
-                .subscribe(signUpResultBodyResponse -> {
-                    Toast.makeText(this, "You have been registered", Toast.LENGTH_SHORT).show();
-                });
+        presenter.register(body);
+    }
+
+    @Override
+    public void showSuccess() {
+
+    }
+
+    @Override
+    public void showError() {
+
     }
 }

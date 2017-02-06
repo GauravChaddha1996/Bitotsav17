@@ -14,12 +14,6 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/logo" />
-
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,6 +128,14 @@
             android:layout_gravity="center"
             android:onClick="register"
             android:text="Register" />
+        <TextView
+            android:id="@+id/clicktologin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="Already registered? Click here to Log In"
+            android:textSize="20sp"/>
     </LinearLayout>
 </ScrollView>
 

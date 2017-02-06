@@ -33,7 +33,7 @@
                 android:value="com.bitmesra.bitotsav.features.MainActivity" />
         </activity>
         <activity
-            android:name=".features.register.RegisterActivity"
+            android:name=".features.register.SignUpActivity"
             android:parentActivityName=".features.MainActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize" />

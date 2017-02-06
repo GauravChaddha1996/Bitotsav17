@@ -1,5 +1,6 @@
 package com.bitmesra.bitotsav.database;
 
+import com.bitmesra.bitotsav.database.models.UserDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.TimelineDto;
 import com.bitmesra.bitotsav.database.models.events.TimelineItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
@@ -17,6 +18,10 @@ public class RealmManager {
     private Realm realm = Realm.getDefaultInstance();
 
     public RealmManager() {
+    }
+
+    public void saveUserDetails(UserDetailsDto detailsDto) {
+        realm.executeTransaction(realm1 -> realm1.copyToRealm(detailsDto));
     }
 
     public NotificationDto getNotificationDto() {
