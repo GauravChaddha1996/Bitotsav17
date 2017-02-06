@@ -11,7 +11,7 @@ import io.realm.RealmObject;
  */
 
 public class NotificationDto extends RealmObject {
-    RealmList<NotificationItem> notificationList;
+    RealmList<NotificationItem> notificationList = new RealmList<>();
 
     public NotificationDto() {
     }

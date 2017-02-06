@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
+import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
@@ -132,6 +133,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         adapter.addLatestItems(notifications);
         recyclerView.scrollToPosition(0);
         pullToRefreshView.setRefreshing(false);
+        presenter.saveNotifications(new NotificationDto(adapter.getTop10Items()));
     }
 
     public RecyclerView.OnScrollListener createScrollListener() {

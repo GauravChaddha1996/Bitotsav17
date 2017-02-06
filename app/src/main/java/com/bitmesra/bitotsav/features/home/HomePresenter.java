@@ -24,7 +24,7 @@ public class HomePresenter implements HomePresenterInterface {
     public void getRecentNotifications() {
         //Making network call to fetch new notifications
         dataManager.getRecentNotifications(context)
-                .doOnNext(dto -> dataManager.getRealmManager().saveNotificationDto(dto))
+                .doOnNext(this::saveNotifications)
                 .subscribe(dto -> viewInterface.updateRecentNotifications(dto.getNotificationList()),
                         Throwable::printStackTrace);
         //Setting notifications stored in Realm
@@ -32,6 +32,10 @@ public class HomePresenter implements HomePresenterInterface {
         if (dto != null) {
             viewInterface.updateRecentNotifications(dto.getNotificationList());
         }
+    }
+
+    public void saveNotifications(NotificationDto dto) {
+        dataManager.getRealmManager().saveNotificationDto(dto);
     }
 
     @Override

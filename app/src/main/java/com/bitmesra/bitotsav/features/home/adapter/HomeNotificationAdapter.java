@@ -42,7 +42,7 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (getItemViewType(position)==0) {
+        if (getItemViewType(position) == 0) {
             NotificationItem item = items.get(position);
             ((NotificationViewHolder) holder).title.setText(item.getTitle());
             ((NotificationViewHolder) holder).time.setText(item.getTime());
@@ -74,8 +74,12 @@ public class HomeNotificationAdapter extends RecyclerView.Adapter<RecyclerView.V
     }
 
     public void addLatestItems(List<NotificationItem> notificationItems) {
-        items.addAll(0,notificationItems);
-        notifyItemRangeInserted(0,notificationItems.size());
+        items.addAll(0, notificationItems);
+        notifyItemRangeInserted(0, notificationItems.size());
+    }
+
+    public List<NotificationItem> getTop10Items() {
+        return items.subList(0, 10);
     }
 
     public void removeProgressBar() {
