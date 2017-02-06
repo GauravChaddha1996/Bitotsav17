@@ -8,10 +8,13 @@ import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.database.models.events.InformalItem;
 import com.bitmesra.bitotsav.database.models.events.TimelineItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
+import com.bitmesra.bitotsav.database.models.login.SignUpBody;
+import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Response;
 import rx.Observable;
 
 public class DataManager {
@@ -27,16 +30,13 @@ public class DataManager {
         return DataManagerHelper.INSTANCE;
     }
 
-    private void createNetworkManager(Context context) {
-        if (networkManager == null) {
-            networkManager = new NetworkManager(context);
-        }
-    }
+    /**
+     * Signup funtion
+     */
 
-    private void createRealmManager() {
-        if (realmManager == null) {
-            realmManager = new RealmManager();
-        }
+    public Observable<Response<SignUpResultBody>> signUp(Context context, SignUpBody body) {
+        createNetworkManager(context);
+        return networkManager.signUp(body);
     }
 
     /**
@@ -136,6 +136,22 @@ public class DataManager {
         list.add(new InformalItem("Auto quiz", "SAE"));
         list.add(new InformalItem("Criminal case", "IETE"));
         return list;
+    }
+
+    /**
+     * Helpers classes and functions
+     */
+
+    private void createNetworkManager(Context context) {
+        if (networkManager == null) {
+            networkManager = new NetworkManager(context);
+        }
+    }
+
+    private void createRealmManager() {
+        if (realmManager == null) {
+            realmManager = new RealmManager();
+        }
     }
 
     public RealmManager getRealmManager() {

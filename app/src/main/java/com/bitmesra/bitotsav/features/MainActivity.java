@@ -22,7 +22,7 @@ import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
-import com.bitmesra.bitotsav.features.register.RegisterFragment;
+import com.bitmesra.bitotsav.features.register.RegisterActivity;
 import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
 
 import butterknife.BindView;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_events) {
             setFragment(IdForFragment.EVENTS);
         } else if (id == R.id.nav_register) {
-            setFragment(IdForFragment.REGISTER);
+            startActivity(new Intent(MainActivity.this, RegisterActivity.class));
         } else if (id == R.id.nav_tshirt) {
             setFragment(IdForFragment.TSHIRT);
         } else if (id == R.id.nav_contact_about_sponsor) {
@@ -117,11 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_events);
                 getSupportActionBar().setTitle("Informals");
                 toReturnFragment = new InformalFragment();
-                break;
-            case REGISTER:
-                navView.setCheckedItem(R.id.nav_register);
-                getSupportActionBar().setTitle("Register");
-                toReturnFragment = new RegisterFragment();
                 break;
             case TSHIRT:
                 navView.setCheckedItem(R.id.nav_tshirt);
