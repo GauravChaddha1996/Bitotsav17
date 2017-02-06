@@ -2,8 +2,6 @@ package com.bitmesra.bitotsav.app;
 
 import android.app.Application;
 
-import com.squareup.leakcanary.LeakCanary;
-
 import io.realm.Realm;
 
 public class BitotsavApplication extends Application {
@@ -14,7 +12,7 @@ public class BitotsavApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        LeakCanary.install(this);
+      //  LeakCanary.install(this);
         Realm.init(this);
     }
 }
