@@ -58,6 +58,24 @@ public class RealmManager {
         realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(dtos));
     }
 
+    public EventDto getDetailsDto(String eventname) {
+        return realm.where(EventDto.class).equalTo("name", eventname).findFirst();
+    }
+
+    public void saveDetailsDto(String eventname, int eventDtoType, String time, String venue) {
+        realm.executeTransaction(realm1 -> {
+            EventDto dto = realm1.where(EventDto.class).equalTo("name", eventname).findFirst();
+            if (dto == null) {
+                dto = new EventDto();
+                dto.setName(eventname);
+            }
+            dto.setEventDtoType(eventDtoType);
+            dto.setTime(time);
+            dto.setVenue(venue);
+            realm1.insertOrUpdate(dto);
+        });
+    }
+
     private int findEventDtoDayType(int dayNumber) {
         switch (dayNumber) {
             case 1:

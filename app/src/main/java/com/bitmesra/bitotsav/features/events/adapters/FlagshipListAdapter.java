@@ -51,6 +51,10 @@ public class FlagshipListAdapter extends RecyclerView.Adapter<FlagshipListAdapte
         return items.size();
     }
 
+    public String getEventName(int pos) {
+        return items.get(pos).getName();
+    }
+
     class FlagshipItemViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.flagship_name)
         TextView eventName;

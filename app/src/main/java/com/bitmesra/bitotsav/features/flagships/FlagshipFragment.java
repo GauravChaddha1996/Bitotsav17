@@ -1,6 +1,7 @@
 package com.bitmesra.bitotsav.features.flagships;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,8 +12,11 @@ import android.view.ViewGroup;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
+import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.features.IdForFragment;
+import com.bitmesra.bitotsav.features.details.DetailsActivity;
 import com.bitmesra.bitotsav.features.events.adapters.FlagshipListAdapter;
+import com.bitmesra.bitotsav.utils.ItemClickSupport;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,5 +63,11 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
         adapter = new FlagshipListAdapter(getActivity(), presenter.getFlagshipEvents());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
+            Intent intent = new Intent(getActivity(), DetailsActivity.class);
+            intent.putExtra("eventName", adapter.getEventName(position));
+            intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
+            startActivity(intent);
+        });
     }
 }

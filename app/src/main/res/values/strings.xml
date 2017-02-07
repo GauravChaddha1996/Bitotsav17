@@ -21,4 +21,15 @@
     <string name="flagship">Flagships</string>
     <string name="t_shirt">T-Shirt Registration</string>
     <string name="t_shirt_fragment">T-Shirt Fragment</string>
+
+    <string name="sample_desc">THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample description</string>
 </resources>

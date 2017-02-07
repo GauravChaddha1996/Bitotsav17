@@ -40,7 +40,10 @@
         <activity
             android:name=".features.csa.CSAActivity"
             android:theme="@style/CSAStyle" />
-        <activity android:name=".features.events.details.DetailsActivity"></activity>
+        <activity
+            android:name=".features.details.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".features.MainActivity"/>
     </application>
 
 </manifest>
