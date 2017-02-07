@@ -1,26 +1,21 @@
 [
   {
-    "name": "Saptak",
+    "name": "Formal Event 1",
     "time": "8Pm",
     "venue": "OAT"
   },
   {
-    "name": "Dance saga",
+    "name": "Formal Event 2",
     "time": "8Pm",
     "venue": "OAT"
   },
   {
-    "name": "Talkies",
+    "name": "Formal Event 3",
     "time": "8Pm",
     "venue": "OAT"
   },
   {
-    "name": "Pukaar",
-    "time": "8Pm",
-    "venue": "OAT"
-  },
-  {
-    "name": "Mr and miss bitotsav",
+    "name": "Formal Event 4",
     "time": "8Pm",
     "venue": "OAT"
   }

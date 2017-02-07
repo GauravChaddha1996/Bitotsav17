@@ -33,6 +33,10 @@ public class TimelinePresenter implements TimelinePresenterInterface {
                 })
                 .subscribe(items -> viewInterface.updateTimelineEvents(items),
                         Throwable::printStackTrace);
+        loadTimelineFromRealm(dayNumber);
+    }
+
+    public void loadTimelineFromRealm(int dayNumber) {
         List<EventDto> list = dataManager.getRealmManager().getTimelineEvents(dayNumber);
         if (list != null) {
             Log.d("tag", "not null");

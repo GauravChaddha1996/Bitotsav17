@@ -61,6 +61,10 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         return items.size();
     }
 
+    public String getEventName(int pos) {
+        return items.get(pos).getName();
+    }
+
     public void setItems(List<EventDto> items) {
         this.items = items;
     }

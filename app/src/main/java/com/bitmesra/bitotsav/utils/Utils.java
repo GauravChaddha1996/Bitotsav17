@@ -12,6 +12,8 @@ import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import com.bitmesra.bitotsav.features.EventDtoType;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +23,21 @@ import java.util.Map;
 
 public class Utils {
     private static final Map<String, Typeface> sTypefaceCache = new HashMap<>();
+
+    public static int findEventDtoDayType(int dayNumber) {
+        switch (dayNumber) {
+            case 1:
+                return EventDtoType.TYPE_DAY1;
+            case 2:
+                return EventDtoType.TYPE_DAY2;
+            case 3:
+                return EventDtoType.TYPE_DAY3;
+            case 4:
+                return EventDtoType.TYPE_DAY4;
+            default:
+                return EventDtoType.TYPE_DAY1;
+        }
+    }
 
     public static int convertDpToPixel(Context context, int dp) {
         float density = context.getResources().getDisplayMetrics().density;

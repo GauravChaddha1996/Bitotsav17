@@ -1,7 +1,6 @@
 package com.bitmesra.bitotsav.features.events;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +13,6 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.features.events.adapters.EventListAdapter;
-import com.bitmesra.bitotsav.features.events.timeline.TimelineActivity;
 import com.bitmesra.bitotsav.utils.ItemClickSupport;
 
 import butterknife.BindView;
@@ -62,26 +60,25 @@ public class EventsFragment extends BaseFragment implements EventViewInterface {
         recyclerView.setAdapter(adapter);
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) ->
         {
-            Intent intent = new Intent(getActivity(), TimelineActivity.class);
             switch (adapter.getItem(position).getType()) {
                 case "Day 1":
-                    intent.putExtra("day", 1);
-                    startActivityForResult(intent, 5);
+                    ((MainActivity) getActivity()).dayNumber = 1;
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
                 case "Day 2":
-                    intent.putExtra("day", 2);
-                    startActivityForResult(intent, 5);
+                    ((MainActivity) getActivity()).dayNumber = 2;
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
                 case "Day 3":
-                    intent.putExtra("day", 3);
-                    startActivityForResult(intent, 5);
+                    ((MainActivity) getActivity()).dayNumber = 3;
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
                 case "Day 4":
-                    intent.putExtra("day", 4);
-                    startActivityForResult(intent, 5);
+                    ((MainActivity) getActivity()).dayNumber = 4;
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
                 case "Informals":
-                    ((MainActivity)getActivity()).setFragment(IdForFragment.INFORMAL);
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.INFORMAL);
                     break;
             }
         });

@@ -3,12 +3,13 @@ package com.bitmesra.bitotsav.database;
 import com.bitmesra.bitotsav.database.models.UserDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
-import com.bitmesra.bitotsav.features.EventDtoType;
 
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+
+import static com.bitmesra.bitotsav.utils.Utils.findEventDtoDayType;
 
 /**
  * Created by Batdroid on 31/1/17 for Bitotsav.
@@ -76,18 +77,4 @@ public class RealmManager {
         });
     }
 
-    private int findEventDtoDayType(int dayNumber) {
-        switch (dayNumber) {
-            case 1:
-                return EventDtoType.TYPE_DAY1;
-            case 2:
-                return EventDtoType.TYPE_DAY2;
-            case 3:
-                return EventDtoType.TYPE_DAY3;
-            case 4:
-                return EventDtoType.TYPE_DAY4;
-            default:
-                return EventDtoType.TYPE_DAY1;
-        }
-    }
 }

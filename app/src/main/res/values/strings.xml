@@ -32,4 +32,7 @@
         THis is just a sample descriptionTHis is just a sample description
         THis is just a sample descriptionTHis is just a sample description
         THis is just a sample description</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

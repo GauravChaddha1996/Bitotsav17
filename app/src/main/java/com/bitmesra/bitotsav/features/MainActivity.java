@@ -20,6 +20,7 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.csa.CSAActivity;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
+import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.register.SignUpActivity;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
+    public int dayNumber;
     private BaseFragment currentFragment;
 
     @Override
@@ -112,6 +114,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_events);
                 getSupportActionBar().setTitle("Events");
                 toReturnFragment = new EventsFragment();
+                break;
+            case TIMELINE:
+                navView.setCheckedItem(R.id.nav_events);
+                getSupportActionBar().setTitle("Day " + dayNumber);
+                toReturnFragment = new TimelineFragment();
                 break;
             case INFORMAL:
                 navView.setCheckedItem(R.id.nav_events);
