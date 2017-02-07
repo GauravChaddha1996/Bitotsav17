@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.events.informal;
 
-import com.bitmesra.bitotsav.database.models.events.InformalItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public interface InformalPresenterInterface {
-    List<InformalItem> getInformalEvents();
+    List<EventDto> getInformalEvents();
 }

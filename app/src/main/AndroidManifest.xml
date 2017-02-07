@@ -40,6 +40,7 @@
         <activity
             android:name=".features.csa.CSAActivity"
             android:theme="@style/CSAStyle" />
+        <activity android:name=".features.events.details.DetailsActivity"></activity>
     </application>
 
 </manifest>

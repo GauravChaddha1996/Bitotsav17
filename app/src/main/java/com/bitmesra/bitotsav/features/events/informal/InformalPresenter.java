@@ -3,7 +3,7 @@ package com.bitmesra.bitotsav.features.events.informal;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.InformalItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ public class InformalPresenter implements InformalPresenterInterface {
     }
 
     @Override
-    public List<InformalItem> getInformalEvents() {
+    public List<EventDto> getInformalEvents() {
         return dataManager.getInformalList();
     }
 }

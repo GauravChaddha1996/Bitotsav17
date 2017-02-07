@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.events.TimelineItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.events.adapters.TimelineListAdapter;
 
 import java.util.List;
@@ -58,7 +58,7 @@ public class TimelineActivity extends AppCompatActivity implements TimelineViewI
     }
 
     @Override
-    public void updateTimelineEvents(List<TimelineItem> items) {
+    public void updateTimelineEvents(List<EventDto> items) {
         adapter.setItems(items);
         adapter.notifyDataSetChanged();
     }

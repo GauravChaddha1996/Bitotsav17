@@ -3,13 +3,14 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
-import com.bitmesra.bitotsav.database.models.events.InformalItem;
-import com.bitmesra.bitotsav.database.models.events.TimelineItem;
+import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
+import com.bitmesra.bitotsav.features.EventDtoType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,7 +71,7 @@ public class DataManager {
         return list;
     }
 
-    public Observable<List<TimelineItem>> getTimelineList(Context context, int dayNumber) {
+    public Observable<List<EventDto>> getTimelineList(Context context, int dayNumber) {
         createNetworkManager(context);
         return networkManager.getTimelineEvents(dayNumber);
     }
@@ -91,52 +92,61 @@ public class DataManager {
         return list;
     }
 
-    public List<InformalItem> getInformalList() {
-        List<InformalItem> list = new ArrayList<>();
-        list.add(new InformalItem("Rangmanch", "Dramsoc"));
-        list.add(new InformalItem("I,Me,Myself", "Dramsoc"));
-        list.add(new InformalItem("Tune up together", "Dance"));
-        list.add(new InformalItem("Foot loose", "Dance"));
-        list.add(new InformalItem("Panacha", "FAS"));
-        list.add(new InformalItem("Face painting", "FAS"));
-        list.add(new InformalItem("Caricature", "FAS"));
-        list.add(new InformalItem("Antakshari", "Music"));
-        list.add(new InformalItem("Solo talent", "Music"));
-        list.add(new InformalItem("Acoustic Alchemy", "Music"));
-        list.add(new InformalItem("Food mania", "Rotaract"));
-        list.add(new InformalItem("BIT Roadies", "Rotaract"));
-        list.add(new InformalItem("Temple run", "Rotaract"));
-        list.add(new InformalItem("Google it out", "IET"));
-        list.add(new InformalItem("Blitzgreik", "IET"));
-        list.add(new InformalItem("SNAP it", "PSOC"));
-        list.add(new InformalItem("Short Story", "PSOC"));
-        list.add(new InformalItem("Look for it", "PSOC"));
-        list.add(new InformalItem("Beauty and the geek", "LEO"));
-        list.add(new InformalItem("Twister", "LEO"));
-        list.add(new InformalItem("Debate", "Unesquo"));
-        list.add(new InformalItem("Jam", "Unesquo"));
-        list.add(new InformalItem("Quiz", "Unesquo"));
-        list.add(new InformalItem("Da Vinci code", "IEEE"));
-        list.add(new InformalItem("Age of empires", "IEEE"));
-        list.add(new InformalItem("Gyptic crossword", "Litsoc"));
-        list.add(new InformalItem("Poetry Slam", "Litsoc"));
-        list.add(new InformalItem("What am i;call it", "NAPS"));
-        list.add(new InformalItem("@12:10", "NAPS"));
-        list.add(new InformalItem("Naps quiz", "NAPS"));
-        list.add(new InformalItem("You are hired", "SMP"));
-        list.add(new InformalItem("Partner in drive", "SMP"));
-        list.add(new InformalItem("EDC workshop", "EDC"));
-        list.add(new InformalItem("Bussiness quiz", "EDC"));
-        list.add(new InformalItem("Capture the flag", "ACM"));
-        list.add(new InformalItem("Bug hunt", "ACM"));
-        list.add(new InformalItem("R3", "EPAC"));
-        list.add(new InformalItem("The Holey Pot", "EPAC"));
-        list.add(new InformalItem("Road rash", "Robolution"));
-        list.add(new InformalItem("Save the egg", "SAE"));
-        list.add(new InformalItem("Auto quiz", "SAE"));
-        list.add(new InformalItem("Criminal case", "IETE"));
+    public List<EventDto> getInformalList() {
+        List<EventDto> list = new ArrayList<>();
+        list.add(new EventDto("Rangmanch", EventDtoType.TYPE_INFORMAL, "Dramsoc", "", "", ""));
+        list.add(new EventDto("I,Me,Myself", EventDtoType.TYPE_INFORMAL, "Dramsoc", "", "", ""));
+        list.add(new EventDto("Tune up together", EventDtoType.TYPE_INFORMAL, "Dance", "", "", ""));
+        list.add(new EventDto("Foot loose", EventDtoType.TYPE_INFORMAL, "Dance", "", "", ""));
+        list.add(new EventDto("Panacha", EventDtoType.TYPE_INFORMAL, "FAS", "", "", ""));
+        list.add(new EventDto("Face painting", EventDtoType.TYPE_INFORMAL, "FAS", "", "", ""));
+        list.add(new EventDto("Caricature", EventDtoType.TYPE_INFORMAL, "FAS", "", "", ""));
+        list.add(new EventDto("Antakshari", EventDtoType.TYPE_INFORMAL, "Music", "", "", ""));
+        list.add(new EventDto("Solo talent", EventDtoType.TYPE_INFORMAL, "Music", "", "", ""));
+        list.add(new EventDto("Acoustic Alchemy", EventDtoType.TYPE_INFORMAL, "Music", "", "", ""));
+        list.add(new EventDto("Food mania", EventDtoType.TYPE_INFORMAL, "Rotaract", "", "", ""));
+        list.add(new EventDto("BIT Roadies", EventDtoType.TYPE_INFORMAL, "Rotaract", "", "", ""));
+        list.add(new EventDto("Temple run", EventDtoType.TYPE_INFORMAL, "Rotaract", "", "", ""));
+        list.add(new EventDto("Google it out", EventDtoType.TYPE_INFORMAL, "IET", "", "", ""));
+        list.add(new EventDto("Blitzgreik", EventDtoType.TYPE_INFORMAL, "IET", "", "", ""));
+        list.add(new EventDto("SNAP it", EventDtoType.TYPE_INFORMAL, "PSOC", "", "", ""));
+        list.add(new EventDto("Short Story", EventDtoType.TYPE_INFORMAL, "PSOC", "", "", ""));
+        list.add(new EventDto("Look for it", EventDtoType.TYPE_INFORMAL, "PSOC", "", "", ""));
+        list.add(new EventDto("Beauty and the geek", EventDtoType.TYPE_INFORMAL, "LEO", "", "", ""));
+        list.add(new EventDto("Twister", EventDtoType.TYPE_INFORMAL, "LEO", "", "", ""));
+        list.add(new EventDto("Debate", EventDtoType.TYPE_INFORMAL, "Unesquo", "", "", ""));
+        list.add(new EventDto("Jam", EventDtoType.TYPE_INFORMAL, "Unesquo", "", "", ""));
+        list.add(new EventDto("Quiz", EventDtoType.TYPE_INFORMAL, "Unesquo", "", "", ""));
+        list.add(new EventDto("Da Vinci code", EventDtoType.TYPE_INFORMAL, "IEEE", "", "", ""));
+        list.add(new EventDto("Age of empires", EventDtoType.TYPE_INFORMAL, "IEEE", "", "", ""));
+        list.add(new EventDto("Gyptic crossword", EventDtoType.TYPE_INFORMAL, "Litsoc", "", "", ""));
+        list.add(new EventDto("Poetry Slam", EventDtoType.TYPE_INFORMAL, "Litsoc", "", "", ""));
+        list.add(new EventDto("What am i;call it", EventDtoType.TYPE_INFORMAL, "NAPS", "", "", ""));
+        list.add(new EventDto("@12:10", EventDtoType.TYPE_INFORMAL, "NAPS", "", "", ""));
+        list.add(new EventDto("Naps quiz", EventDtoType.TYPE_INFORMAL, "NAPS", "", "", ""));
+        list.add(new EventDto("You are hired", EventDtoType.TYPE_INFORMAL, "SMP", "", "", ""));
+        list.add(new EventDto("Partner in drive", EventDtoType.TYPE_INFORMAL, "SMP", "", "", ""));
+        list.add(new EventDto("EDC workshop", EventDtoType.TYPE_INFORMAL, "EDC", "", "", ""));
+        list.add(new EventDto("Bussiness quiz", EventDtoType.TYPE_INFORMAL, "EDC", "", "", ""));
+        list.add(new EventDto("Capture the flag", EventDtoType.TYPE_INFORMAL, "ACM", "", "", ""));
+        list.add(new EventDto("Bug hunt", EventDtoType.TYPE_INFORMAL, "ACM", "", "", ""));
+        list.add(new EventDto("R3", EventDtoType.TYPE_INFORMAL, "EPAC", "", "", ""));
+        list.add(new EventDto("The Holey Pot", EventDtoType.TYPE_INFORMAL, "EPAC", "", "", ""));
+        list.add(new EventDto("Road rash", EventDtoType.TYPE_INFORMAL, "Robolution", "", "", ""));
+        list.add(new EventDto("Save the egg", EventDtoType.TYPE_INFORMAL, "SAE", "", "", ""));
+        list.add(new EventDto("Auto quiz", EventDtoType.TYPE_INFORMAL, "SAE", "", "", ""));
+        list.add(new EventDto("Criminal case", EventDtoType.TYPE_INFORMAL, "IETE", "", "", ""));
         return list;
     }
+
+    /**
+     * Flagship functions
+     */
+    public Observable<FlagshipDetailsDto> getFlagshipEvent(Context context, String eventName) {
+        createNetworkManager(context);
+        return networkManager.getFlagshipEvent(eventName);
+    }
+
 
     /**
      * Helpers classes and functions

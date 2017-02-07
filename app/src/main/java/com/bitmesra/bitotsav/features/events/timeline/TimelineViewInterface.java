@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.events.timeline;
 
-import com.bitmesra.bitotsav.database.models.events.TimelineItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  */
 
 public interface TimelineViewInterface {
-    void updateTimelineEvents(List<TimelineItem> items);
+    void updateTimelineEvents(List<EventDto> items);
 }

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.events.InformalItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 
 import java.util.List;
 
@@ -20,9 +20,9 @@ import butterknife.ButterKnife;
  */
 public class InformalListAdapter extends RecyclerView.Adapter<InformalListAdapter.InformalViewHolder> {
     private final Context context;
-    private List<InformalItem> items;
+    private List<EventDto> items;
 
-    public InformalListAdapter(Context context, List<InformalItem> items) {
+    public InformalListAdapter(Context context, List<EventDto> items) {
         this.context = context;
         this.items = items;
     }
@@ -36,9 +36,9 @@ public class InformalListAdapter extends RecyclerView.Adapter<InformalListAdapte
 
     @Override
     public void onBindViewHolder(InformalViewHolder holder, int position) {
-        InformalItem item = items.get(position);
+        EventDto item = items.get(position);
         holder.informalName.setText(item.getName());
-        holder.clubName.setText(item.getOrganizingClub());
+        holder.clubName.setText(item.getClub());
     }
 
     @Override

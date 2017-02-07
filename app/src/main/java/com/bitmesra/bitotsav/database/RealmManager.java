@@ -1,9 +1,9 @@
 package com.bitmesra.bitotsav.database;
 
 import com.bitmesra.bitotsav.database.models.UserDetailsDto;
-import com.bitmesra.bitotsav.database.models.events.TimelineDto;
-import com.bitmesra.bitotsav.database.models.events.TimelineItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationDto;
+import com.bitmesra.bitotsav.features.EventDtoType;
 
 import java.util.List;
 
@@ -43,17 +43,33 @@ public class RealmManager {
         realm.executeTransactionAsync(realm1 -> realm1.copyToRealm(dto));
     }
 
-    public List<TimelineItem> getTimelineEvents(int dayNumber) {
-        RealmResults<TimelineDto> realmResults = realm.where(TimelineDto.class).findAll();
-        for (TimelineDto dto : realmResults) {
-            if (dto.getDayNumber() == dayNumber) {
-                return dto.getList();
-            }
-        }
-        return null;
+    public List<EventDto> getTimelineEvents(int dayNumber) {
+        RealmResults<EventDto> realmResults = realm.where(EventDto.class)
+                .equalTo("eventDtoType", findEventDtoDayType(dayNumber)).findAll();
+        System.out.println(realmResults.toString());
+        return realmResults;
     }
 
-    public void saveTimelineEvents(TimelineDto dto) {
-        realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(dto));
+    public void saveTimelineEvents(List<EventDto> dtos, int dayNumber) {
+        int temp = findEventDtoDayType(dayNumber);
+        for (EventDto dto : dtos) {
+            dto.setEventDtoType(temp);
+        }
+        realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(dtos));
+    }
+
+    private int findEventDtoDayType(int dayNumber) {
+        switch (dayNumber) {
+            case 1:
+                return EventDtoType.TYPE_DAY1;
+            case 2:
+                return EventDtoType.TYPE_DAY2;
+            case 3:
+                return EventDtoType.TYPE_DAY3;
+            case 4:
+                return EventDtoType.TYPE_DAY4;
+            default:
+                return EventDtoType.TYPE_DAY1;
+        }
     }
 }

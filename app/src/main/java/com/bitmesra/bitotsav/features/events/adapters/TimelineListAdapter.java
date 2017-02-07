@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.events.TimelineItem;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  */
 public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapter.TimelineViewHolder> {
     private final Context context;
-    private List<TimelineItem> items;
+    private List<EventDto> items;
 
     public TimelineListAdapter(Context context) {
         this.context = context;
@@ -40,7 +40,7 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
 
     @Override
     public void onBindViewHolder(TimelineViewHolder holder, int position) {
-        TimelineItem item = items.get(position);
+        EventDto item = items.get(position);
         holder.name.setText(item.getName());
         holder.timeVenue.setText(item.getTime() + " at " + item.getVenue());
     }
@@ -61,7 +61,7 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         return items.size();
     }
 
-    public void setItems(List<TimelineItem> items) {
+    public void setItems(List<EventDto> items) {
         this.items = items;
     }
 
