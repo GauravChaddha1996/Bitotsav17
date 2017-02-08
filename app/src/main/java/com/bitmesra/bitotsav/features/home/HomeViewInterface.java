@@ -9,6 +9,8 @@ import java.util.List;
  */
 
 public interface HomeViewInterface {
+    void showLoadingToast();
+    void hideLoadingToast();
     void updateRecentNotifications(List<NotificationItem> notifications);
     void updateNextNotifications(List<NotificationItem> notifications);
     void updateLatestNotifications(List<NotificationItem> notifications);

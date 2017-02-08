@@ -23,9 +23,14 @@ public class HomePresenter implements HomePresenterInterface {
     @Override
     public void getRecentNotifications() {
         //Making network call to fetch new notifications
+        viewInterface.showLoadingToast();
         dataManager.getRecentNotifications(context)
                 .doOnNext(this::saveNotifications)
-                .subscribe(dto -> viewInterface.updateRecentNotifications(dto.getNotificationList()),
+                .subscribe(dto ->
+                        {
+                            viewInterface.updateRecentNotifications(dto.getNotificationList());
+                            viewInterface.hideLoadingToast();
+                        },
                         Throwable::printStackTrace);
         //Setting notifications stored in Realm
         NotificationDto dto = dataManager.getRealmManager().getNotificationDto();
@@ -40,13 +45,21 @@ public class HomePresenter implements HomePresenterInterface {
 
     @Override
     public void getNextNotifications(long id) {
+        viewInterface.showLoadingToast();
         dataManager.getNextNotifications(context, id)
-                .subscribe(dto -> viewInterface.updateNextNotifications(dto.getNotificationList()));
+                .subscribe(dto -> {
+                    viewInterface.updateNextNotifications(dto.getNotificationList());
+                    viewInterface.hideLoadingToast();
+                });
     }
 
     @Override
     public void getLatestNotifications(long id) {
+        viewInterface.showLoadingToast();
         dataManager.getLatestNotifications(context, id)
-                .subscribe(dto -> viewInterface.updateLatestNotifications(dto.getNotificationList()));
+                .subscribe(dto -> {
+                    viewInterface.updateLatestNotifications(dto.getNotificationList());
+                    viewInterface.hideLoadingToast();
+                });
     }
 }

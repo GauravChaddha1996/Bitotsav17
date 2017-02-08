@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bitmesra.bitotsav">
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
     <application
         android:name=".app.BitotsavApplication"
         android:allowBackup="true"
@@ -33,8 +35,8 @@
             android:theme="@style/CSAStyle" />
         <activity
             android:name=".features.details.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".features.MainActivity"/>
+            android:parentActivityName=".features.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
