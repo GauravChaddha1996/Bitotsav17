@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--reload to play-->
+<objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000"
+    android:propertyName="rotation"
+    android:startOffset="3050"
+    android:valueFrom="-300"
+    android:interpolator="@android:anim/anticipate_overshoot_interpolator"
+    android:valueTo="0"
+    android:valueType="floatType" />

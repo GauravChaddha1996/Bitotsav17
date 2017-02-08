@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="pathData"
+        android:startOffset="350"
+        android:valueFrom="@string/play2"
+        android:valueTo="@string/pause2"
+        android:valueType="pathType" />
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="pathData"
+        android:startOffset="350"
+        android:valueFrom="@string/pause2"
+        android:valueTo="@string/reload2"
+        android:valueType="pathType" />
+    <objectAnimator
+        android:duration="1000"
+        android:propertyName="pathData"
+        android:startOffset="350"
+        android:valueFrom="@string/reload2"
+        android:valueTo="@string/play2"
+        android:valueType="pathType" />
+</set>

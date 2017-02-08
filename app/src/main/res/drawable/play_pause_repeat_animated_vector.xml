@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/play_pause_repeat_vector">
+    <target
+        android:name="path"
+        android:animation="@animator/play_pause_repeat_morph" />
+    <target
+        android:name="path2"
+        android:animation="@animator/play_pause_repeat_morph2" />
+    <target
+        android:name="rotation"
+        android:animation="@animator/clockwise_rotation" />
+    <target
+        android:name="rotation"
+        android:animation="@animator/clockwise_rotation2" />
+    <target
+        android:name="rotation"
+        android:animation="@animator/clockwise_rotation3" />
+    <target
+        android:name="rotation"
+        android:animation="@animator/clockwise_rotation4" />
+
+
+</animated-vector>

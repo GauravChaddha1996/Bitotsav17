@@ -1,17 +1,20 @@
 package com.bitmesra.bitotsav.features.start;
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.features.MainActivity;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +23,15 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
 
     @BindView(R.id.startLogo)
     ImageView startLogo;
+    @BindView(R.id.startBitotsavTitle)
+    TextView startBitotsavTitle;
+    @BindView(R.id.startSponsor)
+    TextView startSponsor;
+    @BindView(R.id.startPPRText)
+    TextView startPPRText;
+    @BindView(R.id.startPPRImage)
+    ImageView startPPRImage;
+
     private StartPresenterImpl startPresenter;
 
     @Override
@@ -47,11 +59,32 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
 
     //Handles all animation on this start activity
     private void startAnimation() {
-        ObjectAnimator animator = ObjectAnimator.ofFloat(startLogo, "rotationY", 0, -360 * 120).setDuration(5 * 60 * 1000);
-        animator.setInterpolator(new LinearInterpolator());
-        animator.setRepeatMode(ValueAnimator.REVERSE);
-        animator.setRepeatCount(ValueAnimator.INFINITE);
-        animator.start();
+        YoYo.with(Techniques.FadeInDown)
+                .duration(2000)
+                .playOn(startLogo);
+        YoYo.with(Techniques.SlideInRight)
+                .duration(2000)
+                .playOn(startBitotsavTitle);
+        YoYo.with(Techniques.FlipInX)
+                .duration(2000)
+                .playOn(startSponsor);
+        YoYo.with(Techniques.Landing)
+                .duration(2000)
+                .playOn(startSponsor);
+        YoYo.with(Techniques.SlideInUp)
+                .duration(2000)
+                .playOn(startPPRText);
+        AnimatedVectorDrawable animatedVectorDrawable = (AnimatedVectorDrawable) getBaseContext().
+                getDrawable(R.drawable.play_pause_repeat_animated_vector);
+        startPPRImage.setImageDrawable(animatedVectorDrawable);
+        Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                animatedVectorDrawable.start();
+                sendEmptyMessageDelayed(0, 500);
+            }
+        };
+        handler.sendEmptyMessage(0);
     }
 
 
