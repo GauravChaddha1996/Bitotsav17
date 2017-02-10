@@ -40,6 +40,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     public void getDetailsDtoFromRealm(String name) {
         EventDto dto = dataManager.getRealmManager().getDetailsDto(name);
         if (dto != null) {
+            dto.addChangeListener(element -> viewInterface.updateDetailView((EventDto) element));
             viewInterface.updateDetailView(dto);
         }
     }
