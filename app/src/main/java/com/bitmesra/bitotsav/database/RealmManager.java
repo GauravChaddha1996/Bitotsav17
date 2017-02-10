@@ -1,13 +1,15 @@
 package com.bitmesra.bitotsav.database;
 
+import com.bitmesra.bitotsav.database.models.SubscribedTopics;
 import com.bitmesra.bitotsav.database.models.UserDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
-import com.bitmesra.bitotsav.database.models.home.NotificationDto;
+import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 import static com.bitmesra.bitotsav.utils.Utils.findEventDtoDayType;
 
@@ -30,19 +32,15 @@ public class RealmManager {
         return realm.where(UserDetailsDto.class).findFirst();
     }
 
-    public NotificationDto getNotificationDto() {
-        RealmResults<NotificationDto> realmResults = realm.where(NotificationDto.class).findAll();
-        if (realmResults.size() > 0) {
-            return realmResults.get(0);
-        } else {
-            return null;
-        }
+    public RealmResults<NotificationItem> getNotificationDto() {
+        return Realm.getDefaultInstance().where(NotificationItem.class).findAllSorted("time", Sort.DESCENDING);
     }
 
-    public void saveNotificationDto(NotificationDto dto) {
-        realm.executeTransaction(realm1 -> realm1.delete(NotificationDto.class));
-        realm.executeTransactionAsync(realm1 -> realm1.copyToRealm(dto));
+    public void addNotificationItem(NotificationItem item) {
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(realm1 -> realm1.insert(item));
     }
+
 
     public List<EventDto> getTimelineEvents(int dayNumber) {
         RealmResults<EventDto> realmResults = realm.where(EventDto.class)
@@ -77,4 +75,19 @@ public class RealmManager {
         });
     }
 
+    public boolean isTopicSubscribed(String name) {
+        if (realm.where(SubscribedTopics.class).equalTo("topic", name).findFirst() != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public void saveSubscribedTopic(String name) {
+        realm.executeTransactionAsync(realm1 -> realm1.insert(new SubscribedTopics(name)));
+    }
+
+    public void removeSubscribedTopic(String name) {
+        realm.executeTransactionAsync(realm1 -> realm1.where(SubscribedTopics.class)
+                .equalTo("topic", name).findFirst().deleteFromRealm());
+    }
 }

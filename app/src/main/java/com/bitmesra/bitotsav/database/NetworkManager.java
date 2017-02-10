@@ -4,13 +4,11 @@ import android.content.Context;
 
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
-import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
 import com.bitmesra.bitotsav.network.events.timeline.TimelineAPI;
 import com.bitmesra.bitotsav.network.flagship.FlagshipAPI;
-import com.bitmesra.bitotsav.network.home.HomeNotificationAPI;
 import com.bitmesra.bitotsav.network.login.SignUpAPI;
 
 import java.util.List;
@@ -51,24 +49,6 @@ public class NetworkManager {
 
     public Observable<Response<SignUpResultBody>> signUp(SignUpBody body) {
         return retrofit.create(SignUpAPI.class).signUp(body)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io());
-    }
-
-    public Observable<NotificationDto> getRecentNotifications() {
-        return retrofit.create(HomeNotificationAPI.class).getRecentNotifications()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io());
-    }
-
-    public Observable<NotificationDto> getNextNotifications(long id) {
-        return retrofit.create(HomeNotificationAPI.class).getNextNotifications(id)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io());
-    }
-
-    public Observable<NotificationDto> getLatestNotifications(long id) {
-        return retrofit.create(HomeNotificationAPI.class).getLatestNotifications(id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "862558445782",
+    "firebase_url": "https://bitotsav17-8f9b5.firebaseio.com",
+    "project_id": "bitotsav17-8f9b5",
+    "storage_bucket": "bitotsav17-8f9b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862558445782:android:c71313d7a9027ad3",
+        "android_client_info": {
+          "package_name": "com.bitmesra.bitotsav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862558445782-lpmt7t44rs7umugf45ib2q2ehed3ejff.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCWzBDijNHvds9sLmJmG_MBLcrLjMz7cY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

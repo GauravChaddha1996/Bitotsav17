@@ -10,21 +10,16 @@ import android.view.ViewGroup;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
-import com.bitmesra.bitotsav.database.models.home.NotificationDto;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
-import com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HomeFragment extends BaseFragment implements HomeViewInterface {
+public class HomeFragment extends BaseFragment {
 
 
     HomePresenter presenter;
@@ -32,9 +27,6 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     SliderLayout sliderLayout;
     @BindView(R.id.homeNotificationRecyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.home_pull_to_refresh)
-    PullToRefreshView pullToRefreshView;
-    private boolean loading = false;
     private HomeNotificationAdapter adapter;
     private LinearLayoutManager manager;
 
@@ -46,7 +38,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
-        presenter = new HomePresenter(getActivity(), this);
+        presenter = new HomePresenter(getActivity());
         setUpSliderLayout();
         setUpNotificationRecyclerView();
         return view;
@@ -100,54 +92,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         recyclerView.setHasFixedSize(true);
         manager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(manager);
-        adapter = new HomeNotificationAdapter(getActivity());
+        adapter = new HomeNotificationAdapter(getActivity(), presenter.getNotifications());
         recyclerView.setAdapter(adapter);
-        recyclerView.addOnScrollListener(createScrollListener());
-        pullToRefreshView.setOnRefreshListener(() -> {
-            pullToRefreshView.setRefreshing(true);
-            presenter.getLatestNotifications(10);
-        });
-        presenter.getRecentNotifications();
-    }
-
-
-    @Override
-    public void updateRecentNotifications(List<NotificationItem> notifications) {
-        adapter.setItems(notifications);
-        adapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void updateNextNotifications(List<NotificationItem> notifications) {
-        if (notifications.size() == 0) {
-            adapter.removeProgressBar();
-            recyclerView.removeOnScrollListener(createScrollListener());
-        } else {
-            adapter.addNextItems(notifications);
-            loading = !loading;
-        }
-    }
-
-    @Override
-    public void updateLatestNotifications(List<NotificationItem> notifications) {
-        adapter.addLatestItems(notifications);
-        recyclerView.scrollToPosition(0);
-        pullToRefreshView.setRefreshing(false);
-        presenter.saveNotifications(new NotificationDto(adapter.getTop10Items()));
-    }
-
-    public RecyclerView.OnScrollListener createScrollListener() {
-        return new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (manager.findLastVisibleItemPosition() >= manager.getItemCount() - 2) {
-                    if (!loading) {
-                        presenter.getNextNotifications(10);
-                        loading = !loading;
-                    }
-                }
-            }
-        };
     }
 }

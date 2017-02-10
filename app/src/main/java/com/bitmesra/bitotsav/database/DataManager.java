@@ -7,7 +7,6 @@ import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
-import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
 import com.bitmesra.bitotsav.features.EventDtoType;
@@ -38,24 +37,6 @@ public class DataManager {
     public Observable<Response<SignUpResultBody>> signUp(Context context, SignUpBody body) {
         createNetworkManager(context);
         return networkManager.signUp(body);
-    }
-
-    /**
-     * Home - Notifications functions
-     */
-    public Observable<NotificationDto> getRecentNotifications(Context context) {
-        createNetworkManager(context);
-        return networkManager.getRecentNotifications();
-    }
-
-    public Observable<NotificationDto> getNextNotifications(Context context, long id) {
-        createNetworkManager(context);
-        return networkManager.getNextNotifications(id);
-    }
-
-    public Observable<NotificationDto> getLatestNotifications(Context context, long id) {
-        createNetworkManager(context);
-        return networkManager.getLatestNotifications(id);
     }
 
     /**

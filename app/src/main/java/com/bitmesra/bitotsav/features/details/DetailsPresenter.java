@@ -34,4 +34,19 @@ public class DetailsPresenter implements DetailsPresenterInterface {
             viewInterface.updateDetailView(new FlagshipDetailsDto(dto.getVenue(), dto.getTime(), 50000));
         }
     }
+
+    @Override
+    public boolean isTopicSubscribed(String name) {
+        return dataManager.getRealmManager().isTopicSubscribed(name);
+    }
+
+    @Override
+    public void unsubscribeFromTopic(String name) {
+        dataManager.getRealmManager().removeSubscribedTopic(name);
+    }
+
+    @Override
+    public void subscribeToTopic(String name) {
+        dataManager.getRealmManager().saveSubscribedTopic(name);
+    }
 }
