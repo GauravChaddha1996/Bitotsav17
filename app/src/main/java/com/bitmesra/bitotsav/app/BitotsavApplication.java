@@ -2,6 +2,7 @@ package com.bitmesra.bitotsav.app;
 
 import android.app.Application;
 
+import com.bitmesra.bitotsav.utils.Foreground;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import io.realm.Realm;
@@ -17,6 +18,7 @@ public class BitotsavApplication extends Application {
         //  LeakCanary.install(this);
         Realm.init(this);
         FirebaseMessaging.getInstance().subscribeToTopic("everyone");
+        Foreground.init(this);
     }
 }
 

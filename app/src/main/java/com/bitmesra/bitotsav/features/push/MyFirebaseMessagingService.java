@@ -5,12 +5,17 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.media.RingtoneManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.utils.Foreground;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by Batdroid on 9/2/17 for Bitotsav.
@@ -37,6 +42,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setTitle(remoteMessage.getData().get("title"))
                     .setBody(remoteMessage.getData().get("body"));
             DataManager.getDataManager().getRealmManager().addNotificationItem(item);
+            if (Foreground.get(this).isForeground()) {
+                Observable.just(1)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(integer -> {
+                            Toast.makeText(getApplicationContext(),
+                                    "OH Hey! You got a new notification", Toast.LENGTH_SHORT).show();
+                        });
+            }
             if (!item.getFrom().equals("/topics/everyone")) {
                 Notification notification = new Notification.Builder(this)
                         .setContentTitle(item.getTitle())
