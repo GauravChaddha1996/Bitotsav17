@@ -10,6 +10,10 @@ import android.widget.TextView;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.OrderedRealmCollection;
@@ -38,7 +42,8 @@ public class HomeNotificationAdapter extends RealmRecyclerViewAdapter<Notificati
     public void onBindViewHolder(NotificationViewHolder holder, int position) {
         NotificationItem item = getData().get(position);
         holder.title.setText(item.getTitle());
-        holder.time.setText(item.getTime() + "");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a dd MMM", Locale.getDefault());
+        holder.time.setText(dateFormat.format(new Date(item.getTime())));
     }
 
     class NotificationViewHolder extends RecyclerView.ViewHolder {
