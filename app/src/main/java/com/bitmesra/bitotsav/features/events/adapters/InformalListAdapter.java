@@ -38,7 +38,7 @@ public class InformalListAdapter extends RecyclerView.Adapter<InformalListAdapte
     public void onBindViewHolder(InformalViewHolder holder, int position) {
         EventDto item = items.get(position);
         holder.informalName.setText(item.getName());
-        holder.clubName.setText(item.getClub());
+        holder.clubName.setText(item.getTime()+ " at "+item.getVenue());
     }
 
     @Override

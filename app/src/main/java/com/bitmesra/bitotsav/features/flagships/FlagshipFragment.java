@@ -66,6 +66,7 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
             Intent intent = new Intent(getActivity(), DetailsActivity.class);
             intent.putExtra("eventName", adapter.getEventName(position));
+            intent.putExtra("fetchNetwork", true);
             intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
             startActivity(intent);
         });

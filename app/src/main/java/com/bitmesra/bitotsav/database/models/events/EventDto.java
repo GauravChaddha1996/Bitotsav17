@@ -11,68 +11,74 @@ public class EventDto extends RealmObject {
     @PrimaryKey
     private String name;
     private int eventDtoType;
-    private String club;
     private String time;
     private String venue;
-    private String dayNumber;
+    private int money;
+    private String rules;
 
     public EventDto() {
     }
 
-    public EventDto(String name, int eventDtoType, String club, String time, String venue, String dayNumber) {
+    public EventDto(String name, int eventDtoType, String time, String venue, int money, String rules) {
         this.name = name;
         this.eventDtoType = eventDtoType;
-        this.club = club;
         this.time = time;
         this.venue = venue;
-        this.dayNumber = dayNumber;
+        this.money = money;
+        this.rules = rules;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public EventDto setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getEventDtoType() {
         return eventDtoType;
     }
 
-    public void setEventDtoType(int eventDtoType) {
+    public EventDto setEventDtoType(int eventDtoType) {
         this.eventDtoType = eventDtoType;
-    }
-
-    public String getClub() {
-        return club;
-    }
-
-    public void setClub(String club) {
-        this.club = club;
+        return this;
     }
 
     public String getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public EventDto setTime(String time) {
         this.time = time;
+        return this;
     }
 
     public String getVenue() {
         return venue;
     }
 
-    public void setVenue(String venue) {
+    public EventDto setVenue(String venue) {
         this.venue = venue;
+        return this;
     }
 
-    public String getDayNumber() {
-        return dayNumber;
+    public int getMoney() {
+        return money;
     }
 
-    public void setDayNumber(String dayNumber) {
-        this.dayNumber = dayNumber;
+    public EventDto setMoney(int money) {
+        this.money = money;
+        return this;
+    }
+
+    public String getRules() {
+        return rules;
+    }
+
+    public EventDto setRules(String rules) {
+        this.rules = rules;
+        return this;
     }
 }

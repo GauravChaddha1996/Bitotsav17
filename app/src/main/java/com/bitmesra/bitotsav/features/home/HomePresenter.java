@@ -3,7 +3,9 @@ package com.bitmesra.bitotsav.features.home;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.home.NotificationDto;
+import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+
+import io.realm.RealmResults;
 
 /**
  * Created by Batdroid on 26/1/17 for Bitotsav.
@@ -11,55 +13,15 @@ import com.bitmesra.bitotsav.database.models.home.NotificationDto;
 
 public class HomePresenter implements HomePresenterInterface {
     private Context context;
-    private HomeViewInterface viewInterface;
     private DataManager dataManager;
 
-    public HomePresenter(Context context, HomeViewInterface viewInterface) {
+    public HomePresenter(Context context) {
         this.context = context;
-        this.viewInterface = viewInterface;
         dataManager = DataManager.getDataManager();
     }
 
     @Override
-    public void getRecentNotifications() {
-        //Making network call to fetch new notifications
-        viewInterface.showLoadingToast();
-        dataManager.getRecentNotifications(context)
-                .doOnNext(this::saveNotifications)
-                .subscribe(dto ->
-                        {
-                            viewInterface.updateRecentNotifications(dto.getNotificationList());
-                            viewInterface.hideLoadingToast();
-                        },
-                        Throwable::printStackTrace);
-        //Setting notifications stored in Realm
-        NotificationDto dto = dataManager.getRealmManager().getNotificationDto();
-        if (dto != null) {
-            viewInterface.updateRecentNotifications(dto.getNotificationList());
-        }
-    }
-
-    public void saveNotifications(NotificationDto dto) {
-        dataManager.getRealmManager().saveNotificationDto(dto);
-    }
-
-    @Override
-    public void getNextNotifications(long id) {
-        viewInterface.showLoadingToast();
-        dataManager.getNextNotifications(context, id)
-                .subscribe(dto -> {
-                    viewInterface.updateNextNotifications(dto.getNotificationList());
-                    viewInterface.hideLoadingToast();
-                });
-    }
-
-    @Override
-    public void getLatestNotifications(long id) {
-        viewInterface.showLoadingToast();
-        dataManager.getLatestNotifications(context, id)
-                .subscribe(dto -> {
-                    viewInterface.updateLatestNotifications(dto.getNotificationList());
-                    viewInterface.hideLoadingToast();
-                });
+    public RealmResults<NotificationItem> getNotifications() {
+        return dataManager.getRealmManager().getNotificationDto();
     }
 }
