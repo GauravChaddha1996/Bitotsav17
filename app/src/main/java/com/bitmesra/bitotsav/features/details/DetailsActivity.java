@@ -23,6 +23,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     String eventName;
     int eventDtoType;
+    boolean fetch = true;
     DetailsPresenter presenter;
     @BindView(R.id.detail_time_venue)
     TextView timeVenue;
@@ -40,11 +41,15 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         ButterKnife.bind(this);
         eventName = getIntent().getStringExtra("eventName");
         eventDtoType = getIntent().getIntExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
+        fetch = getIntent().getBooleanExtra("fetchNetwork", true);
         toolbar.setTitle(eventName);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter = new DetailsPresenter(this, this);
-        presenter.fetchDetailsDto(eventName, eventDtoType);
+        presenter.getDetailsDtoFromRealm(eventName);
+        if (fetch) {
+            presenter.fetchDetailsDto(eventName, eventDtoType);
+        }
         if (presenter.isTopicSubscribed(eventName)) {
             subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_on));
         } else {

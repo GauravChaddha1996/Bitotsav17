@@ -74,6 +74,7 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
             Intent intent = new Intent(getActivity(), DetailsActivity.class);
             intent.putExtra("eventName", adapter.getEventName(position));
+            intent.putExtra("fetchNetwork", false);
             intent.putExtra("eventDtoType", Utils.findEventDtoDayType(dayNumber));
             startActivityForResult(intent,6993);
         });

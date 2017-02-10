@@ -8,7 +8,7 @@ import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
 import com.bitmesra.bitotsav.network.events.timeline.TimelineAPI;
-import com.bitmesra.bitotsav.network.flagship.FlagshipAPI;
+import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.login.SignUpAPI;
 
 import java.util.List;
@@ -59,8 +59,8 @@ public class NetworkManager {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<EventDetailsDto> getFlagshipEvent(String eventName) {
-        return retrofit.create(FlagshipAPI.class).getFlagshipDetails(eventName)
+    public Observable<EventDetailsDto> getEventDetails(String eventName) {
+        return retrofit.create(DetailsAPI.class).getEventDetails(eventName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

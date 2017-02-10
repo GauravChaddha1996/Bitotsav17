@@ -86,9 +86,9 @@ public class DataManager {
     /**
      * Flagship functions
      */
-    public Observable<EventDetailsDto> getFlagshipEvent(Context context, String eventName) {
+    public Observable<EventDetailsDto> getEventDetails(Context context, String eventName) {
         createNetworkManager(context);
-        return networkManager.getFlagshipEvent(eventName);
+        return networkManager.getEventDetails(eventName);
     }
 
 

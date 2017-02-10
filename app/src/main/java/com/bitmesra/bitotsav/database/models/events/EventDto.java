@@ -13,7 +13,6 @@ public class EventDto extends RealmObject {
     private int eventDtoType;
     private String time;
     private String venue;
-    private String dayNumber;
     private int money;
     private String rules;
 
@@ -62,15 +61,6 @@ public class EventDto extends RealmObject {
 
     public EventDto setVenue(String venue) {
         this.venue = venue;
-        return this;
-    }
-
-    public String getDayNumber() {
-        return dayNumber;
-    }
-
-    public EventDto setDayNumber(String dayNumber) {
-        this.dayNumber = dayNumber;
         return this;
     }
 

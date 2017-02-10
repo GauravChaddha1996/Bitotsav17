@@ -22,7 +22,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
 
     @Override
     public void fetchDetailsDto(String name, int eventDtoType) {
-        dataManager.getFlagshipEvent(context, name)
+        dataManager.getEventDetails(context, name)
                 .doOnNext(detailsDto -> dataManager.getRealmManager()
                         .saveDetailsDto(name, eventDtoType,
                                 detailsDto.getTime(), detailsDto.getVenue(),
@@ -35,6 +35,9 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                                 .setMoney(detailsDto.getMoney())
                                 .setRules(detailsDto.getRules())),
                         Throwable::printStackTrace);
+    }
+
+    public void getDetailsDtoFromRealm(String name) {
         EventDto dto = dataManager.getRealmManager().getDetailsDto(name);
         if (dto != null) {
             viewInterface.updateDetailView(dto);

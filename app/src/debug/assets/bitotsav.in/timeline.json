@@ -1,0 +1,37 @@
+[
+  {
+    "name": "FormalEvent1",
+    "time": "9Pm",
+    "venue": "NCC Ground",
+    "money": 15000,
+    "rules": " Some new rules are here"
+  },
+  {
+    "name": "Pukaar",
+    "time": "6Pm",
+    "venue": "Shor bagh",
+    "money": 20000,
+    "rules": " Some new rules are here"
+  },
+  {
+    "name": "FormalEvent3",
+    "time": "8Pm",
+    "venue": "IC Arena",
+    "money": 20000,
+    "rules": " Some new rules are here"
+  },
+  {
+    "name": "FormalEvent4",
+    "time": "8Pm",
+    "venue": "IC Arena",
+    "money": 20000,
+    "rules": " Some new rules are here"
+  },
+  {
+    "name": "FormalEvent5",
+    "time": "8Pm",
+    "venue": "IC Arena",
+    "money": 20000,
+    "rules": " Some new rules are here"
+  }
+]
