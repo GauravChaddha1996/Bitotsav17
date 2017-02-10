@@ -1,5 +1,7 @@
 {
-  "time": "7Pm",
-  "venue": "NCC Ground",
-  "money": 30000
+  "name":"Pukaar",
+  "time": "8Pm",
+  "venue": "IC Arena",
+  "money": 20000,
+  "rules":" Some new rules are here"
 }

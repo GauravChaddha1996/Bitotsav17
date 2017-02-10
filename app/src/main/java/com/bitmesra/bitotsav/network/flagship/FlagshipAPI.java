@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.flagship;
 
-import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
+import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -12,5 +12,5 @@ import rx.Observable;
 
 public interface FlagshipAPI {
     @GET("/flagship")
-    Observable<FlagshipDetailsDto> getFlagshipDetails(@Query("name") String flagshipName);
+    Observable<EventDetailsDto> getFlagshipDetails(@Query("name") String flagshipName);
 }

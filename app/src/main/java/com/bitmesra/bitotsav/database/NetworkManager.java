@@ -3,7 +3,7 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.models.events.EventDto;
-import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
+import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
 import com.bitmesra.bitotsav.database.models.login.SignUpBody;
 import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
@@ -59,7 +59,7 @@ public class NetworkManager {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<FlagshipDetailsDto> getFlagshipEvent(String eventName) {
+    public Observable<EventDetailsDto> getFlagshipEvent(String eventName) {
         return retrofit.create(FlagshipAPI.class).getFlagshipDetails(eventName)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());

@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.flagship.FlagshipDetailsDto;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -26,6 +26,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     DetailsPresenter presenter;
     @BindView(R.id.detail_time_venue)
     TextView timeVenue;
+    @BindView(R.id.detail_desc)
+    TextView desc;
     @BindView(R.id.detail_money)
     TextView money;
     @BindView(R.id.star_subscribe)
@@ -61,9 +63,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     }
 
     @Override
-    public void updateDetailView(FlagshipDetailsDto detailsDto) {
-        timeVenue.setText(detailsDto.getTime() + " at " + detailsDto.getVenue());
-        money.setText("Prize money: " + detailsDto.getMoney());
+    public void updateDetailView(EventDto eventDto) {
+        desc.setText(eventDto.getRules());
+        timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
+        money.setText("Prize money: " + eventDto.getMoney());
     }
 
     @OnClick(R.id.star_subscribe)
