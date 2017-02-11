@@ -1,27 +1,28 @@
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.bitmesra.bitotsav.features.home.HomeFragment">
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/homeSliderLayout"
         android:layout_width="match_parent"
         app:layout_heightPercent="30%" />
+    <!--
+        <com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView
+            android:id="@+id/home_pull_to_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/homeSliderLayout">
 
-    <com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView
-        android:id="@+id/home_pull_to_refresh"
+
+        </com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView>-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/homeNotificationRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/homeSliderLayout">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/homeNotificationRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView>
-
+        android:layout_below="@+id/homeSliderLayout" />
 
 </android.support.percent.PercentRelativeLayout>

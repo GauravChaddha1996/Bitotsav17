@@ -4,21 +4,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
             android:title="@string/home" />
         <item
             android:id="@+id/nav_flagship"
+            android:icon="@drawable/ic_flagship"
             android:title="@string/flagship" />
         <item
             android:id="@+id/nav_events"
+            android:icon="@drawable/ic_events"
             android:title="@string/events" />
         <item
             android:id="@+id/nav_register"
+            android:icon="@drawable/ic_register"
             android:title="@string/register" />
         <item
             android:id="@+id/nav_tshirt"
+            android:icon="@drawable/ic_tshirts"
             android:title="@string/t_shirt" />
         <item
             android:id="@+id/nav_contact_about_sponsor"
+            android:icon="@drawable/ic_csa"
             android:title="@string/contact_us_sponsors_about_us" />
     </group>
 

@@ -2,6 +2,7 @@ package com.bitmesra.bitotsav.app;
 
 import android.app.Application;
 
+import com.bitmesra.bitotsav.ui.FontsOverride;
 import com.bitmesra.bitotsav.utils.Foreground;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -19,6 +20,7 @@ public class BitotsavApplication extends Application {
         Realm.init(this);
         FirebaseMessaging.getInstance().subscribeToTopic("everyone");
         Foreground.init(this);
+        FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/Oswald/Oswald_Regular.ttf");
     }
 }
 

@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/card_background</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    
+
     <style name="AppTheme.PureBlack">
         <item name="colorPrimary">@color/card_background</item>
         <item name="colorPrimaryDark">@color/card_background</item>
@@ -41,6 +41,12 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="NavTextStyle">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:typeface">monospace</item>
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
