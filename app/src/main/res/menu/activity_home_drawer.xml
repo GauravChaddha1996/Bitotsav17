@@ -14,14 +14,14 @@
             android:id="@+id/nav_events"
             android:icon="@drawable/ic_events"
             android:title="@string/events" />
-        <item
+      <!--  <item
             android:id="@+id/nav_register"
             android:icon="@drawable/ic_register"
             android:title="@string/register" />
         <item
             android:id="@+id/nav_tshirt"
             android:icon="@drawable/ic_tshirts"
-            android:title="@string/t_shirt" />
+            android:title="@string/t_shirt" />-->
         <item
             android:id="@+id/nav_contact_about_sponsor"
             android:icon="@drawable/ic_csa"
