@@ -5,11 +5,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
+import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import butterknife.BindView;
@@ -20,17 +20,21 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.toolbar_title)
+    CustomTextView toolbarTitle;
 
     String eventName;
     int eventDtoType;
     boolean fetch = true;
     DetailsPresenter presenter;
     @BindView(R.id.detail_time_venue)
-    TextView timeVenue;
+    CustomTextView timeVenue;
     @BindView(R.id.detail_desc)
-    TextView desc;
+    CustomTextView desc;
+    @BindView(R.id.detail_rules)
+    CustomTextView rules;
     @BindView(R.id.detail_money)
-    TextView money;
+    CustomTextView money;
     @BindView(R.id.star_subscribe)
     FloatingActionButton subscribeButton;
 
@@ -42,8 +46,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         eventName = getIntent().getStringExtra("eventName");
         eventDtoType = getIntent().getIntExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
         fetch = getIntent().getBooleanExtra("fetchNetwork", true);
-        toolbar.setTitle(eventName);
+        toolbarTitle.setText(eventName);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter = new DetailsPresenter(this, this);
         presenter.getDetailsDtoFromRealm(eventName);
@@ -69,7 +74,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     @Override
     public void updateDetailView(EventDto eventDto) {
-        desc.setText(eventDto.getRules());
+        rules.setText(eventDto.getRules());
         timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
         money.setText("Prize money: " + eventDto.getMoney());
     }

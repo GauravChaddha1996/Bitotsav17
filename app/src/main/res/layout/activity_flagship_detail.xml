@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:fitsSystemWindows="true"
     tools:context="com.bitmesra.bitotsav.features.details.DetailsActivity">
 
@@ -29,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/home1"
+                android:src="@drawable/home2"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar
@@ -37,7 +38,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            </android.support.v7.widget.Toolbar>
+
+            <com.bitmesra.bitotsav.ui.CustomTextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|left"
+                android:paddingBottom="32dp"
+                android:paddingLeft="48dp"
+                android:text="Bitotsav"
+                android:textColor="@color/toolbar_text"
+                android:textSize="30sp"
+                app:font="Oswald/Oswald_SemiBold.ttf" />
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -46,13 +61,14 @@
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
         android:id="@+id/star_subscribe"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:src="@android:drawable/btn_star_big_on"
-        app:layout_anchor="@id/appBarLayout"
-        app:layout_anchorGravity="bottom|right" />
+        android:src="@android:drawable/btn_star_big_on" />
+
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -63,41 +79,62 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/dialog_background"
             android:clickable="true"
             android:orientation="vertical"
             android:padding="8dp">
 
-            <TextView
+            <com.bitmesra.bitotsav.ui.CustomTextView
                 android:id="@+id/detail_time_venue"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
                 android:text="9pm at Shor bagh"
-                android:textSize="30sp" />
+                android:textColor="@color/card_text"
+                android:textSize="20sp"
+                app:font="Lato/Lato_Regular.ttf" />
 
-            <TextView
+            <com.bitmesra.bitotsav.ui.CustomTextView
                 android:id="@+id/detail_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darker_white"
+                android:layout_marginTop="16dp"
+                android:text="@string/sample_desc"
+                android:textSize="21sp"
+                app:font="Lato/Lato_Regular.ttf"
+                tools:text="@string/sample_desc_small" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="64dp"
+                android:layout_marginRight="64dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorAccent" />
+
+            <com.bitmesra.bitotsav.ui.CustomTextView
+                android:id="@+id/detail_rules"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/sample_desc"
-                android:textSize="20sp" />
+                android:textColor="@color/darker_white"
+                android:textSize="20sp"
+                app:font="Lato/Lato_Regular.ttf"
+                tools:text="These are some rules" />
 
-            <TextView
+            <com.bitmesra.bitotsav.ui.CustomTextView
                 android:id="@+id/detail_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:text="Prize money: 15000"
-                android:textSize="25sp" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Register" />
-
+                android:textColor="@color/colorAccent"
+                android:textSize="25sp"
+                app:font="Lato/Lato_Regular.ttf" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

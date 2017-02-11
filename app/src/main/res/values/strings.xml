@@ -47,4 +47,9 @@
     <string name="reload">M10,10  L15.9,15.9  C19.4,12.3 25,10 30,10  C45,10 50,20 50,30  L45,30  C45,20 40,15 30,15  C37.5,15 24.6,14.2 19.4,19.4  L25,25  L10,25  z</string>
     <string name="reload2">M15.9,44.1  C22.9,51.2 27,50 30,50  C40,50 50,40 50,30  L45,30  C45,39 35,45 30,45  C25,45 25.3,44.4 19.4,40.6  z</string>
     <string name="notif_body">The venue has been changed from shor bagh to IC Arena. Please inform everybody as soon as possible. Enjoy!!The venue has been changed from shor bagh to IC Arena. Please inform everybody as soon as possible. Enjoy!!</string>
+    <string name="sample_desc_small">THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample descriptionTHis is just a sample description
+        THis is just a sample description</string>
 </resources>
