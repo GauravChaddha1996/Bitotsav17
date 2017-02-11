@@ -59,17 +59,17 @@ public class DataManager {
 
     public List<FlagshipItem> getFlagshipList() {
         List<FlagshipItem> list = new ArrayList<>();
-        list.add(new FlagshipItem("Pukaar", "Dramsoc", R.drawable.home1));
-        list.add(new FlagshipItem("Saptak", "Music club", R.drawable.home2));
-        list.add(new FlagshipItem("Rhapsody", "Music club", R.drawable.home1));
-        list.add(new FlagshipItem("Dance Saga", "Dance club", R.drawable.home2));
-        list.add(new FlagshipItem("Stomp the yard", "Dance club", R.drawable.home1));
+        list.add(new FlagshipItem("Pukaar", "Show your inner drama queen #tanmay", R.drawable.home2));
+        list.add(new FlagshipItem("Saptak", "Show your inner drama queen #tanmay", R.drawable.home2));
+        list.add(new FlagshipItem("Rhapsody", "Show your inner drama queen #tanmay", R.drawable.home2));
+        list.add(new FlagshipItem("Dance Saga", "Show your inner drama queen #tanmay", R.drawable.home2));
+        list.add(new FlagshipItem("Stomp the yard", "Show your inner drama queen #tanmay", R.drawable.home2));
         list.add(new FlagshipItem("Talkies", "PSOC", R.drawable.home2));
-        list.add(new FlagshipItem("Mr. and Miss Bitotsav", "Rotaract", R.drawable.home1));
+        list.add(new FlagshipItem("Mr. and Miss Bitotsav", "Rotaract", R.drawable.home2));
         list.add(new FlagshipItem("Mun", "Unesquo", R.drawable.home2));
-        list.add(new FlagshipItem("B-Plan", "EDC", R.drawable.home1));
+        list.add(new FlagshipItem("B-Plan", "EDC", R.drawable.home2));
         list.add(new FlagshipItem("Overnight coding", "ACM club", R.drawable.home2));
-        list.add(new FlagshipItem("Takeshi's Castle", "Robolution", R.drawable.home1));
+        list.add(new FlagshipItem("Takeshi's Castle", "Robolution", R.drawable.home2));
         return list;
     }
 
