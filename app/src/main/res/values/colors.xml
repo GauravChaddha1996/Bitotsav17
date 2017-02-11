@@ -8,5 +8,6 @@
 
     <color name="darker_white">#a6a6a6</color>
     <color name="start_silver">#a6a6a6</color>
-    <color name="background">#101010</color>
+    <color name="background">#292929</color>
+    <color name="light_foreground">#ff6500</color>
 </resources>
