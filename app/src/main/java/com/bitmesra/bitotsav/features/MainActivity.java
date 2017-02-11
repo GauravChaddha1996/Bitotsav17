@@ -25,21 +25,24 @@ import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.register.SignUpActivity;
 import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
+import com.bitmesra.bitotsav.ui.CustomTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public int dayNumber;
     @BindView(R.id.appBarLayout)
     AppBarLayout appBarLayout;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.toolbar_title)
+    CustomTextView toolbarTitle;
     @BindView(R.id.nav_view)
     NavigationView navView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
-    public int dayNumber;
     private BaseFragment currentFragment;
 
     @Override
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         setUpNavigationDrawer();
         setFragment(IdForFragment.HOME);
     }
@@ -102,32 +106,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (idForFragment) {
             case HOME:
                 navView.setCheckedItem(R.id.nav_home);
-                getSupportActionBar().setTitle("Home");
+                toolbarTitle.setText("Home");
                 toReturnFragment = new HomeFragment();
                 break;
             case FLAGSHIP:
                 navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Flagships");
+                toolbarTitle.setText("Flagships");
                 toReturnFragment = new FlagshipFragment();
                 break;
             case EVENTS:
                 navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Events");
+                toolbarTitle.setText("Events");
                 toReturnFragment = new EventsFragment();
                 break;
             case TIMELINE:
                 navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Day " + dayNumber);
+                toolbarTitle.setText("Day " + dayNumber);
                 toReturnFragment = new TimelineFragment();
                 break;
             case INFORMAL:
                 navView.setCheckedItem(R.id.nav_events);
-                getSupportActionBar().setTitle("Informals");
+                toolbarTitle.setText("Informals");
                 toReturnFragment = new InformalFragment();
                 break;
             case TSHIRT:
                 navView.setCheckedItem(R.id.nav_tshirt);
-                getSupportActionBar().setTitle("T-Shirt Registration");
+                toolbarTitle.setText("T-Shirt Registration");
                 toReturnFragment = new TShirtFragment();
                 break;
         }

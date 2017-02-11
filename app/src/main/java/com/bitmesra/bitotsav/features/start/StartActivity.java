@@ -1,5 +1,6 @@
 package com.bitmesra.bitotsav.features.start;
 
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +16,7 @@ import com.bitmesra.bitotsav.features.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StartActivity extends AppCompatActivity implements StartViewInterface {
+public class StartActivity extends AppCompatActivity {
 
     @BindView(R.id.startLogo)
     ImageView startLogo;
@@ -24,7 +25,6 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
     @BindView(R.id.startPPRText)
     TextView startPPRText;
 
-    private StartPresenterImpl startPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,6 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
         ButterKnife.bind(this);
 
         startAnimation();
-        startPresenter = new StartPresenterImpl(this);
-    }
-
-    @Override
-    public void goToHomeActivity() {
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
     }
 
     //Handles all animation on this start activity
@@ -57,9 +50,11 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
         scaleDownY.setDuration(2000);
         scaleDownY.start();
         scaleDownX.start();
-        ObjectAnimator alpha = ObjectAnimator.ofFloat(startLogo, "alpha", 0f, 1f);
+        /*ObjectAnimator alpha = ObjectAnimator.ofFloat(startLogo, "alpha", 0f, 1f);
         alpha.setDuration(1000);
-        alpha.start();
+        alpha.start();*/
+        startLogo.setAlpha(0f);
+        startLogo.animate().alpha(1f).setDuration(1000).start();
 
         ObjectAnimator translateY = ObjectAnimator.ofFloat(startBlurLogo, "translationY", 0f, 300f);
         translateY.setDuration(2000);
@@ -81,8 +76,31 @@ public class StartActivity extends AppCompatActivity implements StartViewInterfa
         finalscaleDownX.start();
         ObjectAnimator alphaBlurOut = ObjectAnimator.ofFloat(startBlurLogo, "alpha", 0.2f, 0f);
         alphaBlurOut.setStartDelay(2500);
-        alphaBlurOut.setDuration(500);
+        alphaBlurOut.setDuration(500).addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                startActivity(new Intent(StartActivity.this, MainActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
         alphaBlurOut.start();
+
+
     }
 
 

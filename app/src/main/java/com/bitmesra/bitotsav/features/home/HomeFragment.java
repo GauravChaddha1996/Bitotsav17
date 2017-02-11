@@ -12,6 +12,8 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
@@ -86,6 +88,7 @@ public class HomeFragment extends BaseFragment {
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setDuration(4000);
+        sliderLayout.setVisibility(View.GONE);
     }
 
     private void setUpNotificationRecyclerView() {
@@ -94,6 +97,12 @@ public class HomeFragment extends BaseFragment {
         recyclerView.setLayoutManager(manager);
         adapter = new HomeNotificationAdapter(getActivity(), presenter.getNotifications());
         recyclerView.setAdapter(adapter);
+        startAnimation();
     }
 
+    private void startAnimation() {
+        sliderLayout.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.FadeInDown)
+                .playOn(sliderLayout);
+    }
 }

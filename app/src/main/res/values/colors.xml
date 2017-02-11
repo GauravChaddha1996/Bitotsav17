@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#222222</color>
-    <color name="colorPrimaryDark">#101010</color>
+    <color name="colorPrimaryDark">#222222</color>
     <color name="colorAccent">#FF6500</color>
     <color name="page_indicator_dark_selected">#ff3333</color>
     <color name="page_indicator_dark">#803333</color>
 
+    <color name="toolbar_text">#ffffff</color>
+    <color name="card_text">#ffffff</color>
+    <color name="card_background">#101010</color>
     <color name="darker_white">#a6a6a6</color>
     <color name="start_silver">#a6a6a6</color>
     <color name="background">#292929</color>
