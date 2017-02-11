@@ -4,24 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="120dp"
+    android:minWidth="72dp"
     android:nestedScrollingEnabled="true"
     tools:background="@color/background">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/timeline_image_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="180dp"
-        android:minWidth="72dp"
-        android:orientation="vertical">
+        android:layout_marginTop="32dp">
+
+        <ImageView
+            android:id="@+id/pacman_mid"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="20dp"
+            android:rotation="90"
+            android:src="@drawable/pacman" />
 
         <ImageView
             android:id="@+id/pacman_food_1"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/pacman_mid"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:rotation="90"
             android:src="@drawable/timeline_circle" />
 
@@ -29,24 +37,25 @@
             android:id="@+id/pacman_food_2"
             android:layout_width="16dp"
             android:layout_height="16dp"
+            android:layout_below="@+id/pacman_food_1"
             android:layout_marginBottom="8dp"
             android:layout_marginLeft="36dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:rotation="90"
             android:src="@drawable/timeline_circle" />
 
         <ImageView
-            android:id="@+id/pacman_mid"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="28dp"
+            android:id="@+id/pacman_food_3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/pacman_food_2"
+            android:layout_marginLeft="36dp"
             android:layout_marginTop="8dp"
             android:rotation="90"
+            android:layout_marginBottom="8dp"
             android:src="@drawable/timeline_circle" />
 
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/timeline_text_holder"
@@ -69,8 +78,8 @@
             android:id="@+id/timeline_item_time_venue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/timeline_item_name"
             android:layout_marginTop="8dp"
+            android:layout_below="@+id/timeline_item_name"
             android:text="8pm at OAT at NCC at IC Arena AT everywhere"
             android:textColor="@color/darker_white"
             android:textSize="18sp"
@@ -78,8 +87,8 @@
 
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:id="@+id/timeline_item_desc"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/timeline_item_time_venue"
             android:ellipsize="end"

@@ -11,7 +11,7 @@
         android:id="@+id/timeline_image_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="180dp"
+        android:minHeight="120dp"
         android:minWidth="72dp"
         android:orientation="vertical">
 
@@ -24,6 +24,7 @@
             android:layout_marginTop="8dp"
             android:rotation="90"
             android:src="@drawable/timeline_circle" />
+
 
         <ImageView
             android:id="@+id/pacman_food_2"
@@ -45,6 +46,27 @@
             android:rotation="90"
             android:src="@drawable/timeline_circle" />
 
+
+        <ImageView
+            android:id="@+id/pacman_food_3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="8dp"
+            android:rotation="90"
+            android:src="@drawable/timeline_circle" />
+
+
+        <ImageView
+            android:id="@+id/pacman_food_4"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="8dp"
+            android:rotation="90"
+            android:src="@drawable/timeline_circle" />
 
     </LinearLayout>
 

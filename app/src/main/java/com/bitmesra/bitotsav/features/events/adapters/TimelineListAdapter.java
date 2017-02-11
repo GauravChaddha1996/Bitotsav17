@@ -20,6 +20,9 @@ import butterknife.ButterKnife;
  */
 public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapter.TimelineViewHolder> {
     private final Context context;
+    private final int TYPE_FIRST_ITEM = 0;
+    private final int TYPE_MIDDLE_ITEM = 1;
+    private final int TYPE_LAST_ITEM = 2;
     private List<EventDto> items;
 
     public TimelineListAdapter(Context context) {
@@ -29,9 +32,12 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
     @Override
     public TimelineViewHolder onCreateViewHolder(ViewGroup parent,
                                                  int viewType) {
-        if (viewType == 0) {
+        if (viewType == TYPE_FIRST_ITEM) {
             return new TimelineViewHolder(LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.timeline_item, parent, false));
+                    .inflate(R.layout.timeline_start_item, parent, false));
+        } else if (viewType == TYPE_MIDDLE_ITEM) {
+            return new TimelineViewHolder(LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.timeline_middle_item, parent, false));
         } else {
             return new TimelineViewHolder(LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.timeline_end_item, parent, false));
@@ -47,10 +53,13 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
 
     @Override
     public int getItemViewType(int position) {
-        if (position == items.size() - 1) {
-            return 1;
+        if (position == 0) {
+            return TYPE_FIRST_ITEM;
+        } else if (position == items.size() - 1) {
+            return TYPE_LAST_ITEM;
+        } else {
+            return TYPE_MIDDLE_ITEM;
         }
-        return 0;
     }
 
     @Override

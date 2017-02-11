@@ -3,7 +3,7 @@
     android:shape="oval">
 
     <size
-        android:width="32dp"
-        android:height="32dp" />
-    <solid android:color="@color/colorPrimary" />
+        android:width="8px"
+        android:height="8px" />
+    <solid android:color="@color/card_text" />
 </shape>

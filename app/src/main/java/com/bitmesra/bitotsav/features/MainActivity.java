@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case TIMELINE:
                 navView.setCheckedItem(R.id.nav_events);
-                toolbarTitle.setText("Day " + dayNumber);
+                toolbarTitle.setText("Day " + dayNumber + " Timeline");
                 toReturnFragment = new TimelineFragment();
                 break;
             case INFORMAL:
