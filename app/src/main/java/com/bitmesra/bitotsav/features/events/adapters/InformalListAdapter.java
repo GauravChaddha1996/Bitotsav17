@@ -5,10 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.ui.CustomTextView;
 
 import java.util.List;
 
@@ -37,8 +37,8 @@ public class InformalListAdapter extends RecyclerView.Adapter<InformalListAdapte
     @Override
     public void onBindViewHolder(InformalViewHolder holder, int position) {
         EventDto item = items.get(position);
-        holder.informalName.setText(item.getName());
-        holder.clubName.setText(item.getTime()+ " at "+item.getVenue());
+        holder.title.setText(item.getName());
+        holder.timeVenue.setText(item.getTime()+ " at "+item.getVenue());
     }
 
     @Override
@@ -50,10 +50,12 @@ public class InformalListAdapter extends RecyclerView.Adapter<InformalListAdapte
     }
 
     class InformalViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.informal_name)
-        TextView informalName;
-        @BindView(R.id.informal_club)
-        TextView clubName;
+        @BindView(R.id.informal_title)
+        CustomTextView title;
+        @BindView(R.id.informal_body)
+        CustomTextView body;
+        @BindView(R.id.informal_time_venue)
+        CustomTextView timeVenue;
 
         InformalViewHolder(View view) {
             super(view);
