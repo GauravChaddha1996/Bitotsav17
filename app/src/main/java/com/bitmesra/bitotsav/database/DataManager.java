@@ -49,7 +49,6 @@ public class DataManager {
         list.add(new EventItem("Day 3", R.drawable.home1));
         list.add(new EventItem("Day 4", R.drawable.home2));
         list.add(new EventItem("Day 5", R.drawable.home1));
-        list.add(new EventItem("Informals", R.drawable.home1));
         return list;
     }
 
