@@ -3,6 +3,7 @@ package com.bitmesra.bitotsav.utils;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.support.annotation.CheckResult;
 import android.support.annotation.ColorInt;
@@ -11,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
 
 import com.bitmesra.bitotsav.features.EventDtoType;
 
@@ -100,5 +103,21 @@ public class Utils {
             }
             return sTypefaceCache.get(font);
         }
+    }
+
+    public static int getScreenHeight(Context c) {
+        WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.y;
+    }
+
+    public static int getScreenWidth(Context c) {
+        WindowManager wm = (WindowManager) c.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size.x;
     }
 }

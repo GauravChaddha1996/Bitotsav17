@@ -1,5 +1,7 @@
 package com.bitmesra.bitotsav.features.home.adapter;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -7,11 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.utils.Utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +30,7 @@ import io.realm.RealmRecyclerViewAdapter;
 public class HomeNotificationAdapter extends RealmRecyclerViewAdapter<NotificationItem, HomeNotificationAdapter.NotificationViewHolder> {
     private final Context context;
     private int lastPos = -1;
-    private int duration = 500;
+    private boolean animationLocked = false;
 
     public HomeNotificationAdapter(Context context, OrderedRealmCollection<NotificationItem> items) {
         super(context, items, true);
@@ -49,16 +51,28 @@ public class HomeNotificationAdapter extends RealmRecyclerViewAdapter<Notificati
         holder.body.setText(item.getBody());
         SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm a dd MMM", Locale.getDefault());
         holder.time.setText(dateFormat.format(new Date(item.getTime())));
-        if (position > lastPos) {
-            TranslateAnimation animation = new TranslateAnimation(0, 0, 1000 + (100 * position), 0);
-            animation.setInterpolator(new DecelerateInterpolator());
-            if ((300 + (100 * position) > duration)) {
-                animation.setDuration(duration);
-            } else {
-                animation.setDuration(duration);
+        runEnterAnimation(holder.itemView, position);
+
+    }
+
+    private void runEnterAnimation(View view, int position) {
+        if (!animationLocked) {
+            if (position > lastPos) {
+                lastPos = position;
+                view.setTranslationY(Utils.getScreenHeight(context));
+                view.setAlpha(0.0f);
+                view.animate()
+                        .translationY(0).alpha(1f)
+                        .setStartDelay(100 * position)
+                        .setInterpolator(new DecelerateInterpolator(2.f))
+                        .setDuration(350)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                animationLocked = true;
+                            }
+                        }).start();
             }
-            holder.itemView.startAnimation(animation);
-            lastPos = position;
         }
     }
 
