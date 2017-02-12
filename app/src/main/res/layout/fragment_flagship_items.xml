@@ -10,21 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/dancesaga" />
-
-    <ImageView
-        android:id="@+id/subscribedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/background_image"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="16dp"
-        android:padding="4dp"
-        android:background="@drawable/timeline_circle"
-        android:layout_marginRight="16dp"
-        android:src="@drawable/ic_no_bell" />
+        android:src="@drawable/stomptheyard"
+        android:transitionName="event_image" />
 
     <LinearLayout
+        android:id="@+id/flagship_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -39,6 +29,7 @@
             android:text="Pukaar"
             android:textColor="@android:color/white"
             android:textSize="50sp"
+            android:transitionName="event_title_time_venue"
             app:font="Oswald/Oswald_Regular.ttf" />
 
         <com.bitmesra.bitotsav.ui.CustomTextView
@@ -50,6 +41,21 @@
             android:text="Show your inner drama queen #tanmay"
             android:textColor="@android:color/white"
             android:textSize="25sp"
+            android:transitionName="event_desc"
+            android:visibility="gone"
             app:font="Lato/Lato_Regular.ttf" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/subscribedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/background_image"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_bell_circle"
+        android:src="@drawable/ic_bell"
+        android:transitionName="event_subscribe_button" />
 </RelativeLayout>

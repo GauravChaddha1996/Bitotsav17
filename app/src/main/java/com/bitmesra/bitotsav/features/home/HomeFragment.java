@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -128,11 +129,14 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     }
 
     private void startDetailsActivity(String name) {
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),
+                (View) sliderLayout, "event_image");
         Intent intent = new Intent(getActivity(), DetailsActivity.class);
         intent.putExtra("eventName", name);
         intent.putExtra("fetchNetwork", true);
         intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
-        startActivity(intent);
+        startActivity(intent,options.toBundle());
     }
 
     @Override

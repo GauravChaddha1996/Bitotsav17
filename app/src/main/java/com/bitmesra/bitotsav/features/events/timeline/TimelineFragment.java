@@ -95,7 +95,6 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
         achievement = new AchievementUnlocked(getActivity()).alignTop(false).setYOffset(50)
                 .isLarge(false)
                 .isRounded(true)
-                .isPersistent(true)
                 .setIcon(getResources().getDrawable(R.drawable.monster))
                 .setTitle("Loading timeline...")
                 .build();

@@ -10,6 +10,7 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.ui.CustomTextView;
+import com.bitmesra.bitotsav.utils.Utils;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import butterknife.BindView;
@@ -47,6 +48,14 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         eventDtoType = getIntent().getIntExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
         fetch = getIntent().getBooleanExtra("fetchNetwork", true);
         toolbarTitle.setText(eventName);
+        toolbarTitle.setAlpha(0f);
+        toolbarTitle.animate().alpha(1f).setDuration(1000).start();
+        timeVenue.setTranslationY(-200.0f);
+        timeVenue.animate().translationY(0f).setDuration(1000).start();
+        desc.setTranslationY(Utils.getScreenHeight(this));
+        desc.animate().translationY(0).setDuration(1000).start();
+        rules.setTranslationY(Utils.getScreenHeight(this));
+        rules.animate().translationY(0).setDuration(1000).start();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,9 +65,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
             presenter.fetchDetailsDto(eventName, eventDtoType);
         }
         if (presenter.isTopicSubscribed(eventName)) {
-            subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_on));
+            subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_bell));
         } else {
-            subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_off));
+            subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_no_bell));
         }
     }
 
@@ -82,15 +91,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     @OnClick(R.id.star_subscribe)
     void onSubscribe() {
         if (presenter.isTopicSubscribed(eventName)) {
-            FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName.replaceAll(" ",""));
-            //todo send the unsubscribed topic with registered id to server
-            subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_off));
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName.replaceAll(" ", ""));
+            subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_no_bell));
             presenter.unsubscribeFromTopic(eventName);
         } else {
-            subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_on));
-            FirebaseMessaging.getInstance().subscribeToTopic(eventName.replaceAll(" ",""));
+            subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_bell));
+            FirebaseMessaging.getInstance().subscribeToTopic(eventName.replaceAll(" ", ""));
             presenter.subscribeToTopic(eventName);
-            //todo send the subscribed topic with registered id to server
         }
     }
 }

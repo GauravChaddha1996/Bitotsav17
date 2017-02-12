@@ -31,9 +31,12 @@ import com.bitmesra.bitotsav.R;
 public class AchievementUnlocked {
 
 
-    private achievementListener listener;
-
+    public TextView title, subtitleText;
+    public boolean expanded = false;
+    public int height;
+    public int width;
     Context context;
+    private achievementListener listener;
     private String titleString = "Achievement unlocked!", subtitle;
     private int duration = 2000, delay = 100, backgroundColor = 0xffffffff, iconBG, titleColor = 0xaa000000, subtitleColor = 0;
     private Drawable iconDrawable;
@@ -43,43 +46,17 @@ public class AchievementUnlocked {
     private WindowManager windowManager;
     private ViewGroup container;
     private SquaredView icon;
-    public TextView title, subtitleText;
     private int initialSize;
     private Drawable backgroundDrawable;
-    public boolean expanded = false;
-    public int height;
-    public int width;
     private AchievementUnlocked achievementUnlocked;
 
     public AchievementUnlocked(Context context) {
         this.context = context;
     }
 
-
-    public AchievementUnlocked setTitleColor(int titleColor) {
-        this.titleColor = titleColor;
-        return this;
-
-    }
-
-
-    public interface achievementListener {
-
-
-        void onAchievementBeingCreated(AchievementUnlocked achievement, boolean created);
-
-        void onAchievementExpanding(AchievementUnlocked achievement, boolean expanded);
-
-        void onAchievementShrinking(AchievementUnlocked achievement, boolean shrunken);
-
-        void onAchievementBeingDestroyed(AchievementUnlocked achievement, boolean destroyed);
-    }
-
-
     public void setAchievementListener(achievementListener listener) {
         this.listener = listener;
     }
-
 
     public String getTitleString() {
         return titleString;
@@ -89,18 +66,41 @@ public class AchievementUnlocked {
         return backgroundColor;
     }
 
+    public AchievementUnlocked setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+
+    }
+
     public int getIconBG() {
         return iconBG;
+    }
+
+    public AchievementUnlocked setIconBG(int iconBG) {
+        this.iconBG = iconBG;
+        return this;
+
     }
 
     public int getTitleColor() {
         return titleColor;
     }
 
+    public AchievementUnlocked setTitleColor(int titleColor) {
+        this.titleColor = titleColor;
+        return this;
+
+    }
+
     public int getSubtitleColor() {
         return subtitleColor;
     }
 
+    public AchievementUnlocked setSubtitleColor(int subtitleColor) {
+        this.subtitleColor = subtitleColor;
+        return this;
+
+    }
 
     public boolean isLarge() {
         return large;
@@ -109,7 +109,6 @@ public class AchievementUnlocked {
     public boolean isAlignTop() {
         return alignTop;
     }
-
 
     public boolean isRounded() {
         return isRounded;
@@ -127,6 +126,12 @@ public class AchievementUnlocked {
         return duration;
     }
 
+    public AchievementUnlocked setDuration(int timeInMilliseconds) {
+        this.duration = timeInMilliseconds;
+        return this;
+
+    }
+
     public int getDelay() {
         return delay;
     }
@@ -135,27 +140,14 @@ public class AchievementUnlocked {
         return backgroundDrawable;
     }
 
-    public Drawable getIconDrawable() {
-        return iconDrawable;
-    }
-
-    public AchievementUnlocked setSubtitleColor(int subtitleColor) {
-        this.subtitleColor = subtitleColor;
-        return this;
-
-    }
-
     public AchievementUnlocked setBackgroundDrawable(Drawable backgroundDrawable) {
         this.backgroundDrawable = backgroundDrawable;
         return this;
 
     }
 
-
-    public AchievementUnlocked setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
-        return this;
-
+    public Drawable getIconDrawable() {
+        return iconDrawable;
     }
 
     @TargetApi(21)
@@ -165,29 +157,14 @@ public class AchievementUnlocked {
 
     }
 
-
     public AchievementUnlocked isLarge(boolean large) {
         this.large = large;
         return this;
 
     }
 
-
     public AchievementUnlocked alignTop(boolean alignTop) {
         this.alignTop = alignTop;
-        return this;
-
-    }
-
-    public AchievementUnlocked setIconBG(int iconBG) {
-        this.iconBG = iconBG;
-        return this;
-
-    }
-
-
-    public AchievementUnlocked setIcon(Drawable icon) {
-        this.iconDrawable = icon;
         return this;
 
     }
@@ -196,14 +173,25 @@ public class AchievementUnlocked {
         return iconDrawable;
     }
 
+    public AchievementUnlocked setIcon(Drawable icon) {
+        this.iconDrawable = icon;
+        return this;
+
+    }
+
     public String getTitle() {
         return titleString;
+    }
+
+    public AchievementUnlocked setTitle(CharSequence title) {
+        this.titleString = title.toString();
+        return this;
+
     }
 
     public String getSubtitle() {
         return subtitle;
     }
-
 
     public AchievementUnlocked setTitle(String title) {
         this.titleString = title;
@@ -234,13 +222,6 @@ public class AchievementUnlocked {
         return this;
     }
 
-
-    public AchievementUnlocked setTitle(CharSequence title) {
-        this.titleString = title.toString();
-        return this;
-
-    }
-
     public AchievementUnlocked setSubTitle(CharSequence subTitle) {
         this.subtitle = subTitle.toString();
         return this;
@@ -256,12 +237,6 @@ public class AchievementUnlocked {
     public AchievementUnlocked isRounded(boolean isRounded) {
         this.isRounded = isRounded;
         return this;
-    }
-
-    public AchievementUnlocked setDuration(int timeInMilliseconds) {
-        this.duration = timeInMilliseconds;
-        return this;
-
     }
 
     public AchievementUnlocked setStartDelay(int timeInMilliseconds) {
@@ -280,7 +255,6 @@ public class AchievementUnlocked {
         return container;
 
     }
-
 
     public TextView getTitleTextView() {
         return title;
@@ -301,7 +275,6 @@ public class AchievementUnlocked {
         buildAchievement();
         return this;
     }
-
 
     private void buildAchievement() {
 
@@ -477,13 +450,11 @@ public class AchievementUnlocked {
         container.addView(subtitleText);
 
 
-
         container.setLayoutParams(containerLP);
         windowManager.addView(view, params);
 
         achievementUnlocked = this;
     }
-
 
     public void show() {
         if (listener != null)
@@ -506,11 +477,9 @@ public class AchievementUnlocked {
         }).start();
     }
 
-
     public void dismiss() {
         shrinkAchievement(true);
     }
-
 
     public void dismissWithoutAnimation() {
         removeView();
@@ -520,10 +489,10 @@ public class AchievementUnlocked {
         try {
             windowManager.removeView(container.getRootView());
             System.gc();
-            typeface=null;
-            achievementUnlocked=null;
-            windowManager=null;
-            container=null;
+            typeface = null;
+            achievementUnlocked = null;
+            windowManager = null;
+            container = null;
 
         } catch (Exception e) {
 // *shrug emoji*
@@ -546,19 +515,16 @@ public class AchievementUnlocked {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
 
-
+                        if (container == null) return;
                         ValueAnimator animBack = ValueAnimator.ofInt(container.getMeasuredWidth(), initialSize);
-                        animBack.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                            @Override
-                            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                                int val = (Integer) valueAnimator.getAnimatedValue();
+                        animBack.addUpdateListener(valueAnimator -> {
+                            int val = (Integer) valueAnimator.getAnimatedValue();
 
-                                ViewGroup.LayoutParams layoutParams = container.getLayoutParams();
-                                layoutParams.width = val;
-                                container.setLayoutParams(layoutParams);
+                            ViewGroup.LayoutParams layoutParams = container.getLayoutParams();
+                            layoutParams.width = val;
+                            container.setLayoutParams(layoutParams);
 
 
-                            }
                         });
                         animBack.addListener(new AnimatorListenerAdapter() {
                             @Override
@@ -607,7 +573,6 @@ public class AchievementUnlocked {
         }).start();
 
     }
-
 
     private void expandAchievement(final boolean continuous) {
         if (listener != null)
@@ -673,6 +638,19 @@ public class AchievementUnlocked {
         anim.start();
 
 
+    }
+
+
+    public interface achievementListener {
+
+
+        void onAchievementBeingCreated(AchievementUnlocked achievement, boolean created);
+
+        void onAchievementExpanding(AchievementUnlocked achievement, boolean expanded);
+
+        void onAchievementShrinking(AchievementUnlocked achievement, boolean shrunken);
+
+        void onAchievementBeingDestroyed(AchievementUnlocked achievement, boolean destroyed);
     }
 
 

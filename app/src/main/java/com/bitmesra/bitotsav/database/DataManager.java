@@ -61,7 +61,7 @@ public class DataManager {
         list.add(new FlagshipItem("Mr And Miss Bitotsav", "This event provides a platform to the fashion enthusiasts", R.drawable.saptak));
         list.add(new FlagshipItem("Dance Saga", "This is a group event to showcase your dancing talent", R.drawable.dancesaga));
         list.add(new FlagshipItem("MUN", "If you could rule the world for a day, what would you do?", R.drawable.mun));
-        list.add(new FlagshipItem("Saptak Eastern Battle of Bands", "A contest where bands from various colleges present musical performances from eastern genre.", R.drawable.saptak));
+        list.add(new FlagshipItem("Saptak", "Eastern Battle of bands", R.drawable.saptak));
         list.add(new FlagshipItem("Rhapsody Eastern Battle of Bands", "In this contest bands present musical performances from western genre and compete for the title. ", R.drawable.nukkad));
         list.add(new FlagshipItem("Stomp the yard", "Sparks fly as the worlds of street dance collide in this exciting flagship event.", R.drawable.stomptheyard));
         list.add(new FlagshipItem("Talkies", "Short Film Making competition with theme related to the social theme of Bitotsav. ", R.drawable.dancesaga));

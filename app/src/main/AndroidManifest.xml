@@ -26,11 +26,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".features.register.SignUpActivity"
-            android:parentActivityName=".features.MainActivity"
-            android:theme="@style/AppTheme"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
             android:name=".features.csa.CSAActivity"
             android:theme="@style/CSAStyle" />
         <activity

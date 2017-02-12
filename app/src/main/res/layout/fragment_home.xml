@@ -8,6 +8,7 @@
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/homeSliderLayout"
+        android:transitionName="event_image"
         android:layout_width="match_parent"
         app:layout_heightPercent="30%" />
 
