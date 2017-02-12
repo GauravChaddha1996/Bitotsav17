@@ -82,13 +82,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     @OnClick(R.id.star_subscribe)
     void onSubscribe() {
         if (presenter.isTopicSubscribed(eventName)) {
-            FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName);
+            FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName.replaceAll(" ",""));
             //todo send the unsubscribed topic with registered id to server
             subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_off));
             presenter.unsubscribeFromTopic(eventName);
         } else {
             subscribeButton.setImageDrawable(getDrawable(android.R.drawable.star_big_on));
-            FirebaseMessaging.getInstance().subscribeToTopic(eventName);
+            FirebaseMessaging.getInstance().subscribeToTopic(eventName.replaceAll(" ",""));
             presenter.subscribeToTopic(eventName);
             //todo send the subscribed topic with registered id to server
         }

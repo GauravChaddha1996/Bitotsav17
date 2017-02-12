@@ -15,7 +15,6 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.details.DetailsActivity;
-import com.bitmesra.bitotsav.features.events.adapters.FlagshipListAdapter;
 import com.bitmesra.bitotsav.utils.ItemClickSupport;
 
 import butterknife.BindView;
@@ -68,7 +67,14 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
             intent.putExtra("eventName", adapter.getEventName(position));
             intent.putExtra("fetchNetwork", true);
             intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
-            startActivity(intent);
+            startActivityForResult(intent, 20);
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 20) {
+            adapter.notifyDataSetChanged();
+        }
     }
 }

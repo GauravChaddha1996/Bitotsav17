@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.events.adapters;
+package com.bitmesra.bitotsav.features.flagships;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.utils.Utils;
 
@@ -47,8 +48,12 @@ public class FlagshipListAdapter extends RecyclerView.Adapter<FlagshipListAdapte
         holder.eventName.setText(item.getName());
         holder.clubName.setText(item.getOrganizingClub());
         holder.backgroundImage.setImageDrawable(context.getDrawable(item.getBackgroundId()));
+        if(DataManager.getDataManager().getRealmManager().isTopicSubscribed(item.getName())) {
+            holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_bell));
+        }else{
+            holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_no_bell));
+        }
         runEnterAnimation(holder.itemView, position);
-
     }
 
 
@@ -92,6 +97,8 @@ public class FlagshipListAdapter extends RecyclerView.Adapter<FlagshipListAdapte
         TextView clubName;
         @BindView(R.id.background_image)
         ImageView backgroundImage;
+        @BindView(R.id.subscribedButton)
+        ImageView subscribedButton;
 
         FlagshipItemViewHolder(View view) {
             super(view);

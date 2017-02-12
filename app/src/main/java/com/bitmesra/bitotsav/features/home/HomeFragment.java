@@ -1,6 +1,7 @@
 package com.bitmesra.bitotsav.features.home;
 
 
+import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +15,9 @@ import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
+import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.features.IdForFragment;
+import com.bitmesra.bitotsav.features.details.DetailsActivity;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.daimajia.androidanimations.library.Techniques;
@@ -50,7 +53,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
-        presenter = new HomePresenter(getActivity(),this);
+        presenter = new HomePresenter(getActivity(), this);
         setUpSliderLayout();
         setUpNotificationRecyclerView();
         return view;
@@ -79,22 +82,32 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     }
 
     private void setUpSliderLayout() {
-        TextSliderView view = new TextSliderView(getActivity());
-        view.description("Bitotsav 17")
-                .image(R.drawable.home1);
-        TextSliderView view2 = new TextSliderView(getActivity());
-        view2.description("Party at BIT 17")
-                .image(R.drawable.home2);
-        TextSliderView view3 = new TextSliderView(getActivity());
-        view3.description("Party3 at BIT 17")
-                .image(R.drawable.home1);
-        TextSliderView view4 = new TextSliderView(getActivity());
-        view4.description("Party4 at BIT 17")
-                .image(R.drawable.home2);
-        sliderLayout.addSlider(view);
-        sliderLayout.addSlider(view2);
-        sliderLayout.addSlider(view3);
-        sliderLayout.addSlider(view4);
+        TextSliderView nukkad = new TextSliderView(getActivity());
+        nukkad.description("Nukkad");
+        nukkad.image(R.drawable.nukkad);
+        nukkad.setOnSliderClickListener(slider -> startDetailsActivity("Nukkad"));
+        TextSliderView dancesaga = new TextSliderView(getActivity());
+        dancesaga.image(R.drawable.dancesaga);
+        dancesaga.description("Dance saga");
+        dancesaga.setOnSliderClickListener(slider -> startDetailsActivity("Dance saga"));
+        TextSliderView mun = new TextSliderView(getActivity());
+        mun.image(R.drawable.mun);
+        mun.description("MUN");
+        mun.setOnSliderClickListener(slider -> startDetailsActivity("MUN"));
+        TextSliderView saptak = new TextSliderView(getActivity());
+        saptak.image(R.drawable.saptak);
+        saptak.description("Saptak");
+        saptak.setOnSliderClickListener(slider -> startDetailsActivity("Saptak"));
+        TextSliderView stomptheyard = new TextSliderView(getActivity());
+        stomptheyard.image(R.drawable.stomptheyard);
+        stomptheyard.description("Stomp the yard");
+        stomptheyard.setOnSliderClickListener(slider -> startDetailsActivity("Stomp the yard"));
+
+        sliderLayout.addSlider(nukkad);
+        sliderLayout.addSlider(dancesaga);
+        sliderLayout.addSlider(mun);
+        sliderLayout.addSlider(saptak);
+        sliderLayout.addSlider(stomptheyard);
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setDuration(4000);
@@ -112,6 +125,14 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         }
         recyclerView.setAdapter(adapter);
         startAnimation();
+    }
+
+    private void startDetailsActivity(String name) {
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        intent.putExtra("eventName", name);
+        intent.putExtra("fetchNetwork", true);
+        intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
+        startActivity(intent);
     }
 
     @Override

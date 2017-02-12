@@ -57,17 +57,14 @@ public class DataManager {
 
     public List<FlagshipItem> getFlagshipList() {
         List<FlagshipItem> list = new ArrayList<>();
-        list.add(new FlagshipItem("Pukaar", "Show your inner drama queen #tanmay", R.drawable.home2));
-        list.add(new FlagshipItem("Saptak", "Show your inner drama queen #tanmay", R.drawable.home2));
-        list.add(new FlagshipItem("Rhapsody", "Show your inner drama queen #tanmay", R.drawable.home2));
-        list.add(new FlagshipItem("Dance Saga", "Show your inner drama queen #tanmay", R.drawable.home2));
-        list.add(new FlagshipItem("Stomp the yard", "Show your inner drama queen #tanmay", R.drawable.home2));
-        list.add(new FlagshipItem("Talkies", "PSOC", R.drawable.home2));
-        list.add(new FlagshipItem("Mr. and Miss Bitotsav", "Rotaract", R.drawable.home2));
-        list.add(new FlagshipItem("Mun", "Unesquo", R.drawable.home2));
-        list.add(new FlagshipItem("B-Plan", "EDC", R.drawable.home2));
-        list.add(new FlagshipItem("Overnight coding", "ACM club", R.drawable.home2));
-        list.add(new FlagshipItem("Takeshi's Castle", "Robolution", R.drawable.home2));
+        list.add(new FlagshipItem("Nukkad", "This is a street play competition.", R.drawable.nukkad));
+        list.add(new FlagshipItem("Mr And Miss Bitotsav", "This event provides a platform to the fashion enthusiasts", R.drawable.saptak));
+        list.add(new FlagshipItem("Dance Saga", "This is a group event to showcase your dancing talent", R.drawable.dancesaga));
+        list.add(new FlagshipItem("MUN", "If you could rule the world for a day, what would you do?", R.drawable.mun));
+        list.add(new FlagshipItem("Saptak Eastern Battle of Bands", "A contest where bands from various colleges present musical performances from eastern genre.", R.drawable.saptak));
+        list.add(new FlagshipItem("Rhapsody Eastern Battle of Bands", "In this contest bands present musical performances from western genre and compete for the title. ", R.drawable.nukkad));
+        list.add(new FlagshipItem("Stomp the yard", "Sparks fly as the worlds of street dance collide in this exciting flagship event.", R.drawable.stomptheyard));
+        list.add(new FlagshipItem("Talkies", "Short Film Making competition with theme related to the social theme of Bitotsav. ", R.drawable.dancesaga));
         return list;
     }
 
