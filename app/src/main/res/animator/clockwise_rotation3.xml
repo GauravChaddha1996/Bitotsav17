@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Reload rotate alone-->
 <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
-    android:duration="350"
+    android:duration="500"
     android:propertyName="rotation"
     android:startOffset="2700"
     android:valueFrom="0"

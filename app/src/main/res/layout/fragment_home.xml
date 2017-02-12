@@ -10,19 +10,35 @@
         android:id="@+id/homeSliderLayout"
         android:layout_width="match_parent"
         app:layout_heightPercent="30%" />
-    <!--
-        <com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView
-            android:id="@+id/home_pull_to_refresh"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/homeSliderLayout">
 
 
-        </com.bitmesra.bitotsav.ui.phoenix.PullToRefreshView>-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeNotificationRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/homeSliderLayout" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/homeNotificationLoadingImage"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/homeSliderLayout"
+        android:layout_centerInParent="true"
+        android:src="@drawable/play_pause_repeat_vector"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="50%" />
+
+    <com.bitmesra.bitotsav.ui.CustomTextView
+        android:id="@+id/homeNotificationLoadingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@+id/homeNotificationLoadingImage"
+        android:gravity="center"
+        android:textColor="@color/card_text"
+        android:text="Loading..."
+        android:textSize="35sp"
+        app:font="Lato/Lato_Regular.ttf" />
+
 
 </android.support.percent.PercentRelativeLayout>

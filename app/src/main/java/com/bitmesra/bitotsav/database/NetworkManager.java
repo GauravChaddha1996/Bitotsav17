@@ -2,19 +2,17 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
-import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
-import com.bitmesra.bitotsav.database.models.login.SignUpBody;
-import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.network.FakeInterceptor;
-import com.bitmesra.bitotsav.network.events.timeline.TimelineAPI;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
-import com.bitmesra.bitotsav.network.login.SignUpAPI;
+import com.bitmesra.bitotsav.network.events.timeline.TimelineAPI;
+import com.bitmesra.bitotsav.network.home.NotificationAPI;
 
 import java.util.List;
 
 import okhttp3.OkHttpClient;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -47,8 +45,8 @@ public class NetworkManager {
                 .build();
     }
 
-    public Observable<Response<SignUpResultBody>> signUp(SignUpBody body) {
-        return retrofit.create(SignUpAPI.class).signUp(body)
+    public Observable<List<NotificationItem>> getNotifications() {
+        return retrofit.create(NotificationAPI.class).getNotifications()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

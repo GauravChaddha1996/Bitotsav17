@@ -18,7 +18,7 @@
     <objectAnimator
         android:duration="1000"
         android:propertyName="pathData"
-        android:startOffset="350"
+        android:startOffset="500"
         android:valueFrom="@string/reload"
         android:valueTo="@string/play"
         android:valueType="pathType" />

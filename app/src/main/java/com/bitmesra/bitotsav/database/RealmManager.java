@@ -1,7 +1,6 @@
 package com.bitmesra.bitotsav.database;
 
 import com.bitmesra.bitotsav.database.models.SubscribedTopics;
-import com.bitmesra.bitotsav.database.models.UserDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 
@@ -23,17 +22,16 @@ public class RealmManager {
     public RealmManager() {
     }
 
-    public void saveUserDetails(UserDetailsDto detailsDto) {
-        realm.executeTransaction(realm1 -> realm1.delete(UserDetailsDto.class));
-        realm.executeTransaction(realm1 -> realm1.copyToRealm(detailsDto));
-    }
-
-    public UserDetailsDto getUserDetails() {
-        return realm.where(UserDetailsDto.class).findFirst();
-    }
-
     public RealmResults<NotificationItem> getNotificationDto() {
         return Realm.getDefaultInstance().where(NotificationItem.class).findAllSorted("time", Sort.DESCENDING);
+    }
+
+    public void saveNotifications(List<NotificationItem> items) {
+        Realm.getDefaultInstance().executeTransactionAsync(realm1 -> {
+            for (NotificationItem item : items) {
+                realm1.insert(item);
+            }
+        });
     }
 
     public void addNotificationItem(NotificationItem item) {

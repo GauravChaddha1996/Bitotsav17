@@ -14,14 +14,24 @@ import io.realm.RealmResults;
 public class HomePresenter implements HomePresenterInterface {
     private Context context;
     private DataManager dataManager;
+    private HomeViewInterface viewInterface;
 
-    public HomePresenter(Context context) {
+    public HomePresenter(Context context, HomeViewInterface viewInterface) {
         this.context = context;
         dataManager = DataManager.getDataManager();
+        this.viewInterface = viewInterface;
     }
 
     @Override
     public RealmResults<NotificationItem> getNotifications() {
         return dataManager.getRealmManager().getNotificationDto();
+    }
+
+    public void getNotificationsFromServer() {
+        dataManager.getNotifications(context)
+                .subscribe(items -> {
+                    viewInterface.hideLoading();
+                    dataManager.getRealmManager().saveNotifications(items);
+                }, throwable -> viewInterface.showError());
     }
 }

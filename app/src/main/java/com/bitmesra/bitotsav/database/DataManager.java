@@ -3,18 +3,16 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
-import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
-import com.bitmesra.bitotsav.database.models.login.SignUpBody;
-import com.bitmesra.bitotsav.database.models.login.SignUpResultBody;
+import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.features.EventDtoType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Response;
 import rx.Observable;
 
 public class DataManager {
@@ -31,12 +29,12 @@ public class DataManager {
     }
 
     /**
-     * Signup funtion
+     * Notifications funtion
      */
 
-    public Observable<Response<SignUpResultBody>> signUp(Context context, SignUpBody body) {
+    public Observable<List<NotificationItem>> getNotifications(Context context) {
         createNetworkManager(context);
-        return networkManager.signUp(body);
+        return networkManager.getNotifications();
     }
 
     /**

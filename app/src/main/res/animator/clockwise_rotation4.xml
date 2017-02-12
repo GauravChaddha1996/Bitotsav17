@@ -3,7 +3,7 @@
 <objectAnimator xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="1000"
     android:propertyName="rotation"
-    android:startOffset="3050"
+    android:startOffset="3200"
     android:valueFrom="-300"
     android:interpolator="@android:anim/anticipate_overshoot_interpolator"
     android:valueTo="0"
