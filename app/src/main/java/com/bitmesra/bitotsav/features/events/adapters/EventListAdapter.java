@@ -44,7 +44,6 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     @Override
     public void onBindViewHolder(EventItemViewHolder holder, int position) {
         EventItem item = items.get(position);
-        holder.backgroundImage.setImageDrawable(context.getDrawable(item.getBackGroundImageId()));
         holder.eventType.setText(item.getType());
         runEnterAnimation(holder.itemView, position);
 

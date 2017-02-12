@@ -1,21 +1,35 @@
 package com.bitmesra.bitotsav.features.details;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
+import com.bitmesra.bitotsav.ui.AchievementUnlocked;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.bitmesra.bitotsav.utils.Utils;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
 
 public class DetailsActivity extends AppCompatActivity implements DetailsViewInterface {
 
@@ -30,6 +44,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     DetailsPresenter presenter;
     @BindView(R.id.detail_time_venue)
     CustomTextView timeVenue;
+    @BindView(R.id.refreshLayout)
+    SwipeRefreshLayout refreshLayout;
     @BindView(R.id.detail_desc)
     CustomTextView desc;
     @BindView(R.id.detail_rules)
@@ -38,6 +54,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     CustomTextView money;
     @BindView(R.id.star_subscribe)
     FloatingActionButton subscribeButton;
+    @BindView(R.id.loadingImage)
+    ImageView loadingImage;
+    @BindView(R.id.loadingText)
+    CustomTextView loadingText;
+    AchievementUnlocked achievement;
+    private boolean firstTime = true;
+    private boolean stopAnimation = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +84,15 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         presenter = new DetailsPresenter(this, this);
         presenter.getDetailsDtoFromRealm(eventName);
+        refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
+        refreshLayout.setOnRefreshListener(() -> presenter.fetchDetailsDto(eventName, eventDtoType));
+        achievement = new AchievementUnlocked(this).alignTop(false).setYOffset(50)
+                .isLarge(false)
+                .isPersistent(false)
+                .isRounded(true)
+                .setIcon(getResources().getDrawable(R.drawable.monster))
+                .setTitle("Loading...")
+                .build();
         if (fetch) {
             presenter.fetchDetailsDto(eventName, eventDtoType);
         }
@@ -93,11 +125,95 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         if (presenter.isTopicSubscribed(eventName)) {
             FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName.replaceAll(" ", ""));
             subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_no_bell));
+            Snackbar.make(desc, "You have unsubscribed from " + eventName, Snackbar.LENGTH_SHORT).show();
             presenter.unsubscribeFromTopic(eventName);
         } else {
             subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_bell));
+            Snackbar.make(desc, "You will now receive all FUTURE UPDATES for " + eventName, Snackbar.LENGTH_SHORT).show();
             FirebaseMessaging.getInstance().subscribeToTopic(eventName.replaceAll(" ", ""));
             presenter.subscribeToTopic(eventName);
+        }
+    }
+
+
+    @Override
+    public void showLoading() {
+        loadingImage.setVisibility(View.VISIBLE);
+        loadingText.setVisibility(View.VISIBLE);
+        AnimatedVectorDrawable vectorDrawable = (AnimatedVectorDrawable) getDrawable(R.drawable.play_pause_repeat_animated_vector);
+        loadingImage.setImageDrawable(vectorDrawable);
+        Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                vectorDrawable.start();
+                if (!stopAnimation) sendEmptyMessageDelayed(0, 500);
+            }
+        };
+        handler.sendEmptyMessage(0);
+    }
+
+    @Override
+    public void hideLoading() {
+        stopAnimation = true;
+        loadingImage.setVisibility(View.GONE);
+        loadingText.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showError() {
+        stopAnimation = true;
+        loadingImage.setImageDrawable(getResources().getDrawable(R.drawable.error_mario));
+        loadingText.setText("Oops!");
+    }
+
+    @Override
+    public void showAchievment() {
+        refreshLayout.setRefreshing(true);
+        if (firstTime) {
+            refreshLayout.setEnabled(false);
+            achievement.show();
+        }
+    }
+
+    @Override
+    public void hideAchievment() {
+        refreshLayout.setRefreshing(false);
+        if (firstTime) {
+            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    achievement.title.setText("Done.");
+                    fadeInHideAchievment();
+                }
+            }).start();
+        }
+    }
+
+    private void fadeInHideAchievment() {
+        achievement.title.animate().alpha(1.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                firstTime = false;
+                refreshLayout.setEnabled(true);
+                Observable.just(1).delay(500, TimeUnit.MILLISECONDS)
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(integer -> achievement.dismiss());
+            }
+        }).start();
+    }
+
+    @Override
+    public void errorAchievment() {
+        refreshLayout.setRefreshing(false);
+        if (firstTime) {
+            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    achievement.title.setText("Oops!");
+                    achievement.title.setTextColor(getResources().getColor(R.color.page_indicator_dark_selected));
+                    fadeInHideAchievment();
+                }
+            }).start();
         }
     }
 }

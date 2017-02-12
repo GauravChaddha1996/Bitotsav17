@@ -7,5 +7,11 @@ import com.bitmesra.bitotsav.database.models.events.EventDto;
  */
 
 public interface DetailsViewInterface {
+    void showLoading();
+    void hideLoading();
+    void showError();
+    void showAchievment();
+    void hideAchievment();
+    void errorAchievment();
     void updateDetailView(EventDto eventDto);
 }

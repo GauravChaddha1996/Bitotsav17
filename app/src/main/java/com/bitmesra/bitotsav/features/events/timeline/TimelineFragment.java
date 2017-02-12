@@ -92,8 +92,10 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
         adapter = new TimelineListAdapter(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
         achievement = new AchievementUnlocked(getActivity()).alignTop(false).setYOffset(50)
                 .isLarge(false)
+                .isPersistent(false)
                 .isRounded(true)
                 .setIcon(getResources().getDrawable(R.drawable.monster))
                 .setTitle("Loading timeline...")

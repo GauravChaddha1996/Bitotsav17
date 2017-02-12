@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp">
 
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="280dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/home2" />
+        android:src="@drawable/template_image" />
 
     <com.bitmesra.bitotsav.ui.CustomTextView
         android:id="@+id/event_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Timeline"
+        android:layout_alignBottom="@+id/background_image"
+        android:layout_centerHorizontal="true"
+        android:text="Day 1"
         android:textColor="@android:color/white"
         android:textSize="40sp"
         app:font="Oswald/Oswald_Regular.ttf" />
