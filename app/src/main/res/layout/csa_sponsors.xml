@@ -15,8 +15,10 @@
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/background"
     android:nestedScrollingEnabled="true">
 
     <LinearLayout
@@ -24,22 +26,156 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:background="@color/colorPrimary"
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:text="Bitotsav"
-            android:textColor="@android:color/white"
-            android:textSize="60sp" />
+            android:text="Sponsorship"
+            android:textColor="@color/colorAccent"
+            android:textSize="60sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
 
-        <TextView
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="@android:color/white"
-            android:text="Contact Us at this number and email and stuff | Contact Us at this number and email and stuff| Contact Us at this number and email and stuff"
-            android:textSize="24sp" />
+            android:text="Akshay Deshmukh"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Student Coordinator"
+            android:textColor="@color/card_text"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="7319731290"
+            android:textColor="@color/darker_white"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Dev Pratim"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Finance and sponsorship"
+            android:textColor="@color/card_text"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="7250429526"
+            android:textColor="@color/darker_white"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sanjeev Ranjan"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Finance and sponsorship"
+            android:textColor="@color/card_text"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="8002230046"
+            android:textColor="@color/darker_white"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Harshit Raj Garhia"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Finance and sponsorship"
+            android:textColor="@color/card_text"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="9934930036"
+            android:textColor="@color/darker_white"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorAccent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="bitotsav.in"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Regular.ttf" />
+
     </LinearLayout>
 
 
