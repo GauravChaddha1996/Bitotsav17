@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/timeline_recycler_view"
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/timeline_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ImageView
+        android:id="@+id/loadingImage"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/play_pause_repeat_vector"
+        android:visibility="gone"
+        app:layout_heightPercent="30%"
+        app:layout_widthPercent="50%" />
+
+    <com.bitmesra.bitotsav.ui.CustomTextView
+        android:id="@+id/loadingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/loadingImage"
+        android:gravity="center"
+        android:text="Loading..."
+        android:textColor="@color/card_text"
+        android:textSize="35sp"
+        android:visibility="gone"
+        app:font="Lato/Lato_Regular.ttf" />
+
+</android.support.percent.PercentRelativeLayout>

@@ -1,14 +1,20 @@
 package com.bitmesra.bitotsav.features.events.adapters;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.utils.Utils;
 
 import java.util.List;
 
@@ -24,6 +30,8 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
     private final int TYPE_MIDDLE_ITEM = 1;
     private final int TYPE_LAST_ITEM = 2;
     private List<EventDto> items;
+    private int lastPos = -1;
+    private boolean animationLocked = false;
 
     public TimelineListAdapter(Context context) {
         this.context = context;
@@ -49,7 +57,35 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         EventDto item = items.get(position);
         holder.name.setText(item.getName());
         holder.timeVenue.setText(item.getTime() + " at " + item.getVenue());
+        if(DataManager.getDataManager().getRealmManager().isTopicSubscribed(item.getName())) {
+            holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_bell));
+        }else{
+            holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_no_bell));
+        }
+        runEnterAnimation(holder.itemView, position);
     }
+
+    private void runEnterAnimation(View view, int position) {
+        if (!animationLocked) {
+            if (position > lastPos) {
+                lastPos = position;
+                view.setTranslationY(Utils.getScreenHeight(context));
+                view.setAlpha(0.0f);
+                view.animate()
+                        .translationY(0).alpha(1f)
+                        .setStartDelay(100 * position)
+                        .setInterpolator(new DecelerateInterpolator(2.f))
+                        .setDuration(350)
+                        .setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                animationLocked = true;
+                            }
+                        }).start();
+            }
+        }
+    }
+
 
     @Override
     public int getItemViewType(int position) {
@@ -83,6 +119,8 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         TextView name;
         @BindView(R.id.timeline_item_time_venue)
         TextView timeVenue;
+        @BindView(R.id.subscribedButton)
+        ImageView subscribedButton;
 
         TimelineViewHolder(View view) {
             super(view);

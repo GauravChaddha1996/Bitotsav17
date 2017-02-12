@@ -19,7 +19,6 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.csa.CSAActivity;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
-import com.bitmesra.bitotsav.features.events.informal.InformalFragment;
 import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
@@ -79,11 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.FLAGSHIP);
         } else if (id == R.id.nav_events) {
             setFragment(IdForFragment.EVENTS);
-        }/* else if (id == R.id.nav_register) {
-            startActivity(new Intent(MainActivity.this, SignUpActivity.class));
-        } else if (id == R.id.nav_tshirt) {
-            setFragment(IdForFragment.TSHIRT);
-        } */else if (id == R.id.nav_contact_about_sponsor) {
+        } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
         }
@@ -122,16 +117,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbarTitle.setText("Day " + dayNumber + " Timeline");
                 toReturnFragment = new TimelineFragment();
                 break;
-            case INFORMAL:
-                navView.setCheckedItem(R.id.nav_events);
-                toolbarTitle.setText("Informals");
-                toReturnFragment = new InformalFragment();
-                break;
-            /*case TSHIRT:
-                navView.setCheckedItem(R.id.nav_tshirt);
-                toolbarTitle.setText("T-Shirt Registration");
-                toReturnFragment = new TShirtFragment();
-                break;*/
         }
         return toReturnFragment;
     }

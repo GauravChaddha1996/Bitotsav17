@@ -1,7 +1,6 @@
 package com.bitmesra.bitotsav.features.events.timeline;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
@@ -25,23 +24,36 @@ public class TimelinePresenter implements TimelinePresenterInterface {
 
     @Override
     public void getTimelineEvents(int dayNumber) {
+        loadTimelineFromRealm(dayNumber);
+        fetchTimelineEvents(dayNumber);
+    }
+
+    @Override
+    public void fetchTimelineEvents(int dayNumber) {
         dataManager.getTimelineList(context, dayNumber)
+                .doOnSubscribe(() -> viewInterface.showAchievment())
                 .doOnNext(items -> {
                     if (items != null || !items.isEmpty()) {
                         dataManager.getRealmManager().saveTimelineEvents(items, dayNumber);
                     }
                 })
-                .subscribe(items -> viewInterface.updateTimelineEvents(items),
-                        Throwable::printStackTrace);
-        loadTimelineFromRealm(dayNumber);
+                .subscribe(items -> {
+                            viewInterface.hideAchievment();
+                            viewInterface.hideLoading();
+                            viewInterface.updateTimelineEvents(items);
+                        },
+                        throwable -> {
+                            viewInterface.errorAchievment();
+                            viewInterface.showError();
+                        });
     }
 
     public void loadTimelineFromRealm(int dayNumber) {
         List<EventDto> list = dataManager.getRealmManager().getTimelineEvents(dayNumber);
-        if (list != null) {
-            Log.d("tag", "not null");
-            Log.d("hoho",list.toString());
+        if (list.size() > 0) {
             viewInterface.updateTimelineEvents(list);
+        } else {
+            viewInterface.showLoading();
         }
     }
 }

@@ -9,5 +9,11 @@ import java.util.List;
  */
 
 public interface TimelineViewInterface {
+    void showLoading();
+    void hideLoading();
+    void showError();
+    void showAchievment();
+    void hideAchievment();
+    void errorAchievment();
     void updateTimelineEvents(List<EventDto> items);
 }

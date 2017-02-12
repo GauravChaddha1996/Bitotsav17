@@ -6,4 +6,5 @@ package com.bitmesra.bitotsav.features.events.timeline;
 
 public interface TimelinePresenterInterface {
     void getTimelineEvents(int dayNumber);
+    void fetchTimelineEvents(int dayNumber);
 }
