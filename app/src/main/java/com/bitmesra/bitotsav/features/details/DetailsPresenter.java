@@ -71,4 +71,11 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     public void subscribeToTopic(String name) {
         dataManager.getRealmManager().saveSubscribedTopic(name);
     }
+
+    public String getImageName(String name) {
+        return dataManager.getEventImageName(name);
+    }
+    public String getDescription(String name) {
+        return dataManager.getEventDesc(name);
+    }
 }

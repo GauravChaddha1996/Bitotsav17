@@ -36,7 +36,7 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
     LinearLayoutManager layoutManager;
     FlagshipListAdapter adapter;
     FlagshipPresenter presenter;
-    int pos;
+    String name;
 
     public FlagshipFragment() {
     }
@@ -69,7 +69,7 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
-            pos = position;
+            name = adapter.getEventName(position);
             TextView view = (TextView) v.findViewById(R.id.flagship_name);
             view.animate().alpha(0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
                 @Override
@@ -91,17 +91,23 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 20) {
-            (recyclerView.getChildAt(pos).findViewById(R.id.flagship_name)).setAlpha(0f);
-            ((TextView) recyclerView.getChildAt(pos).findViewById(R.id.flagship_name)).setText(
-                    presenter.getFlagshipEvents().get(pos).getName()
-            );
-            (recyclerView.getChildAt(pos).findViewById(R.id.flagship_name)).animate().alpha(1f).setDuration(500).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    super.onAnimationEnd(animation);
-                    adapter.notifyDataSetChanged();
+            try {
+                int i;
+                for (i = 0; i < adapter.getItemCount(); i++) {
+                    if (((FlagshipListAdapter.FlagshipItemViewHolder) recyclerView.getChildViewHolder(layoutManager.getChildAt(i)))
+                            .eventName.getAlpha() == 0.0f) {
+                        (recyclerView.getChildAt(i).findViewById(R.id.flagship_name)).animate().alpha(1f).setDuration(500).setListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                adapter.notifyDataSetChanged();
+                            }
+                        }).start();
+                    }
                 }
-            }).start();
+            } catch (Exception e) {
+
+            }
         }
     }
 }

@@ -26,13 +26,24 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
+                android:id="@+id/background_image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/saptak"
+                android:src="@drawable/template_image"
                 android:transitionName="event_image"
                 app:layout_collapseMode="parallax" />
+
+            <ImageView
+                android:id="@+id/frame_image"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/frame"
+                app:layout_collapseMode="pin" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -55,18 +66,6 @@
                 android:textSize="30sp"
                 android:transitionName="event_title"
                 app:font="Oswald/Oswald_SemiBold.ttf" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_gravity="bottom"
-                android:alpha="0.6"
-                android:fitsSystemWindows="true"
-                android:src="@color/card_background"
-                android:visibility="gone"
-                app:layout_collapseMode="pin" />
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
@@ -130,6 +129,7 @@
                     tools:text="@string/sample_desc_small" />
 
                 <View
+                    android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_marginBottom="16dp"

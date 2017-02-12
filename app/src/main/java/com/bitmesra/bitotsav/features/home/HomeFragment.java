@@ -82,33 +82,58 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         return null;
     }
 
+
     private void setUpSliderLayout() {
         TextSliderView nukkad = new TextSliderView(getActivity());
         nukkad.description("Nukkad");
         nukkad.image(R.drawable.nukkad);
         nukkad.setOnSliderClickListener(slider -> startDetailsActivity("Nukkad"));
+
+        TextSliderView mrmissbitotsav = new TextSliderView(getActivity());
+        mrmissbitotsav.description("Mr And Miss Bitotsav");
+        mrmissbitotsav.image(R.drawable.mrmissbitotsav);
+        mrmissbitotsav.setOnSliderClickListener(slider -> startDetailsActivity("Mr And Miss Bitotsav"));
+
         TextSliderView dancesaga = new TextSliderView(getActivity());
         dancesaga.image(R.drawable.dancesaga);
-        dancesaga.description("Dance saga");
-        dancesaga.setOnSliderClickListener(slider -> startDetailsActivity("Dance saga"));
+        dancesaga.description("Dance Saga");
+        dancesaga.setOnSliderClickListener(slider -> startDetailsActivity("Dance Saga"));
+
         TextSliderView mun = new TextSliderView(getActivity());
         mun.image(R.drawable.mun);
         mun.description("MUN");
         mun.setOnSliderClickListener(slider -> startDetailsActivity("MUN"));
+
         TextSliderView saptak = new TextSliderView(getActivity());
         saptak.image(R.drawable.saptak);
         saptak.description("Saptak");
         saptak.setOnSliderClickListener(slider -> startDetailsActivity("Saptak"));
+
+        TextSliderView rhapsody = new TextSliderView(getActivity());
+        rhapsody.image(R.drawable.rhapsody);
+        rhapsody.description("Rhapsody");
+        rhapsody.setOnSliderClickListener(slider -> startDetailsActivity("Rhapsody"));
+
         TextSliderView stomptheyard = new TextSliderView(getActivity());
         stomptheyard.image(R.drawable.stomptheyard);
-        stomptheyard.description("Stomp the yard");
-        stomptheyard.setOnSliderClickListener(slider -> startDetailsActivity("Stomp the yard"));
+        stomptheyard.description("Stomp The Yard");
+        stomptheyard.setOnSliderClickListener(slider -> startDetailsActivity("Stomp The Yard"));
+
+        TextSliderView talkies = new TextSliderView(getActivity());
+        talkies.image(R.drawable.talkies);
+        talkies.description("Talkies");
+        talkies.setOnSliderClickListener(slider -> startDetailsActivity("Talkies"));
 
         sliderLayout.addSlider(nukkad);
+        sliderLayout.addSlider(mrmissbitotsav);
+        sliderLayout.addSlider(rhapsody);
         sliderLayout.addSlider(dancesaga);
         sliderLayout.addSlider(mun);
         sliderLayout.addSlider(saptak);
         sliderLayout.addSlider(stomptheyard);
+        sliderLayout.addSlider(talkies);
+
+
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setDuration(4000);

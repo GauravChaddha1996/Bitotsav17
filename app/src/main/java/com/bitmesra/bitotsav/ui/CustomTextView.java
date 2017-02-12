@@ -46,6 +46,9 @@ public class CustomTextView extends TextView {
                 e.printStackTrace();
             }
             a.recycle();
+        } else {
+            Typeface myTypeface = Typeface.createFromAsset(getContext().getAssets(), "fonts/Lato/Lato_Regular.ttf");
+            setTypeface(myTypeface);
         }
     }
 }

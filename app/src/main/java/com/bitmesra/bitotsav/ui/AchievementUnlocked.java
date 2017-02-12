@@ -31,7 +31,8 @@ import com.bitmesra.bitotsav.R;
 public class AchievementUnlocked {
 
 
-    public TextView title, subtitleText;
+    public CustomTextView title;
+    public TextView subtitleText;
     public boolean expanded = false;
     public int height;
     public int width;
@@ -49,7 +50,7 @@ public class AchievementUnlocked {
     private int initialSize;
     private Drawable backgroundDrawable;
     private AchievementUnlocked achievementUnlocked;
-
+    public boolean isDismissing= true;
     public AchievementUnlocked(Context context) {
         this.context = context;
     }
@@ -292,7 +293,7 @@ public class AchievementUnlocked {
 
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT, initialSize + (int) elevation * 2,
-                WindowManager.LayoutParams.TYPE_TOAST,
+                WindowManager.LayoutParams.TYPE_APPLICATION,
                 WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
 
@@ -308,7 +309,7 @@ public class AchievementUnlocked {
 
         container = (ViewGroup) view.findViewById(R.id.achievement_body);
         icon = (SquaredView) view.findViewById(R.id.achievement_icon);
-        title = new TextView(context);
+        title = new CustomTextView(context);
         subtitleText = new TextView(context);
 
         RelativeLayout.LayoutParams viewRLP = new RelativeLayout.LayoutParams(initialSize, initialSize);
@@ -456,6 +457,8 @@ public class AchievementUnlocked {
         achievementUnlocked = this;
     }
 
+
+
     public void show() {
         if (listener != null)
             listener.onAchievementBeingCreated(achievementUnlocked, false);
@@ -493,13 +496,14 @@ public class AchievementUnlocked {
             achievementUnlocked = null;
             windowManager = null;
             container = null;
-
+            isDismissing = false;
         } catch (Exception e) {
 // *shrug emoji*
         }
     }
 
     private void shrinkAchievement(final boolean continuous) {
+        isDismissing = true;
         expanded = false;
 
         if (listener != null)

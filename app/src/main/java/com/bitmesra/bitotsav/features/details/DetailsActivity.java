@@ -52,12 +52,18 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     CustomTextView rules;
     @BindView(R.id.detail_money)
     CustomTextView money;
+    @BindView(R.id.divider)
+    View divider;
     @BindView(R.id.star_subscribe)
     FloatingActionButton subscribeButton;
     @BindView(R.id.loadingImage)
     ImageView loadingImage;
     @BindView(R.id.loadingText)
     CustomTextView loadingText;
+    @BindView(R.id.frame_image)
+    ImageView frame_image;
+    @BindView(R.id.background_image)
+    ImageView background_image;
     AchievementUnlocked achievement;
     private boolean firstTime = true;
     private boolean stopAnimation = false;
@@ -70,29 +76,39 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         eventName = getIntent().getStringExtra("eventName");
         eventDtoType = getIntent().getIntExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
         fetch = getIntent().getBooleanExtra("fetchNetwork", true);
+        firstTime = getIntent().getBooleanExtra("firstTime",true);
+
+        presenter = new DetailsPresenter(this, this);
+        String storedImageName = presenter.getImageName(eventName);
+        if (storedImageName != null) {
+            background_image.setImageDrawable(getResources().getDrawable(
+                    getResources().getIdentifier(storedImageName, "drawable", getPackageName())
+            ));
+        }
+        desc.setText(presenter.getDescription(eventName));
         toolbarTitle.setText(eventName);
         toolbarTitle.setAlpha(0f);
         toolbarTitle.animate().alpha(1f).setDuration(1000).start();
+        frame_image.setAlpha(0f);
+        frame_image.animate().alpha(1f).setDuration(1000).start();
         timeVenue.setTranslationY(-200.0f);
         timeVenue.animate().translationY(0f).setDuration(1000).start();
         desc.setTranslationY(Utils.getScreenHeight(this));
         desc.animate().translationY(0).setDuration(1000).start();
+        divider.setTranslationY(Utils.getScreenHeight(this));
+        divider.animate().translationY(0).setDuration(1000).start();
+        money.setTranslationY(Utils.getScreenHeight(this));
+        money.animate().translationY(0).setDuration(1000).start();
         rules.setTranslationY(Utils.getScreenHeight(this));
         rules.animate().translationY(0).setDuration(1000).start();
+
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        presenter = new DetailsPresenter(this, this);
         presenter.getDetailsDtoFromRealm(eventName);
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
         refreshLayout.setOnRefreshListener(() -> presenter.fetchDetailsDto(eventName, eventDtoType));
-        achievement = new AchievementUnlocked(this).alignTop(false).setYOffset(50)
-                .isLarge(false)
-                .isPersistent(false)
-                .isRounded(true)
-                .setIcon(getResources().getDrawable(R.drawable.monster))
-                .setTitle("Loading...")
-                .build();
         if (fetch) {
             presenter.fetchDetailsDto(eventName, eventDtoType);
         }
@@ -107,7 +123,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                supportFinishAfterTransition();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -118,6 +134,17 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         rules.setText(eventDto.getRules());
         timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
         money.setText("Prize money: " + eventDto.getMoney());
+    }
+
+    @Override
+    protected void onDestroy() {
+        try {
+            achievement.dismissWithoutAnimation();
+        } catch (Exception e) {
+
+        } finally {
+            super.onDestroy();
+        }
     }
 
     @OnClick(R.id.star_subscribe)
@@ -168,6 +195,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     @Override
     public void showAchievment() {
+        achievement = new AchievementUnlocked(this).alignTop(false).setYOffset(100)
+                .isLarge(false)
+                .isPersistent(false)
+                .isRounded(true)
+                .setIcon(getResources().getDrawable(R.drawable.monster))
+                .setTitle("Loading...")
+                .build();
         refreshLayout.setRefreshing(true);
         if (firstTime) {
             refreshLayout.setEnabled(false);

@@ -10,7 +10,7 @@
         android:id="@+id/homeSliderLayout"
         android:transitionName="event_image"
         android:layout_width="match_parent"
-        app:layout_heightPercent="30%" />
+        app:layout_heightPercent="36%" />
 
 
     <android.support.v7.widget.RecyclerView
