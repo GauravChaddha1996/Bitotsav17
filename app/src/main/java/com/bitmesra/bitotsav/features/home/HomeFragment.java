@@ -60,15 +60,16 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         return view;
     }
 
+
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
         sliderLayout.startAutoCycle(4000, 4000, true);
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         sliderLayout.stopAutoCycle();
     }
 
@@ -161,7 +162,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         intent.putExtra("eventName", name);
         intent.putExtra("fetchNetwork", true);
         intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
-        startActivity(intent,options.toBundle());
+        startActivity(intent, options.toBundle());
     }
 
     @Override

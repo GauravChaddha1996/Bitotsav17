@@ -79,7 +79,7 @@
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        android:backgroundTint="@color/toolbar_text"
+        app:backgroundTint="@color/toolbar_text"
         android:onClick="onSubscribe"
         android:padding="-8dp"
         android:scaleType="center"

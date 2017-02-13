@@ -3,12 +3,12 @@ package com.bitmesra.bitotsav.features.events.adapters;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
@@ -120,7 +120,7 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         @BindView(R.id.timeline_item_time_venue)
         TextView timeVenue;
         @BindView(R.id.subscribedButton)
-        ImageView subscribedButton;
+        FloatingActionButton subscribedButton;
 
         TimelineViewHolder(View view) {
             super(view);

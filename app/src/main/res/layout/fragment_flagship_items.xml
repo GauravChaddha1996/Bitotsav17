@@ -46,16 +46,17 @@
             app:font="Lato/Lato_Regular.ttf" />
     </LinearLayout>
 
-    <ImageView
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/subscribedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_alignBottom="@+id/background_image"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_bell_circle"
-        android:src="@drawable/ic_bell"
-        android:transitionName="event_subscribe_button" />
+        android:padding="-8dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_no_bell"
+        android:transitionName="event_subscribe_button"
+        app:backgroundTint="@color/toolbar_text" />
 </RelativeLayout>

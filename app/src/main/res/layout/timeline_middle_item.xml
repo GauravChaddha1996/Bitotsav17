@@ -88,17 +88,17 @@
             android:textColor="@color/colorAccent"
             android:textSize="30sp"
             app:font="Oswald/Oswald_Regular.ttf" />
-
-        <ImageView
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/subscribedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/timeline_circle"
-            android:padding="4dp"
-            android:src="@drawable/ic_no_bell" />
+            android:padding="-8dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_no_bell"
+            app:backgroundTint="@color/toolbar_text" />
 
 
         <com.bitmesra.bitotsav.ui.CustomTextView

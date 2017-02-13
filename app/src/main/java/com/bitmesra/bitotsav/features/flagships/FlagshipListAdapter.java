@@ -3,6 +3,7 @@ package com.bitmesra.bitotsav.features.flagships;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,7 +99,7 @@ public class FlagshipListAdapter extends RecyclerView.Adapter<FlagshipListAdapte
         @BindView(R.id.background_image)
         ImageView backgroundImage;
         @BindView(R.id.subscribedButton)
-        ImageView subscribedButton;
+        FloatingActionButton subscribedButton;
 
         FlagshipItemViewHolder(View view) {
             super(view);
