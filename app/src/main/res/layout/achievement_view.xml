@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_feature_test"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context="com.bitmesra.bitotsav.feature_test.FeatureTestActivity">
+
+    <ImageView
+        android:id="@+id/mario_loading_image"
+        android:layout_width="64dp"
+        android:layout_height="96dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="96dp"
+        android:src="@drawable/mario_jumping"
+        android:visibility="gone" />
+
+    <com.bitmesra.bitotsav.ui.CustomTextView
+        android:id="@+id/mario_loading_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mario_loading_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-8dp"
+        android:paddingBottom="40dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="Loading..."
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:visibility="gone"
+        app:font="Lato/Lato_Regular.ttf" />
+</RelativeLayout>

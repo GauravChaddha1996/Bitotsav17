@@ -3,7 +3,7 @@
     package="com.bitmesra.bitotsav">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    
+
     <application
         android:name=".app.BitotsavApplication"
         android:allowBackup="true"
@@ -35,14 +35,22 @@
 
         <service android:name=".features.push.MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".features.push.FirebaseIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".feature_test.FeatureTestActivity">
+           <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
     </application>
 
 </manifest>

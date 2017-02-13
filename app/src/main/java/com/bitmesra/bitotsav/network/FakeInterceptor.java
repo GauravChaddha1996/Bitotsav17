@@ -86,7 +86,7 @@ public class FakeInterceptor implements Interceptor {
                 }
                 Log.d(TAG, "Response: " + responseStringBuilder.toString());
                 response = new Response.Builder()
-                        .code(200)
+                        .code(404)
                         .message(responseStringBuilder.toString())
                         .request(chain.request())
                         .protocol(Protocol.HTTP_1_0)

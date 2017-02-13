@@ -1,8 +1,6 @@
 package com.bitmesra.bitotsav.features.events.timeline;
 
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
@@ -24,18 +22,15 @@ import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.features.details.DetailsActivity;
 import com.bitmesra.bitotsav.features.events.adapters.TimelineListAdapter;
-import com.bitmesra.bitotsav.ui.AchievementUnlocked;
+import com.bitmesra.bitotsav.ui.AchievementHelper;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.bitmesra.bitotsav.utils.ItemClickSupport;
 import com.bitmesra.bitotsav.utils.Utils;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,13 +46,18 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     ImageView loadingImage;
     @BindView(R.id.loadingText)
     CustomTextView loadingText;
+    @BindView(R.id.mario_loading_image)
+    ImageView marioLoadingImage;
+    @BindView(R.id.mario_loading_text)
+    CustomTextView marioLoadingText;
+
     LinearLayoutManager layoutManager;
     TimelineListAdapter adapter;
     TimelinePresenter presenter;
     int dayNumber;
     private boolean stopAnimation = false;
     private boolean firstTime = true;
-    private AchievementUnlocked achievement;
+    private AchievementHelper achievementHelper;
 
     public TimelineFragment() {
         // Required empty public constructor
@@ -87,19 +87,13 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
 
     private void setUpTimelineView() {
         dayNumber = ((MainActivity) getActivity()).dayNumber;
+        achievementHelper = new AchievementHelper(getActivity(), marioLoadingImage, marioLoadingText);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         adapter = new TimelineListAdapter(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
-        achievement = new AchievementUnlocked(getActivity()).alignTop(false).setYOffset(50)
-                .isLarge(false)
-                .isPersistent(false)
-                .isRounded(true)
-                .setIcon(getResources().getDrawable(R.drawable.monster))
-                .setTitle("Loading timeline...")
-                .build();
         presenter.getTimelineEvents(dayNumber);
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
             Intent intent = new Intent(getActivity(), DetailsActivity.class);
@@ -163,7 +157,7 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
         refreshLayout.setRefreshing(true);
         if (firstTime) {
             refreshLayout.setEnabled(false);
-            achievement.show();
+            achievementHelper.startLoading();
         }
     }
 
@@ -171,41 +165,16 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     public void hideAchievment() {
         refreshLayout.setRefreshing(false);
         if (firstTime) {
-            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    achievement.title.setText("Loading Done!");
-                    fadeInHideAchievment();
-                }
-            }).start();
+            refreshLayout.setEnabled(true);
+            achievementHelper.stopLoading();
         }
-    }
-
-    private void fadeInHideAchievment() {
-        achievement.title.animate().alpha(1.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                firstTime = false;
-                refreshLayout.setEnabled(true);
-                Observable.just(1).delay(500, TimeUnit.MILLISECONDS)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(integer -> achievement.dismiss());
-            }
-        }).start();
     }
 
     @Override
     public void errorAchievment() {
         refreshLayout.setRefreshing(false);
         if (firstTime) {
-            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    achievement.title.setText("Oops!");
-                    achievement.title.setTextColor(getResources().getColor(R.color.page_indicator_dark_selected));
-                    fadeInHideAchievment();
-                }
-            }).start();
+            achievementHelper.errorLoading();
         }
     }
 }

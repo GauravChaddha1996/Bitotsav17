@@ -71,7 +71,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/star_subscribe"
         android:layout_width="48dp"
@@ -79,12 +78,12 @@
         android:layout_gravity="bottom|right"
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
-        app:backgroundTint="@color/toolbar_text"
         android:onClick="onSubscribe"
         android:padding="-8dp"
         android:scaleType="center"
         android:src="@drawable/ic_bell"
-        android:transitionName="event_subscribe_button" />
+        android:transitionName="event_subscribe_button"
+        app:backgroundTint="@color/toolbar_text" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
@@ -162,6 +161,19 @@
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/achievement_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp" />
+    </RelativeLayout>
 
     <android.support.percent.PercentRelativeLayout
         android:layout_width="match_parent"

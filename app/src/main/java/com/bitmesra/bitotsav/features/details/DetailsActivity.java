@@ -1,7 +1,5 @@
 package com.bitmesra.bitotsav.features.details;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,18 +16,14 @@ import android.widget.ImageView;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
-import com.bitmesra.bitotsav.ui.AchievementUnlocked;
+import com.bitmesra.bitotsav.ui.AchievementHelper;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.bitmesra.bitotsav.utils.Utils;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.concurrent.TimeUnit;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
 
 public class DetailsActivity extends AppCompatActivity implements DetailsViewInterface {
 
@@ -64,9 +58,14 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     ImageView frame_image;
     @BindView(R.id.background_image)
     ImageView background_image;
-    AchievementUnlocked achievement;
+    @BindView(R.id.mario_loading_image)
+    ImageView marioLoadingImage;
+    @BindView(R.id.mario_loading_text)
+    CustomTextView marioLoadingText;
+
     private boolean firstTime = true;
     private boolean stopAnimation = false;
+    private AchievementHelper achievementHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +84,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
                     getResources().getIdentifier(storedImageName, "drawable", getPackageName())
             ));
         }
+        achievementHelper = new AchievementHelper(this, marioLoadingImage, marioLoadingText);
+
         desc.setText(presenter.getDescription(eventName));
         toolbarTitle.setText(eventName);
         toolbarTitle.setAlpha(0f);
@@ -134,17 +135,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         rules.setText(eventDto.getRules());
         timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
         money.setText("Prize money: " + eventDto.getMoney());
-    }
-
-    @Override
-    protected void onDestroy() {
-        try {
-            achievement.dismissWithoutAnimation();
-        } catch (Exception e) {
-
-        } finally {
-            super.onDestroy();
-        }
     }
 
     @OnClick(R.id.star_subscribe)
@@ -197,17 +187,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     @Override
     public void showAchievment() {
-        achievement = new AchievementUnlocked(this).alignTop(false).setYOffset(100)
-                .isLarge(false)
-                .isPersistent(false)
-                .isRounded(true)
-                .setIcon(getResources().getDrawable(R.drawable.monster))
-                .setTitle("Loading...")
-                .build();
         refreshLayout.setRefreshing(true);
         if (firstTime) {
             refreshLayout.setEnabled(false);
-            achievement.show();
+            achievementHelper.startLoading();
         }
     }
 
@@ -215,41 +198,16 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     public void hideAchievment() {
         refreshLayout.setRefreshing(false);
         if (firstTime) {
-            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    achievement.title.setText("Done.");
-                    fadeInHideAchievment();
-                }
-            }).start();
+            refreshLayout.setEnabled(true);
+            achievementHelper.stopLoading();
         }
-    }
-
-    private void fadeInHideAchievment() {
-        achievement.title.animate().alpha(1.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                firstTime = false;
-                refreshLayout.setEnabled(true);
-                Observable.just(1).delay(500, TimeUnit.MILLISECONDS)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(integer -> achievement.dismiss());
-            }
-        }).start();
     }
 
     @Override
     public void errorAchievment() {
         refreshLayout.setRefreshing(false);
         if (firstTime) {
-            achievement.title.animate().alpha(0.0f).setDuration(200).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    achievement.title.setText("Oops!");
-                    achievement.title.setTextColor(getResources().getColor(R.color.page_indicator_dark_selected));
-                    fadeInHideAchievment();
-                }
-            }).start();
+            achievementHelper.errorLoading();
         }
     }
 }
