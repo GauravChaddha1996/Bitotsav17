@@ -97,10 +97,10 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         desc.animate().translationY(0).setDuration(1000).start();
         divider.setTranslationY(Utils.getScreenHeight(this));
         divider.animate().translationY(0).setDuration(1200).start();
-        money.setTranslationY(Utils.getScreenHeight(this));
-        money.animate().translationY(0).setDuration(1400).start();
         rules.setTranslationY(Utils.getScreenHeight(this));
-        rules.animate().translationY(0).setDuration(1500).start();
+        rules.animate().translationY(0).setDuration(1400).start();
+        money.setTranslationY(Utils.getScreenHeight(this));
+        money.animate().translationY(0).setDuration(1500).start();
 
 
         setSupportActionBar(toolbar);

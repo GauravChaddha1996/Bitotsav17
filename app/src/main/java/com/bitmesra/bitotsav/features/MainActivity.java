@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         currentFragment = newFragment;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.fade_in_slow,R.anim.fade_out_fast);
         transaction.replace(R.id.homeFrameLayout, newFragment);
         transaction.commit();
         appBarLayout.setExpanded(true, true);
