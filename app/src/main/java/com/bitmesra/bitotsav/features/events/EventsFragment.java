@@ -77,6 +77,10 @@ public class EventsFragment extends BaseFragment implements EventViewInterface {
                     ((MainActivity) getActivity()).dayNumber = 4;
                     ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
+                case "Day 5":
+                    ((MainActivity) getActivity()).dayNumber = 5;
+                    ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
+                    break;
                 case "Informals":
                     ((MainActivity) getActivity()).setFragment(IdForFragment.INFORMAL);
                     break;

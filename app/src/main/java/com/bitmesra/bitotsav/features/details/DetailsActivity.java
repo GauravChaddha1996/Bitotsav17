@@ -76,7 +76,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         eventName = getIntent().getStringExtra("eventName");
         eventDtoType = getIntent().getIntExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
         fetch = getIntent().getBooleanExtra("fetchNetwork", true);
-        firstTime = getIntent().getBooleanExtra("firstTime",true);
+        firstTime = getIntent().getBooleanExtra("firstTime", true);
 
         presenter = new DetailsPresenter(this, this);
         String storedImageName = presenter.getImageName(eventName);
@@ -96,11 +96,11 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         desc.setTranslationY(Utils.getScreenHeight(this));
         desc.animate().translationY(0).setDuration(1000).start();
         divider.setTranslationY(Utils.getScreenHeight(this));
-        divider.animate().translationY(0).setDuration(1000).start();
+        divider.animate().translationY(0).setDuration(1200).start();
         money.setTranslationY(Utils.getScreenHeight(this));
-        money.animate().translationY(0).setDuration(1000).start();
+        money.animate().translationY(0).setDuration(1400).start();
         rules.setTranslationY(Utils.getScreenHeight(this));
-        rules.animate().translationY(0).setDuration(1000).start();
+        rules.animate().translationY(0).setDuration(1500).start();
 
 
         setSupportActionBar(toolbar);
@@ -152,13 +152,15 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         if (presenter.isTopicSubscribed(eventName)) {
             FirebaseMessaging.getInstance().unsubscribeFromTopic(eventName.replaceAll(" ", ""));
             subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_no_bell));
-            Snackbar.make(desc, "You have unsubscribed from " + eventName, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(desc, "You have unsubscribed from " + eventName, Snackbar.LENGTH_LONG).show();
             presenter.unsubscribeFromTopic(eventName);
+            setResult(21);
         } else {
             subscribeButton.setImageDrawable(getDrawable(R.drawable.ic_bell));
-            Snackbar.make(desc, "You will now receive all FUTURE UPDATES for " + eventName, Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(desc, "You will now receive all FUTURE UPDATES for " + eventName, Snackbar.LENGTH_LONG).show();
             FirebaseMessaging.getInstance().subscribeToTopic(eventName.replaceAll(" ", ""));
             presenter.subscribeToTopic(eventName);
+            setResult(21);
         }
     }
 

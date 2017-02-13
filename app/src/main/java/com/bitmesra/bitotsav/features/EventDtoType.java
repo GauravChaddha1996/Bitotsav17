@@ -10,5 +10,6 @@ public class EventDtoType {
     public static final int TYPE_DAY2= 2;
     public static final int TYPE_DAY3= 3;
     public static final int TYPE_DAY4= 4;
+    public static final int TYPE_DAY5= 5;
     public static final int TYPE_INFORMAL = 5;
 }

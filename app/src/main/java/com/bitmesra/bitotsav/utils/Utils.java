@@ -37,6 +37,8 @@ public class Utils {
                 return EventDtoType.TYPE_DAY3;
             case 4:
                 return EventDtoType.TYPE_DAY4;
+            case 5:
+                return EventDtoType.TYPE_DAY5;
             default:
                 return EventDtoType.TYPE_DAY1;
         }
