@@ -6,7 +6,9 @@ import io.realm.annotations.PrimaryKey;
 /**
  * Created by Batdroid on 7/2/17 for Bitotsav.
  */
-
+/*
+Model which is stored in realm
+* */
 public class EventDto extends RealmObject {
     @PrimaryKey
     private String name;

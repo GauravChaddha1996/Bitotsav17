@@ -2,7 +2,9 @@ package com.bitmesra.bitotsav.features.push;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.media.RingtoneManager;
 import android.util.Log;
 import android.widget.Toast;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.utils.Foreground;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -49,12 +52,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             Toast.makeText(getApplicationContext(),
                                     "OH Hey! You got a new notification", Toast.LENGTH_SHORT).show();
                         });
-            }
-            if (!item.getFrom().equals("/topics/everyone")) {
+            } else {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK| Intent.FLAG_ACTIVITY_NEW_TASK);
                 Notification notification = new Notification.Builder(this)
                         .setContentTitle(item.getTitle())
                         .setContentText(item.getBody())
+                        .setContentIntent(PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT))
                         .setSmallIcon(R.mipmap.ic_launcher)
+                        .setAutoCancel(true)
                         .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                         .build();
                 NotificationManager notificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);

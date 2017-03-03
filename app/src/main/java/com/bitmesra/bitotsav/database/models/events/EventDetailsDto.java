@@ -3,7 +3,9 @@ package com.bitmesra.bitotsav.database.models.events;
 /**
  * Created by Batdroid on 7/2/17 for Bitotsav.
  */
-
+/*
+* Dto which is fetched from the internet
+* */
 public class EventDetailsDto {
     private String name;
     private String time;

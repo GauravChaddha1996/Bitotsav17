@@ -1,9 +1,6 @@
 package com.bitmesra.bitotsav.features.details;
 
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -50,10 +47,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     View divider;
     @BindView(R.id.star_subscribe)
     FloatingActionButton subscribeButton;
-    @BindView(R.id.loadingImage)
-    ImageView loadingImage;
-    @BindView(R.id.loadingText)
-    CustomTextView loadingText;
     @BindView(R.id.frame_image)
     ImageView frame_image;
     @BindView(R.id.background_image)
@@ -64,7 +57,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     CustomTextView marioLoadingText;
 
     private boolean firstTime = true;
-    private boolean stopAnimation = false;
     private AchievementHelper achievementHelper;
 
     @Override
@@ -154,36 +146,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         }
     }
 
-
-    @Override
-    public void showLoading() {
-        loadingImage.setVisibility(View.VISIBLE);
-        loadingText.setVisibility(View.VISIBLE);
-        AnimatedVectorDrawable vectorDrawable = (AnimatedVectorDrawable) getDrawable(R.drawable.play_pause_repeat_animated_vector);
-        loadingImage.setImageDrawable(vectorDrawable);
-        Handler handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                vectorDrawable.start();
-                if (!stopAnimation) sendEmptyMessageDelayed(0, 500);
-            }
-        };
-        handler.sendEmptyMessage(0);
-    }
-
-    @Override
-    public void hideLoading() {
-        stopAnimation = true;
-        loadingImage.setVisibility(View.GONE);
-        loadingText.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showError() {
-        stopAnimation = true;
-        loadingImage.setImageDrawable(getResources().getDrawable(R.drawable.error_mario));
-        loadingText.setText("Oops!");
-    }
 
     @Override
     public void showAchievment() {

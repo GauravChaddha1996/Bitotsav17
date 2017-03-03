@@ -121,9 +121,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return toReturnFragment;
     }
 
-    public BaseFragment getCurrentFragment() {
-        return currentFragment;
-    }
 
     public void setFragment(IdForFragment idForFragment) {
         if (currentFragment != null && idForFragment == currentFragment.getFragmentId()) {

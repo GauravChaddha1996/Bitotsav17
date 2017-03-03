@@ -75,25 +75,29 @@ public class FlagshipFragment extends BaseFragment implements FlagshipViewInterf
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                    Pair<View, String> pair1 = Pair.create(v.findViewById(R.id.background_image), "event_image");
-                    Pair<View, String> pair4 = Pair.create(v.findViewById(R.id.subscribedButton), "event_subscribe_button");
-                    ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), pair1, pair4);
-                    intent.putExtra("eventName", adapter.getEventName(position));
-                    intent.putExtra("fetchNetwork", true);
-                    intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
-                    startActivityForResult(intent, 20, options.toBundle());
+                    onFlagshipClick(v, position);
                 }
             }).start();
         });
+    }
+
+    private void onFlagshipClick(View v, int position) {
+        Intent intent = new Intent(getActivity(), DetailsActivity.class);
+        Pair<View, String> pair1 = Pair.create(v.findViewById(R.id.background_image), "event_image");
+        Pair<View, String> pair4 = Pair.create(v.findViewById(R.id.subscribedButton), "event_subscribe_button");
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), pair1, pair4);
+        intent.putExtra("eventName", adapter.getEventName(position));
+        intent.putExtra("fetchNetwork", true);
+        intent.putExtra("eventDtoType", EventDtoType.TYPE_FLAGSHIP);
+        startActivityForResult(intent, 20, options.toBundle());
+
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 20) {
             try {
-                int i;
-                for (i = 0; i < adapter.getItemCount(); i++) {
+                for (int i = 0; i < adapter.getItemCount(); i++) {
                     if (((FlagshipListAdapter.FlagshipItemViewHolder) recyclerView.getChildViewHolder(layoutManager.getChildAt(i)))
                             .eventName.getAlpha() == 0.0f) {
                         (recyclerView.getChildAt(i).findViewById(R.id.flagship_name)).animate().alpha(1f).setDuration(500).setListener(new AnimatorListenerAdapter() {

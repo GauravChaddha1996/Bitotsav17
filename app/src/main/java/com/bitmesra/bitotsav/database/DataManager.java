@@ -8,7 +8,6 @@ import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
-import com.bitmesra.bitotsav.features.EventDtoType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,7 @@ public class DataManager {
     }
 
     /**
-     * Event functions
+     * Event, timeline and flagship functions
      */
     public List<EventItem> getEventList() {
         List<EventItem> list = new ArrayList<>();
@@ -67,6 +66,10 @@ public class DataManager {
         list.add(new FlagshipItem("Talkies", "Short Film Making competition with theme related to the social theme of Bitotsav. ", R.drawable.talkies));
         return list;
     }
+
+    /**
+     * Helper events details functions
+     */
 
     public String getEventImageName(String name) {
         switch (name) {
@@ -113,16 +116,6 @@ public class DataManager {
             default:
                 return "";
         }
-    }
-
-    public List<EventDto> getInformalList() {
-        List<EventDto> list = new ArrayList<>();
-        list.add(new EventDto("Rangmanch", EventDtoType.TYPE_INFORMAL, "7 pm", "IC", 10000, "Some rules"));
-        list.add(new EventDto("I, Me, Myself", EventDtoType.TYPE_INFORMAL, "7 pm", "IC", 10000, "Some rules"));
-        list.add(new EventDto("Tune up together", EventDtoType.TYPE_INFORMAL, "7 pm", "IC", 10000, "Some rules"));
-        list.add(new EventDto("Foot loose", EventDtoType.TYPE_INFORMAL, "7 pm", "IC", 10000, "Some rules"));
-        list.add(new EventDto("Panacha", EventDtoType.TYPE_INFORMAL, "7 pm", "IC", 10000, "Some rules"));
-        return list;
     }
 
     /**

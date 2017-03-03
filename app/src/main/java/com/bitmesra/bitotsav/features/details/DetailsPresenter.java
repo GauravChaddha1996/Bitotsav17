@@ -24,13 +24,10 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     public void fetchDetailsDto(String name, int eventDtoType) {
         dataManager.getEventDetails(context, name)
                 .doOnSubscribe(() -> viewInterface.showAchievment())
-                .doOnNext(detailsDto -> {
-                    viewInterface.hideLoading();
-                    dataManager.getRealmManager()
-                            .saveDetailsDto(name, eventDtoType,
-                                    detailsDto.getTime(), detailsDto.getVenue(),
-                                    detailsDto.getMoney(), detailsDto.getRules());
-                })
+                .doOnNext(detailsDto -> dataManager.getRealmManager()
+                        .saveDetailsDto(name, eventDtoType,
+                                detailsDto.getTime(), detailsDto.getVenue(),
+                                detailsDto.getMoney(), detailsDto.getRules()))
                 .subscribe(detailsDto -> {
                             viewInterface.hideAchievment();
                             viewInterface.updateDetailView(new EventDto()
@@ -41,10 +38,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                                     .setMoney(detailsDto.getMoney())
                                     .setRules(detailsDto.getRules()));
                         },
-                        throwable -> {
-                            viewInterface.errorAchievment();
-                            viewInterface.showError();
-                        });
+                        throwable -> viewInterface.errorAchievment());
     }
 
     public void getDetailsDtoFromRealm(String name) {
@@ -52,8 +46,6 @@ public class DetailsPresenter implements DetailsPresenterInterface {
         if (dto != null) {
             dto.addChangeListener(element -> viewInterface.updateDetailView((EventDto) element));
             viewInterface.updateDetailView(dto);
-        } else {
-            viewInterface.showLoading();
         }
     }
 
@@ -75,6 +67,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     public String getImageName(String name) {
         return dataManager.getEventImageName(name);
     }
+
     public String getDescription(String name) {
         return dataManager.getEventDesc(name);
     }

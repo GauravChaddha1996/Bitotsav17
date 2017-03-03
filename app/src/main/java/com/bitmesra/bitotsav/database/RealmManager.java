@@ -22,6 +22,10 @@ public class RealmManager {
     public RealmManager() {
     }
 
+
+    /**
+     * Notifications functions
+     */
     public RealmResults<NotificationItem> getNotificationDto() {
         return Realm.getDefaultInstance().where(NotificationItem.class).findAllSorted("time", Sort.DESCENDING);
     }
@@ -40,10 +44,12 @@ public class RealmManager {
     }
 
 
+    /**
+     * Timeline functions
+     */
     public List<EventDto> getTimelineEvents(int dayNumber) {
         RealmResults<EventDto> realmResults = realm.where(EventDto.class)
                 .equalTo("eventDtoType", findEventDtoDayType(dayNumber)).findAll();
-        System.out.println(realmResults.toString());
         return realmResults;
     }
 
@@ -55,6 +61,9 @@ public class RealmManager {
         realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(dtos));
     }
 
+    /**
+     * Event details functions
+     */
     public EventDto getDetailsDto(String eventname) {
         return realm.where(EventDto.class).equalTo("name", eventname).findFirst();
     }
@@ -75,6 +84,10 @@ public class RealmManager {
             realm1.insertOrUpdate(dto);
         });
     }
+
+    /***
+     * Subscribed topic functions
+     */
 
     public boolean isTopicSubscribed(String name) {
         if (realm.where(SubscribedTopics.class).equalTo("topic", name).findFirst() != null) {

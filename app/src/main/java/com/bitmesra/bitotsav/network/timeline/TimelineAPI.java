@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.network.events.timeline;
+package com.bitmesra.bitotsav.network.timeline;
 
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 

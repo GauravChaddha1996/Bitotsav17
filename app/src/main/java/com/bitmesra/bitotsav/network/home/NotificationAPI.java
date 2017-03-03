@@ -14,5 +14,4 @@ import rx.Observable;
 public interface NotificationAPI {
     @GET(("/notifications"))
     Observable<List<NotificationItem>> getNotifications();
-
 }

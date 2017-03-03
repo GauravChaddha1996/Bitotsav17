@@ -20,7 +20,7 @@ public class BitotsavApplication extends Application {
         Realm.init(this);
         FirebaseMessaging.getInstance().subscribeToTopic("everyone");
         Foreground.init(this);
-        FontsOverride.setDefaultFont(this,"MONOSPACE", "fonts/Oswald/Oswald_Regular.ttf");
+        FontsOverride.setDefaultFont(this, "MONOSPACE", "fonts/Oswald/Oswald_Regular.ttf");
     }
 }
 

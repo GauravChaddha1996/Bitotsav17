@@ -3,7 +3,9 @@ package com.bitmesra.bitotsav.database.models.events;
 /**
  * Created by Batdroid on 5/2/17 for Bitotsav.
  */
-
+/*
+* Shown in flagship event list
+* */
 public class FlagshipItem {
     private String name;
     private String organizingClub;

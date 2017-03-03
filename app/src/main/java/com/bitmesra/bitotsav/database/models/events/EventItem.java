@@ -3,7 +3,9 @@ package com.bitmesra.bitotsav.database.models.events;
 /**
  * Created by Batdroid on 5/2/17 for Bitotsav.
  */
-
+/*
+* Shown in events list for day 1, day 2 etc.
+* */
 public class EventItem {
     private String type;
     private int backGroundImageId;
