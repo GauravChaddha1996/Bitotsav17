@@ -158,6 +158,27 @@
                     android:textSize="25sp"
                     app:font="Lato/Lato_Regular.ttf" />
 
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:id="@+id/detail_points"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="No. of points:"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    app:font="Lato/Lato_Regular.ttf" />
+
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:id="@+id/detail_participants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="No. of Participants"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="25sp"
+                    app:font="Lato/Lato_Regular.ttf" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>

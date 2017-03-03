@@ -2,10 +2,7 @@ package com.bitmesra.bitotsav.features.home;
 
 
 import android.content.Intent;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +17,7 @@ import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.details.DetailsActivity;
 import com.bitmesra.bitotsav.features.home.adapter.HomeNotificationAdapter;
+import com.bitmesra.bitotsav.ui.AchievementHelper;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -38,13 +36,15 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     SliderLayout sliderLayout;
     @BindView(R.id.homeNotificationRecyclerView)
     RecyclerView recyclerView;
-    @BindView(R.id.homeNotificationLoadingImage)
-    ImageView loadingImage;
-    @BindView(R.id.homeNotificationLoadingText)
-    CustomTextView loadingText;
+    @BindView(R.id.mario_loading_image)
+    ImageView marioLoadingImage;
+    @BindView(R.id.mario_loading_text)
+    CustomTextView marioLoadingText;
+
     private boolean stopAnimation = false;
     private HomeNotificationAdapter adapter;
     private LinearLayoutManager manager;
+    private AchievementHelper achievementHelper;
 
     public HomeFragment() {
     }
@@ -55,6 +55,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
         presenter = new HomePresenter(getActivity(), this);
+        achievementHelper = new AchievementHelper(getActivity(), marioLoadingImage, marioLoadingText);
         setUpSliderLayout();
         setUpNotificationRecyclerView();
         return view;
@@ -91,9 +92,9 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         nukkad.setOnSliderClickListener(slider -> startDetailsActivity("Nukkad"));
 
         TextSliderView mrmissbitotsav = new TextSliderView(getActivity());
-        mrmissbitotsav.description("Mr And Miss Bitotsav");
+        mrmissbitotsav.description("Mr. And Miss Bitotsav");
         mrmissbitotsav.image(R.drawable.mrmissbitotsav);
-        mrmissbitotsav.setOnSliderClickListener(slider -> startDetailsActivity("Mr And Miss Bitotsav"));
+        mrmissbitotsav.setOnSliderClickListener(slider -> startDetailsActivity("Mr. And Miss Bitotsav"));
 
         TextSliderView dancesaga = new TextSliderView(getActivity());
         dancesaga.image(R.drawable.dancesaga);
@@ -167,32 +168,17 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
 
     @Override
     public void showLoading() {
-        loadingImage.setVisibility(View.VISIBLE);
-        loadingText.setVisibility(View.VISIBLE);
-        AnimatedVectorDrawable vectorDrawable = (AnimatedVectorDrawable) getResources().getDrawable(R.drawable.play_pause_repeat_animated_vector);
-        loadingImage.setImageDrawable(vectorDrawable);
-        Handler handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                vectorDrawable.start();
-                if (!stopAnimation) sendEmptyMessageDelayed(0, 500);
-            }
-        };
-        handler.sendEmptyMessage(0);
+        achievementHelper.startLoading();
     }
 
     @Override
     public void hideLoading() {
-        stopAnimation = true;
-        loadingImage.setVisibility(View.GONE);
-        loadingText.setVisibility(View.GONE);
+        achievementHelper.stopLoading();
     }
 
     @Override
     public void showError() {
-        stopAnimation = true;
-        loadingImage.setImageDrawable(getResources().getDrawable(R.drawable.error_mario));
-        loadingText.setText("Oops!");
+        achievementHelper.errorLoading();
     }
 
     private void startAnimation() {

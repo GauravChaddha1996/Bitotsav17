@@ -68,20 +68,13 @@ public class RealmManager {
         return realm.where(EventDto.class).equalTo("name", eventname).findFirst();
     }
 
-    public void saveDetailsDto(String eventname, int eventDtoType, String time, String venue,
-                               int money, String rules) {
+    public void saveDetailsDto(EventDto eventDto) {
         realm.executeTransaction(realm1 -> {
-            EventDto dto = realm1.where(EventDto.class).equalTo("name", eventname).findFirst();
-            if (dto == null) {
-                dto = new EventDto();
-                dto.setName(eventname);
+            EventDto dto = realm1.where(EventDto.class).equalTo("_id", eventDto.get_id()).findFirst();
+            if (dto != null) {
+                dto.deleteFromRealm();
             }
-            dto.setEventDtoType(eventDtoType);
-            dto.setTime(time);
-            dto.setVenue(venue);
-            dto.setMoney(money);
-            dto.setRules(rules);
-            realm1.insertOrUpdate(dto);
+            realm1.insert(eventDto);
         });
     }
 

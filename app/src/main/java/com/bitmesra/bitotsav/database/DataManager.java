@@ -3,9 +3,9 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
+import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 
@@ -57,7 +57,7 @@ public class DataManager {
     public List<FlagshipItem> getFlagshipList() {
         List<FlagshipItem> list = new ArrayList<>();
         list.add(new FlagshipItem("Nukkad", "This is a street play competition.", R.drawable.nukkad));
-        list.add(new FlagshipItem("Mr And Miss Bitotsav", "This event provides a platform to the fashion enthusiasts", R.drawable.mrmissbitotsav));
+        list.add(new FlagshipItem("Mr. And Miss Bitotsav", "This event provides a platform to the fashion enthusiasts", R.drawable.mrmissbitotsav));
         list.add(new FlagshipItem("Rhapsody", "In this contest bands present musical performances from western genre and compete for the title. ", R.drawable.rhapsody));
         list.add(new FlagshipItem("Dance Saga", "This is a group event to showcase your dancing talent", R.drawable.dancesaga));
         list.add(new FlagshipItem("MUN", "If you could rule the world for a day, what would you do?", R.drawable.mun));
@@ -75,7 +75,7 @@ public class DataManager {
         switch (name) {
             case "Nukkad":
                 return "nukkad";
-            case "Mr And Miss Bitotsav":
+            case "Mr. And Miss Bitotsav":
                 return "mrmissbitotsav";
             case "Dance Saga":
                 return "dancesaga";
@@ -99,7 +99,7 @@ public class DataManager {
 
             case "Nukkad":
                 return "This is a street play competition. Addressing the social issues, this event full of powerpacked and energetic performances.";
-            case "Mr And Miss Bitotsav":
+            case "Mr. And Miss Bitotsav":
                 return "This event provides a platform to the fashion enthusiasts. The participants get a chance to showcase their personality and confidence.";
             case "Dance Saga":
                 return "This is a group event to showcase your dancing talent. The participants ostentatiously display their dance styles and leave the crowd wanting more.";
@@ -114,16 +114,45 @@ public class DataManager {
             case "Talkies":
                 return "Short Film Making competition with theme related to the social theme of Bitotsav";
             default:
-                return "";
+                return "Fetching the cool things about this event.... Just give us a sec";
+        }
+    }
+
+
+    public int getFlagshipId(String name) {
+        switch (name) {
+            case "Nukkad":
+                return 1;
+            case "Mr. And Miss Bitotsav":
+                return 2;
+            case "Rhapsody":
+                return 3;
+            case "Dance Saga":
+                return 4;
+            case "MUN":
+                return 5;
+            case "Saptak":
+                return 6;
+            case "Stomp The Yard":
+                return 7;
+            case "Talkies":
+                return 8;
+            default:
+                return 0;
         }
     }
 
     /**
      * Flagship functions
      */
-    public Observable<EventDetailsDto> getEventDetails(Context context, String eventName) {
+    public Observable<ExampleModel> getFlagshipEventDetails(Context context, int id) {
         createNetworkManager(context);
-        return networkManager.getEventDetails(eventName);
+        return networkManager.getFlagshipEventDetails(id);
+    }
+
+    public Observable<EventDto> getDayEventDetails(Context context, String id) {
+        createNetworkManager(context);
+        return networkManager.getDayEventDetails(id);
     }
 
 

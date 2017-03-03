@@ -38,22 +38,15 @@ public class TimelinePresenter implements TimelinePresenterInterface {
                     }
                 })
                 .subscribe(items -> {
-                            viewInterface.hideAchievment();
-                            viewInterface.hideLoading();
-                            viewInterface.updateTimelineEvents(items);
-                        },
-                        throwable -> {
-                            viewInterface.errorAchievment();
-                            viewInterface.showError();
-                        });
+                    viewInterface.hideAchievment();
+                    viewInterface.updateTimelineEvents(items);
+                }, throwable -> viewInterface.errorAchievment());
     }
 
     public void loadTimelineFromRealm(int dayNumber) {
         List<EventDto> list = dataManager.getRealmManager().getTimelineEvents(dayNumber);
         if (list.size() > 0) {
             viewInterface.updateTimelineEvents(list);
-        } else {
-            viewInterface.showLoading();
         }
     }
 }

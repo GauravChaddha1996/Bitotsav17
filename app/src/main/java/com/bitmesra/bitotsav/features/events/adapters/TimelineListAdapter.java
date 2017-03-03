@@ -57,9 +57,10 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         EventDto item = items.get(position);
         holder.name.setText(item.getName());
         holder.timeVenue.setText(item.getTime() + " at " + item.getVenue());
-        if(DataManager.getDataManager().getRealmManager().isTopicSubscribed(item.getName())) {
+        holder.timeDesc.setText(item.getDescription());
+        if (DataManager.getDataManager().getRealmManager().isTopicSubscribed(item.getName())) {
             holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_bell));
-        }else{
+        } else {
             holder.subscribedButton.setImageDrawable(context.getDrawable(R.drawable.ic_no_bell));
         }
         runEnterAnimation(holder.itemView, position);
@@ -110,6 +111,10 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         return items.get(pos).getName();
     }
 
+    public String getEventId(int pos) {
+        return items.get(pos).get_id();
+    }
+
     public void setItems(List<EventDto> items) {
         this.items = items;
     }
@@ -119,6 +124,8 @@ public class TimelineListAdapter extends RecyclerView.Adapter<TimelineListAdapte
         TextView name;
         @BindView(R.id.timeline_item_time_venue)
         TextView timeVenue;
+        @BindView(R.id.timeline_item_desc)
+        TextView timeDesc;
         @BindView(R.id.subscribedButton)
         FloatingActionButton subscribedButton;
 

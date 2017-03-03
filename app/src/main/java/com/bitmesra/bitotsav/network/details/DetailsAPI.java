@@ -1,6 +1,7 @@
 package com.bitmesra.bitotsav.network.details;
 
-import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
+import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -11,6 +12,9 @@ import rx.Observable;
  */
 
 public interface DetailsAPI {
-    @GET("/events")
-    Observable<EventDetailsDto> getEventDetails(@Query("name") String flagshipName);
+    @GET("/events/day")
+    Observable<EventDto> getDayEventDetails(@Query("id") String id);
+
+    @GET("/events/flagship")
+    Observable<ExampleModel> getFlagshipEventDetails(@Query("id") int id);
 }

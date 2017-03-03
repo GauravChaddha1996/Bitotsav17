@@ -2,10 +2,7 @@ package com.bitmesra.bitotsav.features.events.timeline;
 
 
 import android.content.Intent;
-import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,10 +39,6 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     RecyclerView recyclerView;
     @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
-    @BindView(R.id.loadingImage)
-    ImageView loadingImage;
-    @BindView(R.id.loadingText)
-    CustomTextView loadingText;
     @BindView(R.id.mario_loading_image)
     ImageView marioLoadingImage;
     @BindView(R.id.mario_loading_text)
@@ -55,7 +48,6 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     TimelineListAdapter adapter;
     TimelinePresenter presenter;
     int dayNumber;
-    private boolean stopAnimation = false;
     private boolean firstTime = true;
     private AchievementHelper achievementHelper;
 
@@ -98,6 +90,7 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) -> {
             Intent intent = new Intent(getActivity(), DetailsActivity.class);
             intent.putExtra("eventName", adapter.getEventName(position));
+            intent.putExtra("id", adapter.getEventId(position));
             intent.putExtra("fetchNetwork", false);
             intent.putExtra("firstTime", false);
             intent.putExtra("eventDtoType", Utils.findEventDtoDayType(dayNumber));
@@ -108,7 +101,6 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
 
     @Override
     public void updateTimelineEvents(List<EventDto> items) {
-        hideLoading();
         adapter.setItems(items);
         adapter.notifyDataSetChanged();
     }
@@ -117,38 +109,6 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 6993) {
             presenter.loadTimelineFromRealm(dayNumber);
-        }
-    }
-
-    @Override
-    public void showLoading() {
-        loadingImage.setVisibility(View.VISIBLE);
-        loadingText.setVisibility(View.VISIBLE);
-        AnimatedVectorDrawable vectorDrawable = (AnimatedVectorDrawable) getActivity().getDrawable(R.drawable.play_pause_repeat_animated_vector);
-        loadingImage.setImageDrawable(vectorDrawable);
-        Handler handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                vectorDrawable.start();
-                if (!stopAnimation) sendEmptyMessageDelayed(0, 500);
-            }
-        };
-        handler.sendEmptyMessage(0);
-    }
-
-    @Override
-    public void hideLoading() {
-        stopAnimation = true;
-        loadingImage.setVisibility(View.GONE);
-        loadingText.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showError() {
-        if (adapter.getItemCount() == 0) {
-            stopAnimation = true;
-            loadingImage.setImageDrawable(getResources().getDrawable(R.drawable.error_mario));
-            loadingText.setText("Oops!");
         }
     }
 

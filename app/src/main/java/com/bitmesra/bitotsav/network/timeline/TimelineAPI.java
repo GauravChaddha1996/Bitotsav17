@@ -13,6 +13,6 @@ import rx.Observable;
  */
 
 public interface TimelineAPI {
-    @GET("/timeline")
+    @GET("/events/day")
     Observable<List<EventDto>> getTimeline(@Query("day") int dayNumber);
 }

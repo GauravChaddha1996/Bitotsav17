@@ -2,12 +2,12 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
-import com.bitmesra.bitotsav.database.models.events.EventDetailsDto;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
-import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
+import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
 
 import java.util.List;
 
@@ -47,9 +47,15 @@ public class NetworkManager {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<EventDetailsDto> getEventDetails(String eventName) {
-        return retrofit.create(DetailsAPI.class).getEventDetails(eventName)
+    public Observable<EventDto> getDayEventDetails(String id) {
+        return retrofit.create(DetailsAPI.class).getDayEventDetails(id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
+    public Observable<ExampleModel> getFlagshipEventDetails(int id) {
+        return retrofit.create(DetailsAPI.class).getFlagshipEventDetails(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
 }

@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.events.ExampleModel;
+import com.bitmesra.bitotsav.features.EventDtoType;
 
 /**
  * Created by Batdroid on 7/2/17 for Bitotsav.
@@ -21,24 +23,31 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     }
 
     @Override
-    public void fetchDetailsDto(String name, int eventDtoType) {
-        dataManager.getEventDetails(context, name)
-                .doOnSubscribe(() -> viewInterface.showAchievment())
-                .doOnNext(detailsDto -> dataManager.getRealmManager()
-                        .saveDetailsDto(name, eventDtoType,
-                                detailsDto.getTime(), detailsDto.getVenue(),
-                                detailsDto.getMoney(), detailsDto.getRules()))
-                .subscribe(detailsDto -> {
-                            viewInterface.hideAchievment();
-                            viewInterface.updateDetailView(new EventDto()
-                                    .setName(name)
-                                    .setEventDtoType(eventDtoType)
-                                    .setTime(detailsDto.getTime())
-                                    .setVenue(detailsDto.getVenue())
-                                    .setMoney(detailsDto.getMoney())
-                                    .setRules(detailsDto.getRules()));
-                        },
-                        throwable -> viewInterface.errorAchievment());
+    public void fetchDetailsDto(String name, String id, int eventDtoType) {
+        if (eventDtoType == EventDtoType.TYPE_FLAGSHIP) {
+            dataManager.getFlagshipEventDetails(context, getFlagshipId(name))
+                    .doOnSubscribe(() -> viewInterface.showAchievment())
+                    .doOnNext(eventDto -> dataManager.getRealmManager()
+                            .saveDetailsDto(eventDtoFromExampleModel(name, eventDto)))
+                    .subscribe(eventDto -> {
+                        viewInterface.hideAchievment();
+                        viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDto));
+                    }, throwable -> {
+                        throwable.printStackTrace();
+                        viewInterface.errorAchievment();
+                    });
+        } else {
+            dataManager.getDayEventDetails(context, id)
+                    .doOnSubscribe(() -> viewInterface.showAchievment())
+                    .doOnNext(detailsDto -> dataManager.getRealmManager()
+                            .saveDetailsDto(detailsDto))
+                    .subscribe(detailsDto -> {
+                                viewInterface.hideAchievment();
+                                viewInterface.updateDetailView(detailsDto);
+                            },
+                            throwable -> viewInterface.errorAchievment());
+
+        }
     }
 
     public void getDetailsDtoFromRealm(String name) {
@@ -46,6 +55,8 @@ public class DetailsPresenter implements DetailsPresenterInterface {
         if (dto != null) {
             dto.addChangeListener(element -> viewInterface.updateDetailView((EventDto) element));
             viewInterface.updateDetailView(dto);
+        } else {
+            viewInterface.partialUpdateDetailView();
         }
     }
 
@@ -70,5 +81,23 @@ public class DetailsPresenter implements DetailsPresenterInterface {
 
     public String getDescription(String name) {
         return dataManager.getEventDesc(name);
+    }
+
+    private int getFlagshipId(String name) {
+        return dataManager.getFlagshipId(name);
+    }
+
+
+    private EventDto eventDtoFromExampleModel(String name, ExampleModel exampleModel) {
+        return new EventDto()
+                .setName(name)
+                .set_id(exampleModel.getId())
+                .setTime(exampleModel.getTime())
+                .setVenue(exampleModel.getVenue())
+                .setDescription(exampleModel.getDescription())
+                .setEventDtoType(EventDtoType.TYPE_FLAGSHIP)
+                .setMoney(exampleModel.getMoney())
+                .setPoints(exampleModel.getPoints())
+                .setParticipantsCount(exampleModel.getParticipantsCount());
     }
 }

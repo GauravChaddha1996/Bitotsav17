@@ -10,5 +10,6 @@ public interface DetailsViewInterface {
     void showAchievment();
     void hideAchievment();
     void errorAchievment();
+    void partialUpdateDetailView();
     void updateDetailView(EventDto eventDto);
 }
