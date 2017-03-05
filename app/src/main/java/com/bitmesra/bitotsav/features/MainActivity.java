@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
+        navView.setItemIconTintList(null);
     }
 
     private BaseFragment handleNavViewTransition(IdForFragment idForFragment) {

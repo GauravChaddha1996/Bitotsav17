@@ -67,7 +67,8 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_weight="50"
-                android:scaleType="center"
+                android:padding="8dp"
+                android:scaleType="fitCenter"
                 android:src="@drawable/sponsor_copresented_hp" />
 
             <ImageView
@@ -75,7 +76,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_weight="50"
-                android:scaleType="center"
+                android:padding="8dp"
                 android:src="@drawable/sponsor_copresented_intel" />
         </LinearLayout>
 
@@ -103,37 +104,72 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/csa_other_sponsors"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+
                 <ImageView
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:scaleType="centerInside"
+                    android:layout_weight="50"
                     android:src="@drawable/sponsors_telecom" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
+                    android:layout_weight="50"
                     android:src="@drawable/sponsor_payment" />
 
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
+                    android:layout_weight="50"
                     android:src="@drawable/sponsor_food" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Telecom Partner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Payment Gateway Partner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Food \nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -172,6 +208,43 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Major\nSponsor"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Event\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Poker\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
@@ -196,6 +269,43 @@
                     android:layout_margin="8dp"
                     android:layout_weight="33"
                     android:src="@drawable/sponsor_banking" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Major\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Event\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Banking\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -228,6 +338,44 @@
                     android:layout_weight="33"
                     android:src="@drawable/sponsor_csr" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Art and Craft\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Driven By\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="CSR\nPartner"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
 
         </LinearLayout>
 
