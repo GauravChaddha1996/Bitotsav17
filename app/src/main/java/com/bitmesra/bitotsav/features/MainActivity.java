@@ -24,6 +24,8 @@ import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 
+import java.util.Random;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -93,6 +95,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
         navView.setItemIconTintList(null);
+        final int random = new Random().nextInt();
+        switch (random % 3) {
+            case 0:
+                navView.inflateHeaderView(R.layout.nav_header_1);
+                break;
+            case 1:
+                navView.inflateHeaderView(R.layout.nav_header_2);
+                break;
+            case 2:
+                navView.inflateHeaderView(R.layout.nav_header_3);
+                break;
+            default:
+                navView.inflateHeaderView(R.layout.nav_header_2);
+                break;
+        }
     }
 
     private BaseFragment handleNavViewTransition(IdForFragment idForFragment) {
@@ -131,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         currentFragment = newFragment;
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.setCustomAnimations(R.anim.fade_in_slow,R.anim.fade_out_fast);
+        transaction.setCustomAnimations(R.anim.fade_in_slow, R.anim.fade_out_fast);
         transaction.replace(R.id.homeFrameLayout, newFragment);
         transaction.commit();
         appBarLayout.setExpanded(true, true);

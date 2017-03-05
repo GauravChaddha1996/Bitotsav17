@@ -21,7 +21,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@drawable/nav_background"
-        app:headerLayout="@layout/nav_header_home"
         app:itemTextAppearance="@style/NavTextStyle"
         app:menu="@menu/activity_home_drawer" />
 

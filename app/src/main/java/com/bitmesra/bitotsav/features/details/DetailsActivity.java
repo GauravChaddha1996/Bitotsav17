@@ -6,9 +6,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
@@ -94,9 +99,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         refreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
         refreshLayout.setOnRefreshListener(() -> {
-            if (!refreshLayout.isRefreshing()) {
-                presenter.fetchDetailsDto(eventName, eventId, eventDtoType);
-            }
+            presenter.fetchDetailsDto(eventName, eventId, eventDtoType);
         });
         if (fetch) {
             presenter.fetchDetailsDto(eventName, eventId, eventDtoType);
@@ -120,21 +123,61 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
 
     @Override
     public void updateDetailView(EventDto eventDto) {
-        timeVenue.setVisibility(View.VISIBLE);
-        money.setVisibility(View.VISIBLE);
-        rules.setVisibility(View.VISIBLE);
-        points.setVisibility(View.VISIBLE);
-        participants.setVisibility(View.VISIBLE);
-
-        if (eventDto.getName() != null) toolbarTitle.setText(eventDto.getName());
-        if (eventDto.getDescription() != null) desc.setText(eventDto.getDescription());
-        if (eventDto.getTime() != null && eventDto.getVenue() != null)
-            timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
-        if (eventDto.getMoney() != null) money.setText("Prize Money: " + eventDto.getMoney());
-        if (eventDto.getRules() != null) rules.setText(eventDto.getRules());
-        if (eventDto.getPoints() != null) points.setText(eventDto.getPoints());
-        if (eventDto.getParticipantsCount() != null)
-            participants.setText(eventDto.getNoOfParticipants());
+        if (eventDto.getName() != null) {
+            if (!eventDto.getName().trim().isEmpty()) {
+                toolbarTitle.setText(eventDto.getName());
+            }
+        }
+        if (eventDto.getDescription() != null) {
+            desc.setText(eventDto.getDescription());
+        }
+        if (eventDto.getTime() != null && eventDto.getVenue() != null) {
+            if (!eventDto.getTime().trim().isEmpty() && !eventDto.getVenue().trim().isEmpty()) {
+                timeVenue.setVisibility(View.VISIBLE);
+                timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
+            } else {
+                timeVenue.setVisibility(View.GONE);
+            }
+        }
+        if (eventDto.getMoney() != null) {
+            if (!eventDto.getMoney().trim().isEmpty()) {
+                money.setVisibility(View.VISIBLE);
+                money.setText("Prize Money: " + eventDto.getMoney());
+            } else {
+                money.setVisibility(View.GONE);
+            }
+        }
+        if (eventDto.getRules() != null) {
+            if (!eventDto.getRules().trim().isEmpty()) {
+                rules.setVisibility(View.VISIBLE);
+                Spannable spannable = new SpannableString("Rules:\n" + eventDto.getRules());
+                spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.card_text)), 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                rules.setText(spannable, TextView.BufferType.SPANNABLE);
+            } else {
+                rules.setVisibility(View.GONE);
+            }
+        }
+        if (eventDto.getPoints() != null) {
+            if (!eventDto.getPoints().trim().isEmpty()) {
+                Spannable spannable = new SpannableString("Points:\n" + eventDto.getPoints());
+                spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorAccent)), 0, 7, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                points.setText(spannable, TextView.BufferType.SPANNABLE);
+                points.setVisibility(View.VISIBLE);
+            } else {
+                points.setVisibility(View.GONE);
+            }
+        }
+        if (eventDto.getParticipantsCount() != null) {
+            if (!eventDto.getParticipantsCount().trim().isEmpty()) {
+                participants.setVisibility(View.VISIBLE);
+                String s = "No. of participants: ";
+                Spannable spannable = new SpannableString(s + eventDto.getParticipantsCount());
+                spannable.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorAccent)), 0, s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                participants.setText(spannable, TextView.BufferType.SPANNABLE);
+            } else {
+                participants.setVisibility(View.GONE);
+            }
+        }
         if (eventDto.getImageurl() != null) {
             if (!eventDto.getImageurl().trim().isEmpty()) {
                 Picasso.with(this).load(eventDto.getImageurl()).into(background_image);
@@ -199,11 +242,11 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         timeVenue.animate().translationY(0f).setDuration(1000).start();
         desc.setTranslationY(Utils.getScreenHeight(this));
         desc.animate().translationY(0).setDuration(1000).start();
-        divider.setTranslationY(Utils.getScreenHeight(this));
-        divider.animate().translationY(0).setDuration(1200).start();
-        rules.setTranslationY(Utils.getScreenHeight(this));
-        rules.animate().translationY(0).setDuration(1400).start();
         money.setTranslationY(Utils.getScreenHeight(this));
-        money.animate().translationY(0).setDuration(1500).start();
+        money.animate().translationY(0).setDuration(1200).start();
+        divider.setTranslationY(Utils.getScreenHeight(this));
+        divider.animate().translationY(0).setDuration(1400).start();
+        rules.setTranslationY(Utils.getScreenHeight(this));
+        rules.animate().translationY(0).setDuration(1500).start();
     }
 }

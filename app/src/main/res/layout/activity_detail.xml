@@ -107,10 +107,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:gravity="center"
+                    android:paddingLeft="4dp"
                     android:text="9pm at Shor bagh"
                     android:textColor="@color/card_text"
-                    android:textSize="20sp"
+                    android:textSize="21sp"
                     android:transitionName="event_title_time_venue"
                     app:font="Lato/Lato_Regular.ttf" />
 
@@ -119,12 +119,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:padding="4dp"
                     android:text="@string/sample_desc"
                     android:textColor="@color/darker_white"
                     android:textSize="21sp"
                     android:transitionName="event_desc"
                     app:font="Lato/Lato_Regular.ttf"
                     tools:text="@string/sample_desc_small" />
+
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:id="@+id/detail_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="Prize money"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="24sp"
+                    app:font="Lato/Lato_Regular.ttf" />
 
                 <View
                     android:id="@+id/divider"
@@ -148,36 +160,23 @@
                     tools:text="These are some rules" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:id="@+id/detail_money"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:text="Prize money: 15000"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="25sp"
-                    app:font="Lato/Lato_Regular.ttf" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:id="@+id/detail_points"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:text="No. of points:"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="25sp"
+                    android:textColor="@color/card_text"
+                    android:textSize="21sp"
                     app:font="Lato/Lato_Regular.ttf" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:id="@+id/detail_participants"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:text="No. of Participants"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="25sp"
+                    android:textColor="@color/card_text"
+                    android:textSize="21sp"
                     app:font="Lato/Lato_Regular.ttf" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
@@ -185,42 +184,15 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        app:layout_heightPercent="50%"
         android:layout_gravity="bottom"
-        android:layout_height="wrap_content">
+        app:layout_heightPercent="50%">
 
         <include
             layout="@layout/achievement_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </RelativeLayout>
-
-    <android.support.percent.PercentRelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/loadingImage"
-            android:layout_width="wrap_content"
-            android:layout_centerInParent="true"
-            android:src="@drawable/play_pause_repeat_vector"
-            android:visibility="gone"
-            app:layout_heightPercent="30%"
-            app:layout_widthPercent="50%" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:id="@+id/loadingText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/loadingImage"
-            android:gravity="center"
-            android:text="Loading..."
-            android:textColor="@color/card_text"
-            android:textSize="35sp"
-            android:visibility="gone"
-            app:font="Lato/Lato_Regular.ttf" />
-
-    </android.support.percent.PercentRelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
