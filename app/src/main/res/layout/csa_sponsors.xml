@@ -45,10 +45,28 @@
             android:background="@color/colorAccent" />
 
         <com.bitmesra.bitotsav.ui.CustomTextView
-            android:id="@+id/csa_copresented"
+            android:id="@+id/csa_title_sponsor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/csa_our_sponsors_underline"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:text="Title Sponsor"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
+
+        <ImageView
+            android:id="@+id/title_sponsor"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/csa_title_sponsor"
+            android:src="@drawable/sponsor_title" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/csa_copresented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_sponsor"
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Co-presented by"
