@@ -44,7 +44,7 @@
             android:layout_marginRight="16dp"
             android:background="@color/colorAccent" />
 
-        <TextView
+        <com.bitmesra.bitotsav.ui.CustomTextView
             android:id="@+id/csa_copresented"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
             android:layout_marginRight="16dp"
             android:background="@color/colorAccent" />
 
-        <TextView
+        <com.bitmesra.bitotsav.ui.CustomTextView
             android:id="@+id/csa_other_sponsors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -141,15 +141,15 @@
                 android:orientation="horizontal">
 
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
-                    android:text="Telecom Partner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:text="Telecom\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -158,18 +158,18 @@
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Payment Gateway Partner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
-                    android:text="Food \nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:text="Food\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -209,35 +209,35 @@
                 android:orientation="horizontal">
 
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Major\nSponsor"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Event\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Poker\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -277,35 +277,35 @@
                 android:orientation="horizontal">
 
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Major\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Event\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Banking\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -345,35 +345,35 @@
                 android:orientation="horizontal">
 
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Art and Craft\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="Driven By\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
 
-                <TextView
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="50"
                     android:gravity="center"
                     android:text="CSR\nPartner"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="16sp" />
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
             </LinearLayout>
 
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/card_background"
+    app:cardCornerRadius="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/about_card_backgrnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:src="@drawable/praneet_cover" />
+
+        <com.bitmesra.bitotsav.ui.RoundedImageView
+            android:id="@+id/praneet_dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_below="@+id/about_card_backgrnd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-80dp"
+            android:background="@drawable/timeline_circle"
+            android:src="@drawable/praneetdp" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/praneet_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/praneet_dp"
+            android:gravity="center"
+            android:text="Praneet Mathur"
+            android:textColor="@color/colorAccent"
+            android:textSize="36sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/praneet_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/praneet_name"
+            android:gravity="center"
+            android:text="UI Designer"
+            android:textColor="@color/card_text"
+            android:textSize="30sp"
+            app:font="Lato/Lato_Light.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/praneet_desc"
+            android:layout_marginBottom="16dp"
+            android:autoLink="web"
+            android:gravity="center"
+            android:text="praneetmathur.me"
+            android:textColorLink="@color/card_text"
+            android:textSize="24sp"
+            app:font="Lato/Lato_Light.ttf" />
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
