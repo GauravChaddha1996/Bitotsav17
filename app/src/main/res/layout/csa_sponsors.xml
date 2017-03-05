@@ -21,162 +21,217 @@
     android:background="@color/background"
     android:nestedScrollingEnabled="true">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="wrap_content"
+            android:id="@+id/csa_our_sponsors"
+            android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Sponsorship"
+            android:gravity="center_horizontal"
+            android:text="Our Sponsors"
             android:textColor="@color/colorAccent"
             android:textSize="60sp"
             app:font="Oswald/Oswald_Regular.ttf" />
 
         <View
+            android:id="@+id/csa_our_sponsors_underline"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@+id/csa_our_sponsors"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/colorAccent" />
 
-        <com.bitmesra.bitotsav.ui.CustomTextView
+        <TextView
+            android:id="@+id/csa_copresented"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/csa_our_sponsors_underline"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Akshay Deshmukh"
+            android:text="Co-presented by"
             android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
+            android:textSize="30dp" />
 
-        <com.bitmesra.bitotsav.ui.CustomTextView
+        <LinearLayout
+            android:id="@+id/csa_copresenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Student Coordinator"
-            android:textColor="@color/card_text"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            android:layout_below="@+id/csa_copresented"
+            android:orientation="horizontal">
 
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="7319731290"
-            android:textColor="@color/darker_white"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:scaleType="center"
+                android:src="@drawable/sponsor_copresented_hp" />
 
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Dev Pratim"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Finance and sponsorship"
-            android:textColor="@color/card_text"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="7250429526"
-            android:textColor="@color/darker_white"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sanjeev Ranjan"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Finance and sponsorship"
-            android:textColor="@color/card_text"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="8002230046"
-            android:textColor="@color/darker_white"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Harshit Raj Garhia"
-            android:textColor="@color/colorAccent"
-            android:textSize="30sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Finance and sponsorship"
-            android:textColor="@color/card_text"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="9934930036"
-            android:textColor="@color/darker_white"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_weight="50"
+                android:scaleType="center"
+                android:src="@drawable/sponsor_copresented_intel" />
+        </LinearLayout>
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <View
+            android:id="@+id/csa_our_sponsors_underline_two"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@+id/csa_copresenter"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/colorAccent" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <com.bitmesra.bitotsav.ui.CustomTextView
+        <TextView
+            android:id="@+id/csa_other_sponsors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
+            android:layout_below="@+id/csa_our_sponsors_underline_two"
+            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="bitotsav.in"
+            android:text="Other Sponsors"
             android:textColor="@color/colorAccent"
-            android:textSize="24sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            android:textSize="30dp" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/csa_other_sponsors"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsors_telecom" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_payment" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_food" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_major_sbi" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_event_discovery" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_poker" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_major" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_event" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_banking" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_arts_crafts" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_driven_by" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_csr" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </ScrollView>

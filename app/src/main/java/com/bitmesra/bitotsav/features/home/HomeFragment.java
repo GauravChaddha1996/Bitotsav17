@@ -40,6 +40,8 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
     ImageView marioLoadingImage;
     @BindView(R.id.mario_loading_text)
     CustomTextView marioLoadingText;
+    @BindView(R.id.achievemnt_loading_holder)
+    View achievemntHolder;
 
     private boolean stopAnimation = false;
     private HomeNotificationAdapter adapter;
@@ -55,7 +57,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
         presenter = new HomePresenter(getActivity(), this);
-        achievementHelper = new AchievementHelper(getActivity(), marioLoadingImage, marioLoadingText);
+        achievementHelper = new AchievementHelper(getActivity(), achievemntHolder, marioLoadingImage, marioLoadingText);
         setUpSliderLayout();
         setUpNotificationRecyclerView();
         return view;

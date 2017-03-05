@@ -43,6 +43,8 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     ImageView marioLoadingImage;
     @BindView(R.id.mario_loading_text)
     CustomTextView marioLoadingText;
+    @BindView(R.id.achievemnt_loading_holder)
+    View achievemntHolder;
 
     LinearLayoutManager layoutManager;
     TimelineListAdapter adapter;
@@ -79,7 +81,7 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
 
     private void setUpTimelineView() {
         dayNumber = ((MainActivity) getActivity()).dayNumber;
-        achievementHelper = new AchievementHelper(getActivity(), marioLoadingImage, marioLoadingText);
+        achievementHelper = new AchievementHelper(getActivity(), achievemntHolder, marioLoadingImage, marioLoadingText);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
         adapter = new TimelineListAdapter(getActivity());
@@ -91,8 +93,8 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
             Intent intent = new Intent(getActivity(), DetailsActivity.class);
             intent.putExtra("eventName", adapter.getEventName(position));
             intent.putExtra("id", adapter.getEventId(position));
-            intent.putExtra("fetchNetwork", false);
-            intent.putExtra("firstTime", false);
+            intent.putExtra("fetchNetwork", true);
+            intent.putExtra("firstTime", true);
             intent.putExtra("eventDtoType", Utils.findEventDtoDayType(dayNumber));
             startActivityForResult(intent, 6993);
         });
@@ -108,7 +110,7 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 6993) {
-            presenter.loadTimelineFromRealm(dayNumber);
+            //presenter.loadTimelineFromRealm(dayNumber);
         }
     }
 

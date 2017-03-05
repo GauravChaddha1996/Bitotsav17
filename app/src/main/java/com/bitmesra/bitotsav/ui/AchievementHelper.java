@@ -25,19 +25,24 @@ public class AchievementHelper {
     boolean isSuccess;
     ViewPropertyAnimator mario_image_animator;
     ViewPropertyAnimator mario_text_animator;
+    View holder;
 
-    public AchievementHelper(Context context, ImageView mario_image, TextView mario_text) {
+    public AchievementHelper(Context context, View achievemntHolder, ImageView mario_image, TextView mario_text) {
         this.context = context;
+        this.holder = achievemntHolder;
         this.mario_image = mario_image;
         this.mario_text = mario_text;
     }
 
     public void startLoading() {
         stopLoading = false;
+        mario_image.setImageDrawable(context.getDrawable(R.drawable.mario_jumping));
         mario_text.setText("Loading...");
         mario_text.setTranslationY(Utils.getScreenHeight(context));
         mario_image.setTranslationY(Utils.getScreenHeight(context));
         mario_image.setVisibility(View.VISIBLE);
+        holder.setVisibility(View.VISIBLE);
+        holder.animate().alpha(1f).setDuration(100).start();
         mario_text.setVisibility(View.VISIBLE);
         mario_text.animate().translationY(0).setDuration(500).start();
         mario_image_animator = mario_image.animate().translationY(0).setDuration(500).setListener(new AnimatorListenerAdapter() {
@@ -103,6 +108,7 @@ public class AchievementHelper {
             }
         });
         mario_text_animator.start();
+        holder.animate().alpha(0f).setDuration(3000).start();
         mario_image_animator = mario_image.animate().rotationBy(360).setDuration(1000).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -114,6 +120,7 @@ public class AchievementHelper {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         mario_text_animator.setListener(null);
+                        holder.setVisibility(View.GONE);
                     }
                 });
                 mario_image_animator.start();

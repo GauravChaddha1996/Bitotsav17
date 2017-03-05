@@ -71,11 +71,11 @@ public class CSAActivity extends Activity {
             View view;
             switch (position) {
                 case 0:
-                    view = inflater.inflate(R.layout.csa_contact, container, false);
+                    view = inflater.inflate(R.layout.csa_sponsors, container, false);
                     container.addView(view);
                     return view;
                 case 1:
-                    view = inflater.inflate(R.layout.csa_sponsors, container, false);
+                    view = inflater.inflate(R.layout.csa_contact, container, false);
                     container.addView(view);
                     return view;
                 case 2:

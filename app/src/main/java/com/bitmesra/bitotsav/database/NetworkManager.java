@@ -47,7 +47,7 @@ public class NetworkManager {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<EventDto> getDayEventDetails(String id) {
+    public Observable<ExampleModel> getDayEventDetails(String id) {
         return retrofit.create(DetailsAPI.class).getDayEventDetails(id)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());

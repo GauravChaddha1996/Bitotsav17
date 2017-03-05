@@ -29,6 +29,9 @@ public class ExampleModel {
     @SerializedName("participantsCount")
     @Expose
     private String participantsCount;
+    @SerializedName("image")
+    @Expose
+    private String image;
     @SerializedName("description")
     @Expose
     private String description;
@@ -186,6 +189,14 @@ public class ExampleModel {
 
     public void setMoney(String money) {
         this.money = money;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
 

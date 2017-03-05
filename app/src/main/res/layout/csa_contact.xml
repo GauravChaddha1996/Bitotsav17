@@ -64,9 +64,10 @@
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="phone"
             android:gravity="center"
             android:text="7319731290"
-            android:textColor="@color/darker_white"
+            android:textColorLink="@color/darker_white"
             android:textSize="24sp"
             app:font="Lato/Lato_Regular.ttf" />
 
@@ -91,9 +92,10 @@
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="phone"
             android:gravity="center"
             android:text="7250429526"
-            android:textColor="@color/darker_white"
+            android:textColorLink="@color/darker_white"
             android:textSize="24sp"
             app:font="Lato/Lato_Regular.ttf" />
 
@@ -118,9 +120,10 @@
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="phone"
             android:gravity="center"
             android:text="8002230046"
-            android:textColor="@color/darker_white"
+            android:textColorLink="@color/darker_white"
             android:textSize="24sp"
             app:font="Lato/Lato_Regular.ttf" />
 
@@ -128,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Harshit Raj Garhia"
+            android:text="Sourav Chopra"
             android:textColor="@color/colorAccent"
             android:textSize="30sp"
             app:font="Oswald/Oswald_Regular.ttf" />
@@ -145,9 +148,10 @@
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="phone"
             android:gravity="center"
-            android:text="9934930036"
-            android:textColor="@color/darker_white"
+            android:text="9771682966"
+            android:textColorLink="@color/darker_white"
             android:textSize="24sp"
             app:font="Lato/Lato_Regular.ttf" />
 
@@ -169,10 +173,11 @@
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="email"
             android:clickable="true"
             android:gravity="center"
-            android:text="bitotsav.in"
-            android:textColor="@color/colorAccent"
+            android:text="contact@bitotsav.in"
+            android:textColorLink="@color/colorAccent"
             android:textSize="24sp"
             app:font="Lato/Lato_Regular.ttf" />
 

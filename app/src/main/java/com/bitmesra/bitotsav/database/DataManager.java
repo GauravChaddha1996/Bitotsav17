@@ -90,7 +90,7 @@ public class DataManager {
             case "Talkies":
                 return "talkies";
             default:
-                return "template_image";
+                return null;
         }
     }
 
@@ -150,7 +150,7 @@ public class DataManager {
         return networkManager.getFlagshipEventDetails(id);
     }
 
-    public Observable<EventDto> getDayEventDetails(Context context, String id) {
+    public Observable<ExampleModel> getDayEventDetails(Context context, String id) {
         createNetworkManager(context);
         return networkManager.getDayEventDetails(id);
     }

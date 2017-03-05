@@ -11,6 +11,8 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        renderscriptTargetApi 24
+        renderscriptSupportModeEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -54,5 +56,6 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'io.realm:android-adapters:1.4.0'
+    compile 'com.wonderkiln:blurkit:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -61,6 +61,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
     ImageView marioLoadingImage;
     @BindView(R.id.mario_loading_text)
     CustomTextView marioLoadingText;
+    @BindView(R.id.achievemnt_loading_holder)
+    View achievemntHolder;
 
     private boolean firstTime = true;
     private AchievementHelper achievementHelper;
@@ -77,8 +79,9 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         firstTime = getIntent().getBooleanExtra("firstTime", true);
 
         presenter = new DetailsPresenter(this, this);
-        achievementHelper = new AchievementHelper(this, marioLoadingImage, marioLoadingText);
+        achievementHelper = new AchievementHelper(this, achievemntHolder, marioLoadingImage, marioLoadingText);
         presenter.getDetailsDtoFromRealm(eventName);
+
         String storedImageName = presenter.getImageName(eventName);
         if (storedImageName != null) {
             background_image.setImageDrawable(getResources().getDrawable(
@@ -119,15 +122,19 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         points.setVisibility(View.VISIBLE);
         participants.setVisibility(View.VISIBLE);
 
-        toolbarTitle.setText(eventDto.getName());
-        desc.setText(eventDto.getDescription());
-        timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
-        money.setText("Prize Money: " + eventDto.getMoney());
-        rules.setText(eventDto.getRules());
-        points.setText(eventDto.getPoints());
-        participants.setText(eventDto.getNoOfParticipants());
-        if (!eventDto.getImageurl().equals("")) {
-            Picasso.with(this).load(eventDto.getImageurl()).into(background_image);
+        if (eventDto.getName() != null) toolbarTitle.setText(eventDto.getName());
+        if (eventDto.getDescription() != null) desc.setText(eventDto.getDescription());
+        if (eventDto.getTime() != null && eventDto.getVenue() != null)
+            timeVenue.setText(eventDto.getTime() + " at " + eventDto.getVenue());
+        if (eventDto.getMoney() != null) money.setText("Prize Money: " + eventDto.getMoney());
+        if (eventDto.getRules() != null) rules.setText(eventDto.getRules());
+        if (eventDto.getPoints() != null) points.setText(eventDto.getPoints());
+        if (eventDto.getParticipantsCount() != null)
+            participants.setText(eventDto.getNoOfParticipants());
+        if (eventDto.getImageurl() != null) {
+            if (!eventDto.getImageurl().trim().isEmpty()) {
+                Picasso.with(this).load(eventDto.getImageurl()).into(background_image);
+            }
         }
     }
 

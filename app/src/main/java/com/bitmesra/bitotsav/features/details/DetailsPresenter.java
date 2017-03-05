@@ -28,10 +28,10 @@ public class DetailsPresenter implements DetailsPresenterInterface {
             dataManager.getFlagshipEventDetails(context, getFlagshipId(name))
                     .doOnSubscribe(() -> viewInterface.showAchievment())
                     .doOnNext(eventDto -> dataManager.getRealmManager()
-                            .saveDetailsDto(eventDtoFromExampleModel(name, eventDto)))
+                            .saveDetailsDto(eventDtoFromExampleModel(name, eventDtoType, eventDto)))
                     .subscribe(eventDto -> {
                         viewInterface.hideAchievment();
-                        viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDto));
+                        viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDtoType, eventDto));
                     }, throwable -> {
                         throwable.printStackTrace();
                         viewInterface.errorAchievment();
@@ -39,13 +39,16 @@ public class DetailsPresenter implements DetailsPresenterInterface {
         } else {
             dataManager.getDayEventDetails(context, id)
                     .doOnSubscribe(() -> viewInterface.showAchievment())
-                    .doOnNext(detailsDto -> dataManager.getRealmManager()
-                            .saveDetailsDto(detailsDto))
+                    .doOnNext(exampleModel -> dataManager.getRealmManager()
+                            .saveDetailsDto(eventDtoFromExampleModel(name, eventDtoType, exampleModel)))
                     .subscribe(detailsDto -> {
                                 viewInterface.hideAchievment();
-                                viewInterface.updateDetailView(detailsDto);
+                                viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDtoType, detailsDto));
                             },
-                            throwable -> viewInterface.errorAchievment());
+                            throwable -> {
+                                viewInterface.errorAchievment();
+                                throwable.printStackTrace();
+                            });
 
         }
     }
@@ -88,15 +91,17 @@ public class DetailsPresenter implements DetailsPresenterInterface {
     }
 
 
-    private EventDto eventDtoFromExampleModel(String name, ExampleModel exampleModel) {
+    private EventDto eventDtoFromExampleModel(String name, int eventDtoType, ExampleModel exampleModel) {
         return new EventDto()
                 .setName(name)
                 .set_id(exampleModel.getId())
+                .setEventDtoType(eventDtoType)
                 .setTime(exampleModel.getTime())
                 .setVenue(exampleModel.getVenue())
                 .setDescription(exampleModel.getDescription())
                 .setEventDtoType(EventDtoType.TYPE_FLAGSHIP)
                 .setMoney(exampleModel.getMoney())
+                .setImageurl(exampleModel.getImage())
                 .setPoints(exampleModel.getPoints())
                 .setParticipantsCount(exampleModel.getParticipantsCount());
     }

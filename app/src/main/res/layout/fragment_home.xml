@@ -20,15 +20,14 @@
         android:layout_below="@+id/homeSliderLayout" />
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         app:layout_heightPercent="50%"
-        android:layout_marginBottom="32dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
 
         <include
             layout="@layout/achievement_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </RelativeLayout>
 </android.support.percent.PercentRelativeLayout>

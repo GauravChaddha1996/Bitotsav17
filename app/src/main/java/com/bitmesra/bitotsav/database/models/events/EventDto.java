@@ -23,7 +23,7 @@ public class EventDto extends RealmObject {
     private String points = "points";
     private String participantsCount = " participants : 2";
     private String rules = "rules";
-    private String imageurl = "";
+    private String image = "";
 
     public EventDto() {
     }
@@ -134,11 +134,11 @@ public class EventDto extends RealmObject {
     }
 
     public String getImageurl() {
-        return imageurl;
+        return image;
     }
 
     public EventDto setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+        this.image = imageurl;
         return this;
     }
 }

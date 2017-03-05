@@ -1,5 +1,7 @@
 package com.bitmesra.bitotsav.database;
 
+import android.util.Log;
+
 import com.bitmesra.bitotsav.database.models.SubscribedTopics;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
@@ -57,8 +59,12 @@ public class RealmManager {
         int temp = findEventDtoDayType(dayNumber);
         for (EventDto dto : dtos) {
             dto.setEventDtoType(temp);
+            if (!dto.getImageurl().trim().isEmpty()) {
+                Log.d("Tag", dto.getName() + " :" + dto.getImageurl());
+            }
         }
         realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(dtos));
+
     }
 
     /**
