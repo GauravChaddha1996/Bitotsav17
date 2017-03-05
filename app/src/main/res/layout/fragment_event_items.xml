@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/itemView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp">
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
 
-    <ImageView
+    <RelativeLayout
         android:id="@+id/background_image"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/template_image" />
+        android:layout_height="250dp"
+        android:background="@drawable/gaurav_cover"
+        android:padding="8dp">
 
-    <com.bitmesra.bitotsav.ui.CustomTextView
-        android:id="@+id/event_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/background_image"
-        android:layout_centerHorizontal="true"
-        android:text="Day 1"
-        android:textColor="@android:color/white"
-        android:textSize="40sp"
-        app:font="Oswald/Oswald_Regular.ttf" />
-</RelativeLayout>
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/event_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Day 1 (17th March)"
+            android:textColor="@color/card_text"
+            android:textSize="36sp"
+            app:font="Oswald/Oswald_Regular.ttf" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

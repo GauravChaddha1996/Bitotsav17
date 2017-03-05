@@ -128,6 +128,11 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         talkies.description("Talkies");
         talkies.setOnSliderClickListener(slider -> startDetailsActivity("Talkies"));
 
+        TextSliderView bplan = new TextSliderView(getActivity());
+        bplan.image(R.drawable.bplan);
+        bplan.description("B-Plan");
+        bplan.setOnSliderClickListener(slider -> startDetailsActivity("B-Plan"));
+
         sliderLayout.addSlider(nukkad);
         sliderLayout.addSlider(mrmissbitotsav);
         sliderLayout.addSlider(rhapsody);
@@ -136,6 +141,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         sliderLayout.addSlider(saptak);
         sliderLayout.addSlider(stomptheyard);
         sliderLayout.addSlider(talkies);
+        sliderLayout.addSlider(bplan);
 
 
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);

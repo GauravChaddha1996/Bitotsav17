@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
@@ -44,6 +44,20 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
     @Override
     public void onBindViewHolder(EventItemViewHolder holder, int position) {
         EventItem item = items.get(position);
+        switch (position) {
+            case 0:
+                holder.backgroundImage.setBackground(context.getDrawable(R.drawable.gaurav_cover));
+                break;
+            case 1:
+                holder.backgroundImage.setBackground(context.getDrawable(R.drawable.praneet_cover));
+                break;
+            case 2:
+                holder.backgroundImage.setBackground(context.getDrawable(R.drawable.nikhil_cover));
+                break;
+            case 3:
+                holder.backgroundImage.setBackground(context.getDrawable(R.drawable.ashish_cover));
+                break;
+        }
         holder.eventType.setText(item.getType());
         runEnterAnimation(holder.itemView, position);
 
@@ -85,7 +99,7 @@ public class EventListAdapter extends RecyclerView.Adapter<EventListAdapter.Even
 
     class EventItemViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.background_image)
-        ImageView backgroundImage;
+        RelativeLayout backgroundImage;
         @BindView(R.id.itemView)
         View itemView;
         @BindView(R.id.event_type)

@@ -44,11 +44,10 @@ public class DataManager {
      */
     public List<EventItem> getEventList() {
         List<EventItem> list = new ArrayList<>();
-        list.add(new EventItem("Day 1", R.drawable.home1));
-        list.add(new EventItem("Day 2", R.drawable.home2));
-        list.add(new EventItem("Day 3", R.drawable.home1));
-        list.add(new EventItem("Day 4", R.drawable.home2));
-        list.add(new EventItem("Day 5", R.drawable.home1));
+        list.add(new EventItem("Day 1 (17th Mar)", R.drawable.home1));
+        list.add(new EventItem("Day 2 (18th Mar)", R.drawable.home2));
+        list.add(new EventItem("Day 3 (19th Mar)", R.drawable.home1));
+        list.add(new EventItem("Day 4 (20th Mar)", R.drawable.home2));
         return list;
     }
 
@@ -67,6 +66,7 @@ public class DataManager {
         list.add(new FlagshipItem("Saptak", "Eastern Battle of bands", R.drawable.saptak));
         list.add(new FlagshipItem("Stomp The Yard", "Sparks fly as the worlds of street dance collide in this exciting flagship event.", R.drawable.stomptheyard));
         list.add(new FlagshipItem("Talkies", "Short Film Making competition with theme related to the social theme of Bitotsav. ", R.drawable.talkies));
+        list.add(new FlagshipItem("B-Plan", "Fetching the cool things about this event.... Just give us a sec", R.drawable.bplan));
         return list;
     }
 
@@ -92,6 +92,8 @@ public class DataManager {
                 return "stomptheyard";
             case "Talkies":
                 return "talkies";
+            case "B-Plan":
+                return "bplan";
             default:
                 return null;
         }
@@ -140,6 +142,8 @@ public class DataManager {
                 return 7;
             case "Talkies":
                 return 8;
+            case "B-Plan":
+                return 9;
             default:
                 return 0;
         }
