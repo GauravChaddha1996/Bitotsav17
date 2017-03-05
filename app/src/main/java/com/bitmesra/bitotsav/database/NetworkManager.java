@@ -2,11 +2,13 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
+import com.bitmesra.bitotsav.database.models.RegistrationResponse;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
+import com.bitmesra.bitotsav.network.register.RegistrationAPI;
 import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
 
 import java.util.List;
@@ -52,8 +54,23 @@ public class NetworkManager {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
+
     public Observable<ExampleModel> getFlagshipEventDetails(int id) {
         return retrofit.create(DetailsAPI.class).getFlagshipEventDetails(id)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<RegistrationResponse> register(String name, String email, String phone, String college, String sap) {
+        return retrofit.create(RegistrationAPI.class).register(name, email, phone, college, sap)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<RegistrationResponse> teamRegister(String teamName, String heademail, String headContact,
+                                                     String events, String members, String headBitId, String college) {
+        return retrofit.create(RegistrationAPI.class).teamRegister(teamName, heademail, headContact,
+                events, members, headBitId, college)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

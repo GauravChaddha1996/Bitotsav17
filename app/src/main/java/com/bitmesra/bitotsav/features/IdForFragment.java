@@ -5,5 +5,5 @@ package com.bitmesra.bitotsav.features;
  */
 
 public enum IdForFragment {
-    HOME, FLAGSHIP, EVENTS, TIMELINE, INFORMAL, TSHIRT
+    HOME, FLAGSHIP, EVENTS, TIMELINE, INFORMAL, REGISTER, SINGLEPLAYER, MULTIPLAYER, PAY, TSHIRT
 }

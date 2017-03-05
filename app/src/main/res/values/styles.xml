@@ -43,6 +43,10 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
+    <style name="Registration" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/card_text</item>
+    </style>
+
     <style name="NavTextStyle">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>

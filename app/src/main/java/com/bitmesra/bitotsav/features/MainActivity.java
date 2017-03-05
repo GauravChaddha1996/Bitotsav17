@@ -22,6 +22,9 @@ import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
+import com.bitmesra.bitotsav.features.register.MultiplayerFragment;
+import com.bitmesra.bitotsav.features.register.RegisterFragment;
+import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 
 import java.util.Random;
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.FLAGSHIP);
         } else if (id == R.id.nav_events) {
             setFragment(IdForFragment.EVENTS);
+        } else if (id == R.id.nav_register) {
+            setFragment(IdForFragment.REGISTER);
         } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -134,6 +139,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_events);
                 toolbarTitle.setText("Day " + dayNumber + " Timeline");
                 toReturnFragment = new TimelineFragment();
+                break;
+            case REGISTER:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("Registration");
+                toReturnFragment = new RegisterFragment();
+                break;
+            case SINGLEPLAYER:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("Single Registration");
+                toReturnFragment = new SinglePlayerFragment();
+                break;
+            case MULTIPLAYER:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("Team Registration");
+                toReturnFragment = new MultiplayerFragment();
                 break;
         }
         return toReturnFragment;

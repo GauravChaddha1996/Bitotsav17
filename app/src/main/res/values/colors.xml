@@ -15,5 +15,5 @@
     <color name="start_silver">#a6a6a6</color>
     <color name="background">#292929</color>
     <color name="light_foreground">#ff6500</color>
-    <color name="opaque_black">#f2000000</color>
+    <color name="opaque_black">#c2000000</color>
 </resources>
