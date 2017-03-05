@@ -1,5 +1,6 @@
 package com.bitmesra.bitotsav.network.payment;
 
+import com.bitmesra.bitotsav.database.models.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.PaymentResponse;
 
 import retrofit2.http.GET;
@@ -12,5 +13,8 @@ import rx.Observable;
 
 public interface PaymentAPI {
     @GET("/payInfo")
-    Observable<PaymentResponse> getPaymentInfo(@Query("bitId") String bitId, @Query("email") String email);
+    Observable<PayinfoResponse> getPaymentInfo(@Query("bitId") String bitId, @Query("email") String email);
+
+    @GET("/payment")
+    Observable<PaymentResponse> getPaymentUrl(@Query("bitId") String bitId, @Query("email") String email, @Query("package") int packageNumber);
 }

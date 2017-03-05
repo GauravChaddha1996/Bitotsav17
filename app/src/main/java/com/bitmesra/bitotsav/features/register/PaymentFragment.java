@@ -48,13 +48,7 @@ public class PaymentFragment extends BaseFragment {
             "18th March Day-2 Rs.350/-",
             "19th March Day-3 Rs.400/-", "20th March Day-4 Rs.450/-",
             "All Day Pass without accommodation Rs.900/-",
-            "All Day Pass with accommodation (Rs.100/- Security) Rs.1100/-"
-    };
-    String[] payment_package = {"17th March Day-1 Rs.300/-",
-            "18th March Day-2 Rs.350/-",
-            "19th March Day-3 Rs.400/-", "20th March Day-4 Rs.450/-",
-            "All Day Pass without accommodation Rs.900/-",
-            "All Day Pass with accommodation (Rs.100/- Security) Rs.1100/-"
+            "All Day Pass with accommodation (Rs.100/- Security)\nRs.1100/-"
     };
     @BindView(R.id.check_your_details)
     CustomTextView checkYourDetails;
@@ -168,7 +162,22 @@ public class PaymentFragment extends BaseFragment {
 
     @OnClick(R.id.proceed_button)
     void proceed() {
-        ((MainActivity) getActivity()).setFragment(IdForFragment.WEBVIEW);
+        final Snackbar snackbar = Snackbar.make(email, "Starting your payment. Give us a second", Snackbar.LENGTH_INDEFINITE);
+        DataManager.getDataManager().getPaymentUrl(getActivity(), bitid.getText().toString(),
+                email.getText().toString(), paymentDropdown.getSelectedItemPosition())
+                .doOnSubscribe(() -> snackbar.show())
+                .subscribe(paymentResponse -> {
+                    snackbar.dismiss();
+                    if (!paymentResponse.getError().equals("true")) {
+                        ((MainActivity) getActivity()).url = paymentResponse.getUrl();
+                        ((MainActivity) getActivity()).setFragment(IdForFragment.WEBVIEW);
+                    } else {
+                        Snackbar.make(email, paymentResponse.getMessage(), Snackbar.LENGTH_INDEFINITE).show();
+                    }
+                }, throwable -> {
+                    throwable.printStackTrace();
+                    Snackbar.make(email, "Cannot connect to server", Snackbar.LENGTH_LONG).show();
+                });
     }
 
     boolean errorCheck() {

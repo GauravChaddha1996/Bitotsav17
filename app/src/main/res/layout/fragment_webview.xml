@@ -1,4 +1,58 @@
-<WebView android:id="@+id/payment_webview"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" />
+    android:layout_height="match_parent">
+
+    <WebView
+        android:id="@+id/payment_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/payment_progressBarHolder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opaque_black"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/payment_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/payment_status_image"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_gravity="center"
+            android:src="@color/card_background" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/payment_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Payment Status"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/payment_status_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Payment Amount"
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+</RelativeLayout>
