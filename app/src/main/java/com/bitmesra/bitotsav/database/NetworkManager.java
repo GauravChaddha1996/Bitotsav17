@@ -2,12 +2,14 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
+import com.bitmesra.bitotsav.database.models.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.RegistrationResponse;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
+import com.bitmesra.bitotsav.network.payment.PaymentAPI;
 import com.bitmesra.bitotsav.network.register.RegistrationAPI;
 import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
 
@@ -71,6 +73,12 @@ public class NetworkManager {
                                                      String events, String members, String headBitId, String college) {
         return retrofit.create(RegistrationAPI.class).teamRegister(teamName, heademail, headContact,
                 events, members, headBitId, college)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<PaymentResponse> getPaymentInfo(String bitid, String email) {
+        return retrofit.create(PaymentAPI.class).getPaymentInfo(bitid,email)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

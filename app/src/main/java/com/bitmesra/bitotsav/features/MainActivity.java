@@ -23,8 +23,10 @@ import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.register.MultiplayerFragment;
+import com.bitmesra.bitotsav.features.register.PaymentFragment;
 import com.bitmesra.bitotsav.features.register.RegisterFragment;
 import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
+import com.bitmesra.bitotsav.features.register.WebviewFragment;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 
 import java.util.Random;
@@ -154,6 +156,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_register);
                 toolbarTitle.setText("Team Registration");
                 toReturnFragment = new MultiplayerFragment();
+                break;
+            case PAY:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("Payment");
+                toReturnFragment = new PaymentFragment();
+                break;
+            case WEBVIEW:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("Payment");
+                toReturnFragment = new WebviewFragment();
                 break;
         }
         return toReturnFragment;

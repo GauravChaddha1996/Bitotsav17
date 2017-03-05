@@ -69,11 +69,11 @@ public class MultiplayerFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_multiplayer_register, container, false);
         ButterKnife.bind(this, view);
-        String[] ITEMS = {"Saptak(Eastern BoB) -17th March",
-                "Rhapsody(western BoB) -18th March",
-                "MUN -18th &19th March", "NUKKAD 18th & 19th March",
-                "Talkies 18th March", "Street Dance 19th March", "Mr. And Miss Bitotsav 19th & 20th March",
-                "B-PLAN 20th March", "Dance Saga 20th March", "CNC(Gaming)"
+        String[] ITEMS = {"17th March Day-1 Rs.300/-",
+                "18th March Day-2 Rs.350/-",
+                "19th March Day-3 Rs.400/-", "20th March Day-4 Rs.450/-",
+                "All Day Pass without accommodation Rs.900/-",
+                "All Day Pass with accommodation (Rs.100/- Security) Rs.1100/-"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -120,7 +120,7 @@ public class MultiplayerFragment extends BaseFragment {
                     }, throwable -> {
                         registerButton.setEnabled(true);
                         throwable.printStackTrace();
-                        Snackbar.make(teamname, "Cannot connect to server (Kicked)", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(teamname, "Cannot connect to server", Snackbar.LENGTH_SHORT).show();
                     });
         }
     }

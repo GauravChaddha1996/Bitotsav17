@@ -108,7 +108,7 @@ public class SinglePlayerFragment extends BaseFragment {
                     }, throwable -> {
                         registerButton.setEnabled(true);
                         throwable.printStackTrace();
-                        Snackbar.make(name, "Cannot connect to server (Kicked)", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(name, "Cannot connect to server", Snackbar.LENGTH_SHORT).show();
                     });
         }
     }

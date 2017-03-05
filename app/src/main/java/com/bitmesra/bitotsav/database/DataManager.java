@@ -3,6 +3,7 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
+import com.bitmesra.bitotsav.database.models.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.RegistrationResponse;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
@@ -158,16 +159,22 @@ public class DataManager {
 
 
     /**
-     * Registration
+     * Registration and payment
      */
     public Observable<RegistrationResponse> register(Context context, String name, String email, String phone, String college, String sap) {
         createNetworkManager(context);
         return networkManager.register(name, email, phone, college, sap);
     }
-  public Observable<RegistrationResponse> teamRegister(Context context,String teamName, String heademail, String headContact,
-                                                       String events, String members, String headBitId, String college) {
+
+    public Observable<RegistrationResponse> teamRegister(Context context, String teamName, String heademail, String headContact,
+                                                         String events, String members, String headBitId, String college) {
         createNetworkManager(context);
         return networkManager.teamRegister(teamName, heademail, headContact, events, members, headBitId, college);
+    }
+
+    public Observable<PaymentResponse> getPaymentInfo(Context context, String bitId, String email) {
+        createNetworkManager(context);
+        return networkManager.getPaymentInfo(bitId, email);
     }
 
     /**

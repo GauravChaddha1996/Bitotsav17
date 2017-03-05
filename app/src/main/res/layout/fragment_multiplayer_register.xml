@@ -19,6 +19,7 @@
             android:background="@drawable/singleplayer_background"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
+            android:paddingTop="16dp"
             android:textColorHint="@color/card_text"
             app:errorEnabled="true"
             app:errorTextAppearance="@style/TextAppearance.Design.Error"
@@ -167,16 +168,18 @@
                 android:textColor="@color/card_text" />
 
         </android.support.design.widget.TextInputLayout>
+
         <fr.ganfra.materialspinner.MaterialSpinner
             android:id="@+id/events_dropdown"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            app:ms_hintColor="@color/colorAccent"
-            app:ms_baseColor="@color/colorAccent"
             android:background="@color/opaque_black"
-            app:ms_highlightColor="@color/card_text"
+            app:ms_baseColor="@color/colorAccent"
             app:ms_floatingLabelColor="@color/card_text"
-            app:ms_hint="Choose an event"/>
+            app:ms_highlightColor="@color/card_text"
+            app:ms_hint="Choose an event"
+            app:ms_hintColor="@color/colorAccent" />
+
         <Button
             android:id="@+id/register_button"
             android:layout_width="wrap_content"

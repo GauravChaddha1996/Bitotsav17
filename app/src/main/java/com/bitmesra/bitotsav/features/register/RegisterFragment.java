@@ -42,14 +42,16 @@ public class RegisterFragment extends BaseFragment {
 
     @OnClick(R.id.single_player_registration)
     public void singlePLayerRegistration() {
-        ((MainActivity)getActivity()).setFragment(IdForFragment.SINGLEPLAYER);
+        ((MainActivity) getActivity()).setFragment(IdForFragment.SINGLEPLAYER);
     }
+
     @OnClick(R.id.multiplayer_registration)
     public void multiplayerRegistration() {
-        ((MainActivity)getActivity()).setFragment(IdForFragment.MULTIPLAYER);
+        ((MainActivity) getActivity()).setFragment(IdForFragment.MULTIPLAYER);
     }
+
     @OnClick(R.id.pay_registration)
     public void payment() {
-
+        ((MainActivity) getActivity()).setFragment(IdForFragment.PAY);
     }
 }
