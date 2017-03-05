@@ -76,11 +76,8 @@ public class RealmManager {
 
     public void saveDetailsDto(EventDto eventDto) {
         realm.executeTransaction(realm1 -> {
-            EventDto dto = realm1.where(EventDto.class).equalTo("_id", eventDto.get_id()).findFirst();
-            if (dto != null) {
-                dto.deleteFromRealm();
-            }
-            realm1.insert(eventDto);
+            //EventDto dto = realm1.where(EventDto.class).equalTo("_id", eventDto.get_id()).findFirst();
+            realm1.insertOrUpdate(eventDto);
         });
     }
 
