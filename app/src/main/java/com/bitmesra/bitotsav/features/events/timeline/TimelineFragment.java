@@ -117,26 +117,18 @@ public class TimelineFragment extends BaseFragment implements TimelineViewInterf
     @Override
     public void showAchievment() {
         refreshLayout.setRefreshing(true);
-        if (firstTime) {
-            refreshLayout.setEnabled(false);
-            achievementHelper.startLoading();
-        }
+        achievementHelper.startLoading();
     }
 
     @Override
     public void hideAchievment() {
         refreshLayout.setRefreshing(false);
-        if (firstTime) {
-            refreshLayout.setEnabled(true);
-            achievementHelper.stopLoading();
-        }
+        achievementHelper.stopLoading();
     }
 
     @Override
     public void errorAchievment() {
         refreshLayout.setRefreshing(false);
-        if (firstTime) {
-            achievementHelper.errorLoading();
-        }
+        achievementHelper.errorLoading();
     }
 }

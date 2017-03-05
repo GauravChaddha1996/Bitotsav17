@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/achievemnt_loading_holder"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:visibility="gone"
+    android:layout_height="wrap_content"
     android:background="@drawable/achievement_background">
 
     <ImageView
         android:id="@+id/mario_loading_image"
-        android:layout_width="64dp"
-        android:layout_height="96dp"
+        android:visibility="gone"
+        android:layout_width="48dp"
+        android:layout_height="80dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="96dp"
-        android:visibility="gone"
         android:src="@drawable/mario_success" />
 
     <com.bitmesra.bitotsav.ui.CustomTextView

@@ -86,8 +86,6 @@ public class AchievementHelper {
                                             mario_image.setImageDrawable(context.getDrawable(
                                                     isSuccess ? R.drawable.mario_success : R.drawable.error_mario
                                             ));
-                                            if (isSuccess)
-                                                mario_image.setScaleType(ImageView.ScaleType.CENTER);
                                             stopAnimating();
                                         }
                                     }
