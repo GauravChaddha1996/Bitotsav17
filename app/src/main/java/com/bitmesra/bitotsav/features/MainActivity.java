@@ -29,6 +29,7 @@ import com.bitmesra.bitotsav.features.register.RegisterFragment;
 import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
 import com.bitmesra.bitotsav.features.register.WebviewFragment;
 import com.bitmesra.bitotsav.features.tshirt.BookTShirtFragment;
+import com.bitmesra.bitotsav.features.tshirt.TShirtDemoFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtPaymentFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtWebviewFragment;
@@ -189,6 +190,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_tshirt);
                 toolbarTitle.setText("Book a T-Shirt");
                 toReturnFragment = new TShirtFragment();
+                break;
+            case TSHIRTDEMO:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                toolbarTitle.setText("T-Shirt Demo");
+                toReturnFragment = new TShirtDemoFragment();
                 break;
             case BOOKTSHIRT:
                 navView.setCheckedItem(R.id.nav_tshirt);

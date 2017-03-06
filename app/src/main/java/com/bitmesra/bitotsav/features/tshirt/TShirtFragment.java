@@ -34,7 +34,6 @@ public class TShirtFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tshirt, container, false);
         ButterKnife.bind(this, view);
-
         return view;
     }
 
@@ -56,6 +55,11 @@ public class TShirtFragment extends BaseFragment {
     @OnClick(R.id.tshirt_payment)
     void payForTShirt() {
         ((MainActivity) getActivity()).setFragment(IdForFragment.PAYTSHIRT);
+    }
+
+    @OnClick(R.id.tshirt_demo)
+    void demo() {
+        ((MainActivity) getActivity()).setFragment(IdForFragment.TSHIRTDEMO);
     }
 
 

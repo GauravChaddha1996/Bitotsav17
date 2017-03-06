@@ -31,7 +31,7 @@
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View T-Shirt Demo"
+                    android:text="View T-Shirt Sample"
                     android:textColor="@color/colorAccent"
                     android:textSize="22sp"
                     app:font="Oswald/Oswald_Regular.ttf" />
@@ -85,7 +85,7 @@
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Booked a T-Shirt? Pay here"
+                    android:text="Already booked a T-Shirt? Pay here"
                     android:textColor="@color/colorAccent"
                     android:textSize="22sp"
                     app:font="Oswald/Oswald_Regular.ttf" />
