@@ -28,10 +28,10 @@
             <ImageView
                 android:id="@+id/background_image"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="270dp"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/template_image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mun"
                 android:transitionName="event_image"
                 app:layout_collapseMode="parallax" />
 
