@@ -53,7 +53,7 @@
             android:gravity="center"
             android:text="Title Sponsor"
             android:textColor="@color/colorAccent"
-            android:textSize="25sp" />
+            android:textSize="30sp" />
 
         <ImageView
             android:id="@+id/title_sponsor"
@@ -82,7 +82,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:layout_weight="50"
                 android:padding="8dp"
@@ -91,7 +91,7 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="150dp"
+                android:layout_height="120dp"
                 android:layout_gravity="center"
                 android:layout_weight="50"
                 android:padding="8dp"
@@ -130,27 +130,70 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:src="@drawable/sponsors_telecom" />
-
+                <!--Driven by-->
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:src="@drawable/sponsor_payment" />
-
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_driven_by" />
+                <!--Major-->
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_major_sbi" />
+                <!--Major-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_major" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--Driven by-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="50"
-                    android:src="@drawable/sponsor_food" />
+                    android:gravity="center"
+                    android:text="Driven By"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Major-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Major\nSponsor"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Major-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Major\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -158,7 +201,58 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <!--Banking-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_banking" />
+                <!--Art Craft-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/sponsor_arts_crafts" />
+                <!--Telecom-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:src="@drawable/sponsors_telecom" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Banking-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Banking\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Art craft-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Art and Craft\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Telecom-->
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -169,7 +263,55 @@
                     android:textColor="@color/card_text"
                     android:textSize="18sp" />
 
-                <TextView
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!--Poker-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_poker" />
+                <!--Payment Sponsor-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:src="@drawable/sponsor_payment" />
+                <!--Food sponsor-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:src="@drawable/sponsor_food" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--POker-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Poker\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Payment gateway-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -178,7 +320,7 @@
                     android:text="Payment Gateway Partner"
                     android:textColor="@color/card_text"
                     android:textSize="18sp" />
-
+                <!--Food-->
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -194,160 +336,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/sponsor_major_sbi" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:src="@drawable/sponsor_event_discovery" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:src="@drawable/sponsor_poker" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Major\nSponsor"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Event\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Poker\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/sponsor_major" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:src="@drawable/sponsor_event" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:src="@drawable/sponsor_banking" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Major\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Event\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Banking\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/sponsor_arts_crafts" />
-
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:layout_weight="33"
-                    android:src="@drawable/sponsor_driven_by" />
-
+                <!--CSR-->
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="90dp"
@@ -355,34 +344,29 @@
                     android:layout_margin="8dp"
                     android:layout_weight="33"
                     android:src="@drawable/sponsor_csr" />
+                <!--Event-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_event_discovery" />
+                <!--Events-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="33"
+                    android:src="@drawable/sponsor_event" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Art and Craft\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
-                <com.bitmesra.bitotsav.ui.CustomTextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="50"
-                    android:gravity="center"
-                    android:text="Driven By\nPartner"
-                    android:textColor="@color/card_text"
-                    android:textSize="18sp" />
-
+                <!--CSR-->
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -392,8 +376,57 @@
                     android:text="CSR\nPartner"
                     android:textColor="@color/card_text"
                     android:textSize="18sp" />
+                <!--Event-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Event\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+                <!--Event-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Event\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--Event-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_weight="100"
+                    android:src="@drawable/sponsor_event_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!--Event-->
+                <com.bitmesra.bitotsav.ui.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="50"
+                    android:gravity="center"
+                    android:text="Event\nPartner"
+                    android:textColor="@color/card_text"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -401,3 +434,5 @@
 
 
 </ScrollView>
+
+

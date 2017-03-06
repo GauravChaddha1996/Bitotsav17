@@ -107,7 +107,7 @@ public class AchievementHelper {
         });
         mario_text_animator.start();
         holder.animate().alpha(0f).setDuration(3000).start();
-        mario_image_animator = mario_image.animate().rotationBy(360).setDuration(1000).setListener(new AnimatorListenerAdapter() {
+        mario_image_animator = mario_image.animate().scaleXBy(0).setDuration(1000).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
