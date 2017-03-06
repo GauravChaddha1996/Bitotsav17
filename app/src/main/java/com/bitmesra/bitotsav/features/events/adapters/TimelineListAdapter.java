@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 import com.bitmesra.bitotsav.utils.Utils;
 
 import java.util.List;

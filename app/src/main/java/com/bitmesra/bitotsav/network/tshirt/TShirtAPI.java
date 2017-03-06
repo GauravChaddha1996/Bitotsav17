@@ -1,8 +1,8 @@
 package com.bitmesra.bitotsav.network.tshirt;
 
-import com.bitmesra.bitotsav.database.models.PaymentResponse;
-import com.bitmesra.bitotsav.database.models.TShirtBookResponse;
-import com.bitmesra.bitotsav.database.models.TeeinfoResponse;
+import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
+import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
+import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

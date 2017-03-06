@@ -3,7 +3,7 @@ package com.bitmesra.bitotsav.features.flagships;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
+import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.database.models.events;
+package com.bitmesra.bitotsav.database.models.flagship;
 
 /**
  * Created by Batdroid on 5/2/17 for Bitotsav.

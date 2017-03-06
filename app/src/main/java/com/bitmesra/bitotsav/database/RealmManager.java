@@ -2,9 +2,9 @@ package com.bitmesra.bitotsav.database;
 
 import android.util.Log;
 
-import com.bitmesra.bitotsav.database.models.SubscribedTopics;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.subscribedtopics.SubscribedTopics;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 
 import java.util.List;
 

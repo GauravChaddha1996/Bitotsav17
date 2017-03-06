@@ -10,13 +10,14 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 import com.bitmesra.bitotsav.features.EventDtoType;
 import com.bitmesra.bitotsav.ui.AchievementHelper;
 import com.bitmesra.bitotsav.ui.CustomTextView;
@@ -180,7 +181,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         }
         if (eventDto.getImageurl() != null) {
             if (!eventDto.getImageurl().trim().isEmpty()) {
-                Picasso.with(this).load(eventDto.getImageurl()).into(background_image);
+                String imageurl = eventDto.getImageurl();
+                //  imageurl = imageurl.replace("events/ ", "events/");
+                Log.d("tag", imageurl);
+                Picasso.with(this)
+                        .load(imageurl)
+                        .placeholder(R.drawable.ic_logo)
+                        .into(background_image);
             }
         }
     }
@@ -194,6 +201,12 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         rules.setVisibility(View.GONE);
         points.setVisibility(View.GONE);
         participants.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.removeChangeListener(eventName);
     }
 
     @OnClick(R.id.star_subscribe)

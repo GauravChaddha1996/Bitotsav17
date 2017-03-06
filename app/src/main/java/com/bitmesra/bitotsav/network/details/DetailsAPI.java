@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.details;
 
-import com.bitmesra.bitotsav.database.models.events.ExampleModel;
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.database.models.events;
+package com.bitmesra.bitotsav.database.models.details;
 
 import com.bitmesra.bitotsav.features.EventDtoType;
 

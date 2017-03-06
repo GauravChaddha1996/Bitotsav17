@@ -1,15 +1,15 @@
-package com.bitmesra.bitotsav.database.models;
+package com.bitmesra.bitotsav.database.models.tshirt;
 
 /**
  * Created by Batdroid on 5/3/17 for Bitotsav.
  */
 
-public class PaymentResponse {
+public class TShirtPaymentResponse {
     String url;
     String error;
     String message;
 
-    public PaymentResponse(String url, String error, String message) {
+    public TShirtPaymentResponse(String url, String error, String message) {
         this.url = url;
         this.error = error;
         this.message = message;

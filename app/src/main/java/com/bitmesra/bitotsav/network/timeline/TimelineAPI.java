@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.timeline;
 
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 
 import java.util.List;
 

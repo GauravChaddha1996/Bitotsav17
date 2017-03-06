@@ -3,8 +3,8 @@ package com.bitmesra.bitotsav.features.details;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
-import com.bitmesra.bitotsav.database.models.events.ExampleModel;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 import com.bitmesra.bitotsav.features.EventDtoType;
 
 /**
@@ -43,7 +43,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                             .saveDetailsDto(eventDtoFromExampleModel(name, eventDtoType, exampleModel)))
                     .subscribe(detailsDto -> {
                                 viewInterface.hideAchievment();
-                                viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDtoType, detailsDto));
+                                //viewInterface.updateDetailView(eventDtoFromExampleModel(name, eventDtoType, detailsDto));
                             },
                             throwable -> {
                                 viewInterface.errorAchievment();
@@ -61,6 +61,11 @@ public class DetailsPresenter implements DetailsPresenterInterface {
         } else {
             viewInterface.partialUpdateDetailView();
         }
+    }
+
+    public void removeChangeListener(String name) {
+        EventDto dto = dataManager.getRealmManager().getDetailsDto(name);
+        dto.removeChangeListeners();
     }
 
     @Override

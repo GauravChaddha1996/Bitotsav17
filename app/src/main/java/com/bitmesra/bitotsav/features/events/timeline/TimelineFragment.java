@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.base.BaseFragment;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 import com.bitmesra.bitotsav.features.IdForFragment;
 import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.features.details.DetailsActivity;

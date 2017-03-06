@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.features.MainActivity;
 import com.bitmesra.bitotsav.utils.Foreground;
 import com.google.firebase.messaging.FirebaseMessagingService;

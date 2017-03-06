@@ -12,7 +12,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.utils.Utils;
 
 import java.text.SimpleDateFormat;

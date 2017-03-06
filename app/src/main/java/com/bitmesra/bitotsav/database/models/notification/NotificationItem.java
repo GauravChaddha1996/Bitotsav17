@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.database.models.home;
+package com.bitmesra.bitotsav.database.models.notification;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

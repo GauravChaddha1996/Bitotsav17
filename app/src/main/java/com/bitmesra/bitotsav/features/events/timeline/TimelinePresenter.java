@@ -3,7 +3,7 @@ package com.bitmesra.bitotsav.features.events.timeline;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.register;
 
-import com.bitmesra.bitotsav.database.models.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.registration.RegistrationResponse;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;

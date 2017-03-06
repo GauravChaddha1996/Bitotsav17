@@ -3,16 +3,16 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.PayinfoResponse;
-import com.bitmesra.bitotsav.database.models.PaymentResponse;
-import com.bitmesra.bitotsav.database.models.RegistrationResponse;
-import com.bitmesra.bitotsav.database.models.TShirtBookResponse;
-import com.bitmesra.bitotsav.database.models.TeeinfoResponse;
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
-import com.bitmesra.bitotsav.database.models.events.ExampleModel;
-import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
+import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
+import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
+import com.bitmesra.bitotsav.database.models.registration.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
+import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
 
 import java.util.ArrayList;
 import java.util.List;

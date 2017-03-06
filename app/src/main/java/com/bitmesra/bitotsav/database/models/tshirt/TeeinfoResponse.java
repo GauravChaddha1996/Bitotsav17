@@ -1,19 +1,19 @@
-package com.bitmesra.bitotsav.database.models;
+package com.bitmesra.bitotsav.database.models.tshirt;
 
 /**
  * Created by Batdroid on 5/3/17 for Bitotsav.
  */
 
-public class PayinfoResponse {
-    String bitId;
+public class TeeinfoResponse {
+    String teeId;
     String error;
     String message;
     String email;
     String name;
     String college;
 
-    public PayinfoResponse(String bitId, String error, String message, String email, String name, String college) {
-        this.bitId = bitId;
+    public TeeinfoResponse(String teeId, String error, String message, String email, String name, String college) {
+        this.teeId = teeId;
         this.error = error;
         this.message = message;
         this.email = email;
@@ -21,12 +21,12 @@ public class PayinfoResponse {
         this.college = college;
     }
 
-    public String getBitId() {
-        return bitId;
+    public String getTeeId() {
+        return teeId;
     }
 
-    public void setBitId(String bitId) {
-        this.bitId = bitId;
+    public void setTeeId(String teeId) {
+        this.teeId = teeId;
     }
 
     public String getError() {

@@ -1,20 +1,26 @@
-package com.bitmesra.bitotsav.database.models;
+package com.bitmesra.bitotsav.database.models.payment;
 
 /**
  * Created by Batdroid on 5/3/17 for Bitotsav.
  */
-
-public class RegistrationResponse {
+/***
+ * Payment info model is what we get when we start payment to check user info
+ * */
+public class PayinfoResponse {
     String bitId;
     String error;
     String message;
     String email;
+    String name;
+    String college;
 
-    public RegistrationResponse(String bitId, String error, String message, String email) {
+    public PayinfoResponse(String bitId, String error, String message, String email, String name, String college) {
         this.bitId = bitId;
         this.error = error;
         this.message = message;
         this.email = email;
+        this.name = name;
+        this.college = college;
     }
 
     public String getBitId() {
@@ -47,5 +53,21 @@ public class RegistrationResponse {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
     }
 }

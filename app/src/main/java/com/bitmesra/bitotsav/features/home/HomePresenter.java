@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 
 import io.realm.RealmResults;
 

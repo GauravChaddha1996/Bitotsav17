@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.home;
 
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 
 import java.util.List;
 

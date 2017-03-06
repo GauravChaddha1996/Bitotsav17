@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.flagships;
 
-import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
+import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
 
 import java.util.List;
 

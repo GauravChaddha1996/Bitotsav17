@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.DataManager;
-import com.bitmesra.bitotsav.database.models.events.FlagshipItem;
+import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
 import com.bitmesra.bitotsav.utils.Utils;
 
 import java.util.List;

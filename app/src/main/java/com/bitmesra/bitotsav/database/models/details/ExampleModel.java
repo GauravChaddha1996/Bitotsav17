@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.database.models.events;
+package com.bitmesra.bitotsav.database.models.details;
 
 /**
  * Created by Batdroid on 4/3/17 for Bitotsav.
@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+/**
+ * Model being fetched in details activity
+ * */
 public class ExampleModel {
 
     @SerializedName("_id")

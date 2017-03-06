@@ -16,4 +16,5 @@
     <color name="background">#292929</color>
     <color name="light_foreground">#ff6500</color>
     <color name="opaque_black">#c2000000</color>
+    <color name="less_opaque_black">#a0000000</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.database.models;
+package com.bitmesra.bitotsav.database.models.tshirt;
 
 /**
  * Created by Batdroid on 5/3/17 for Bitotsav.

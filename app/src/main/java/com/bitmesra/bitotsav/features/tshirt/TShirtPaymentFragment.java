@@ -31,7 +31,7 @@ import fr.ganfra.materialspinner.MaterialSpinner;
  */
 
 public class TShirtPaymentFragment extends BaseFragment {
-    String[] ITEMS = {"S", "M", "L", "XL", "XXX"};
+    String[] ITEMS = {"S", "M", "L", "XL", "XXL"};
     @BindView(R.id.teeitid)
     EditText teeId;
     @BindView(R.id.teeid_til)

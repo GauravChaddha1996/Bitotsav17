@@ -8,22 +8,32 @@
 
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/homeSliderLayout"
-        android:transitionName="event_image"
         android:layout_width="match_parent"
+        android:transitionName="event_image"
         app:layout_heightPercent="36%" />
 
+    <com.bitmesra.bitotsav.ui.CustomTextView
+        android:id="@+id/home_notifications_perm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeSliderLayout"
+        android:background="@color/less_opaque_black"
+        android:padding="8dp"
+        android:textColor="@color/card_text"
+        android:textSize="20sp"
+        android:text="Notifications" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeNotificationRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/homeSliderLayout" />
+        android:layout_below="@+id/home_notifications_perm" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        app:layout_heightPercent="50%"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        app:layout_heightPercent="50%">
 
         <include
             layout="@layout/achievement_view"

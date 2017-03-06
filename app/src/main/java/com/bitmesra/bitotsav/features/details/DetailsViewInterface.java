@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.details;
 
-import com.bitmesra.bitotsav.database.models.events.EventDto;
+import com.bitmesra.bitotsav.database.models.details.EventDto;
 
 /**
  * Created by Batdroid on 7/2/17 for Bitotsav.

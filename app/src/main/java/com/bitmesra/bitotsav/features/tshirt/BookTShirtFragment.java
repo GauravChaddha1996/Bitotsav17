@@ -59,7 +59,7 @@ public class BookTShirtFragment extends BaseFragment {
     MaterialSpinner tshirtDropdown;
     @BindView(R.id.register_button)
     Button registerButton;
-    String[] ITEMS = {"S", "M", "L", "XL", "XXX"};
+    String[] ITEMS = {"S", "M", "L", "XL", "XXL"};
 
     @Nullable
     @Override

@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.features.home;
 
-import com.bitmesra.bitotsav.database.models.home.NotificationItem;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 
 import io.realm.RealmResults;
 

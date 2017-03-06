@@ -1,7 +1,7 @@
 package com.bitmesra.bitotsav.network.payment;
 
-import com.bitmesra.bitotsav.database.models.PayinfoResponse;
-import com.bitmesra.bitotsav.database.models.PaymentResponse;
+import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
+import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
