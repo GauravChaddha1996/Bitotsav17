@@ -182,7 +182,6 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         if (eventDto.getImageurl() != null) {
             if (!eventDto.getImageurl().trim().isEmpty()) {
                 String imageurl = eventDto.getImageurl();
-                //  imageurl = imageurl.replace("events/ ", "events/");
                 Log.d("tag", imageurl);
                 Picasso.with(this)
                         .load(imageurl)

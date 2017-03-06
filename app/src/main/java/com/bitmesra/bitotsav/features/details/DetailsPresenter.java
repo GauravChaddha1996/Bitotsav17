@@ -65,7 +65,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
 
     public void removeChangeListener(String name) {
         EventDto dto = dataManager.getRealmManager().getDetailsDto(name);
-        dto.removeChangeListeners();
+        if (dto != null) dto.removeChangeListeners();
     }
 
     @Override
