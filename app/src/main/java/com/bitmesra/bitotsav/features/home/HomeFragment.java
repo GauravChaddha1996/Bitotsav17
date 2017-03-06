@@ -132,6 +132,10 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         bplan.image(R.drawable.bplan);
         bplan.description("B-Plan");
         bplan.setOnSliderClickListener(slider -> startDetailsActivity("B-Plan"));
+        TextSliderView cnc = new TextSliderView(getActivity());
+        cnc.image(R.drawable.cnc);
+        cnc.description("CNC");
+        cnc.setOnSliderClickListener(slider -> startDetailsActivity("CNC"));
 
         sliderLayout.addSlider(nukkad);
         sliderLayout.addSlider(mrmissbitotsav);
@@ -142,6 +146,7 @@ public class HomeFragment extends BaseFragment implements HomeViewInterface {
         sliderLayout.addSlider(stomptheyard);
         sliderLayout.addSlider(talkies);
         sliderLayout.addSlider(bplan);
+        sliderLayout.addSlider(cnc);
 
 
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
