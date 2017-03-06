@@ -165,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="No. of points:"
-                    android:textColor="@color/card_text"
+                    android:textColor="@color/darker_white"
                     android:textSize="21sp"
                     app:font="Lato/Lato_Regular.ttf" />
 
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="No. of Participants"
-                    android:textColor="@color/card_text"
+                    android:textColor="@color/darker_white"
                     android:textSize="21sp"
                     app:font="Lato/Lato_Regular.ttf" />
             </LinearLayout>

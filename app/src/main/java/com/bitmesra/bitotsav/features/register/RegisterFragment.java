@@ -54,4 +54,9 @@ public class RegisterFragment extends BaseFragment {
     public void payment() {
         ((MainActivity) getActivity()).setFragment(IdForFragment.PAY);
     }
+
+    @OnClick(R.id.register_instructions)
+    public void instructions() {
+        ((MainActivity)getActivity()).setFragment(IdForFragment.INSTRUCTIONS);
+    }
 }

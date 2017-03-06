@@ -1,4 +1,4 @@
-package com.bitmesra.bitotsav.features.register;
+package com.bitmesra.bitotsav.features.tshirt;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * Created by Batdroid on 5/3/17 for Bitotsav.
  */
 
-public class WebviewFragment extends BaseFragment {
+public class TShirtWebviewFragment extends BaseFragment {
     @BindView(R.id.payment_webview)
     WebView webView;
     @BindView(R.id.payment_progressBarHolder)
@@ -42,7 +42,7 @@ public class WebviewFragment extends BaseFragment {
     @BindView(R.id.payment_status_image)
     ImageView paymentStatusImage;
 
-    public WebviewFragment() {
+    public TShirtWebviewFragment() {
     }
 
     @Nullable
@@ -82,7 +82,7 @@ public class WebviewFragment extends BaseFragment {
                     Handler handler = new Handler() {
                         @Override
                         public void handleMessage(Message msg) {
-                            ((MainActivity) getActivity()).setFragment(IdForFragment.PAY);
+                            ((MainActivity) getActivity()).setFragment(IdForFragment.PAYTSHIRT);
                         }
                     };
                     handler.sendEmptyMessageDelayed(0, 2000);
@@ -108,11 +108,11 @@ public class WebviewFragment extends BaseFragment {
 
     @Override
     public IdForFragment getFragmentId() {
-        return IdForFragment.WEBVIEW;
+        return IdForFragment.TEEWEBVIEW;
     }
 
     @Override
     public IdForFragment getBackToFragmentId() {
-        return IdForFragment.PAY;
+        return IdForFragment.PAYTSHIRT;
     }
 }

@@ -59,7 +59,7 @@
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Caption">
 
             <EditText
-                android:id="@+id/bitId"
+                android:id="@+id/teeId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter BIT Roll number or leave blank if you don't have one"

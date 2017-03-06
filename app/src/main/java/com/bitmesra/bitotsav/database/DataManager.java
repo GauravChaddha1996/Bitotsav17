@@ -6,6 +6,8 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.TShirtBookResponse;
+import com.bitmesra.bitotsav.database.models.TeeinfoResponse;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.events.ExampleModel;
@@ -185,6 +187,24 @@ public class DataManager {
     public Observable<PaymentResponse> getPaymentUrl(Context context, String bitId, String email, int packageNumber) {
         createNetworkManager(context);
         return networkManager.getPaymentUrl(bitId, email, packageNumber);
+    }
+
+    /**
+     * T Shirt
+     */
+    public Observable<TShirtBookResponse> bookTShirt(Context context, String name, String email, String phone, String size, String college, String room) {
+        createNetworkManager(context);
+        return networkManager.bookTShirt(name, email, phone, size, college, room);
+    }
+
+    public Observable<TeeinfoResponse> getTeeInfo(Context context, String teeId, String email) {
+        createNetworkManager(context);
+        return networkManager.getTeeInfo(teeId, email);
+    }
+
+    public Observable<PaymentResponse> getTeePaymentUrl(Context context, String teeId, String email, String size) {
+        createNetworkManager(context);
+        return networkManager.getTShirtPaymentUrl(teeId, email, size);
     }
 
     /**

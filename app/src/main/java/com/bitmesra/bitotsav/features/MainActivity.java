@@ -22,11 +22,16 @@ import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
+import com.bitmesra.bitotsav.features.register.InstructionsFragment;
 import com.bitmesra.bitotsav.features.register.MultiplayerFragment;
 import com.bitmesra.bitotsav.features.register.PaymentFragment;
 import com.bitmesra.bitotsav.features.register.RegisterFragment;
 import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
 import com.bitmesra.bitotsav.features.register.WebviewFragment;
+import com.bitmesra.bitotsav.features.tshirt.BookTShirtFragment;
+import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
+import com.bitmesra.bitotsav.features.tshirt.TShirtPaymentFragment;
+import com.bitmesra.bitotsav.features.tshirt.TShirtWebviewFragment;
 import com.bitmesra.bitotsav.ui.CustomTextView;
 
 import java.util.Random;
@@ -88,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.EVENTS);
         } else if (id == R.id.nav_register) {
             setFragment(IdForFragment.REGISTER);
+        } else if (id == R.id.nav_tshirt) {
+            setFragment(IdForFragment.TSHIRT);
         } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -148,6 +155,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbarTitle.setText("Registration");
                 toReturnFragment = new RegisterFragment();
                 break;
+            case INSTRUCTIONS:
+                navView.setCheckedItem(R.id.nav_register);
+                toolbarTitle.setText("General Instructions");
+                toReturnFragment = new InstructionsFragment();
+                break;
             case SINGLEPLAYER:
                 navView.setCheckedItem(R.id.nav_register);
                 toolbarTitle.setText("Single Registration");
@@ -167,6 +179,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_register);
                 toolbarTitle.setText("Payment");
                 toReturnFragment = new WebviewFragment();
+                break;
+            case TEEWEBVIEW:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                toolbarTitle.setText("T-Shirt Payment");
+                toReturnFragment = new TShirtWebviewFragment();
+                break;
+            case TSHIRT:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                toolbarTitle.setText("Book a T-Shirt");
+                toReturnFragment = new TShirtFragment();
+                break;
+            case BOOKTSHIRT:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                toolbarTitle.setText("Book a T-Shirt");
+                toReturnFragment = new BookTShirtFragment();
+                break;
+            case PAYTSHIRT:
+                navView.setCheckedItem(R.id.nav_tshirt);
+                toolbarTitle.setText("Pay for T-Shirt");
+                toReturnFragment = new TShirtPaymentFragment();
                 break;
         }
         return toReturnFragment;

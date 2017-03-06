@@ -5,6 +5,8 @@ import android.content.Context;
 import com.bitmesra.bitotsav.database.models.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.TShirtBookResponse;
+import com.bitmesra.bitotsav.database.models.TeeinfoResponse;
 import com.bitmesra.bitotsav.database.models.events.EventDto;
 import com.bitmesra.bitotsav.database.models.events.ExampleModel;
 import com.bitmesra.bitotsav.database.models.home.NotificationItem;
@@ -13,6 +15,7 @@ import com.bitmesra.bitotsav.network.home.NotificationAPI;
 import com.bitmesra.bitotsav.network.payment.PaymentAPI;
 import com.bitmesra.bitotsav.network.register.RegistrationAPI;
 import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
+import com.bitmesra.bitotsav.network.tshirt.TShirtAPI;
 
 import java.util.List;
 
@@ -71,7 +74,7 @@ public class NetworkManager {
     }
 
     public Observable<RegistrationResponse> teamRegister(String teamName, String heademail, String headContact,
-                                                     String events, String members, String headBitId, String college) {
+                                                         String events, String members, String headBitId, String college) {
         return retrofit.create(RegistrationAPI.class).teamRegister(teamName, heademail, headContact,
                 events, members, headBitId, college)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -79,14 +82,31 @@ public class NetworkManager {
     }
 
     public Observable<PayinfoResponse> getPaymentInfo(String bitid, String email) {
-        return retrofit.create(PaymentAPI.class).getPaymentInfo(bitid,email)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io());
-    }
-    public Observable<PaymentResponse> getPaymentUrl(String bitid, String email, int packageNumber) {
-        return retrofit.create(PaymentAPI.class).getPaymentUrl(bitid,email,packageNumber)
+        return retrofit.create(PaymentAPI.class).getPaymentInfo(bitid, email)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
 
+    public Observable<PaymentResponse> getPaymentUrl(String bitid, String email, int packageNumber) {
+        return retrofit.create(PaymentAPI.class).getPaymentUrl(bitid, email, packageNumber)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<TShirtBookResponse> bookTShirt(String name, String email, String phone, String size, String college, String room) {
+        return retrofit.create(TShirtAPI.class).bookTShirt(name, email, phone, size, college, room)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+    public Observable<TeeinfoResponse> getTeeInfo(String teeid, String email) {
+        return retrofit.create(TShirtAPI.class).getTeeInfo(teeid,email)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<PaymentResponse> getTShirtPaymentUrl(String teeId, String email, String size) {
+        return retrofit.create(TShirtAPI.class).getPaymentUrl(teeId, email, size)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
 }
