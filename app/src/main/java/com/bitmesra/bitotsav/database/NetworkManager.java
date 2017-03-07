@@ -2,14 +2,13 @@ package com.bitmesra.bitotsav.database;
 
 import android.content.Context;
 
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
+import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.registration.RegistrationResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
-import com.bitmesra.bitotsav.database.models.details.EventDto;
-import com.bitmesra.bitotsav.database.models.details.ExampleModel;
-import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
 import com.bitmesra.bitotsav.network.payment.PaymentAPI;
@@ -49,7 +48,7 @@ public class NetworkManager {
                 .subscribeOn(Schedulers.io());
     }
 
-    public Observable<List<EventDto>> getTimelineEvents(int dayNumber) {
+    public Observable<List<ExampleModel>> getTimelineEvents(int dayNumber) {
         return retrofit.create(TimelineAPI.class).getTimeline(dayNumber)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());

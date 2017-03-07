@@ -74,7 +74,7 @@
             android:text="Nukkad"
             android:textColor="@color/colorAccent"
             android:textSize="30sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
+            app:font="oswald/oswald_regular.ttf" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/subscribedButton"
@@ -83,6 +83,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
+            android:visibility="gone"
             android:padding="-8dp"
             android:scaleType="center"
             android:src="@drawable/ic_no_bell"
@@ -98,7 +99,7 @@
             android:text="8pm at OAT"
             android:textColor="@color/darker_white"
             android:textSize="18sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            app:font="lato/lato_regular.ttf" />
 
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:id="@+id/timeline_item_desc"
@@ -111,7 +112,7 @@
             android:text="@string/sample_desc"
             android:textColor="@color/card_text"
             android:textSize="18sp"
-            app:font="Lato/Lato_Regular.ttf" />
+            app:font="lato/lato_regular.ttf" />
 
     </RelativeLayout>
 

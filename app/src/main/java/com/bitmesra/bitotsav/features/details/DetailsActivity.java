@@ -88,11 +88,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         achievementHelper = new AchievementHelper(this, achievemntHolder, marioLoadingImage, marioLoadingText);
         presenter.getDetailsDtoFromRealm(eventName);
 
-        String storedImageName = presenter.getImageName(eventName);
-        if (storedImageName != null) {
-            background_image.setImageDrawable(getResources().getDrawable(
-                    getResources().getIdentifier(storedImageName, "drawable", getPackageName())
-            ));
+        if (eventDtoType == EventDtoType.TYPE_FLAGSHIP) {
+            String storedImageName = presenter.getImageName(eventName);
+            if (storedImageName != null) {
+                background_image.setImageDrawable(getResources().getDrawable(
+                        getResources().getIdentifier(storedImageName, "drawable", getPackageName())
+                ));
+            }
         }
         animate();
         setSupportActionBar(toolbar);
@@ -183,10 +185,12 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
             if (!eventDto.getImageurl().trim().isEmpty()) {
                 String imageurl = eventDto.getImageurl();
                 Log.d("tag", imageurl);
-                Picasso.with(this)
-                        .load(imageurl)
-                        .placeholder(R.drawable.ic_logo)
-                        .into(background_image);
+                if (!(eventDtoType == EventDtoType.TYPE_FLAGSHIP)) {
+                    Picasso.with(this)
+                            .load(imageurl)
+                            .noPlaceholder()
+                            .into(background_image);
+                }
             }
         }
     }
@@ -255,10 +259,14 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
         desc.setTranslationY(Utils.getScreenHeight(this));
         desc.animate().translationY(0).setDuration(1000).start();
         money.setTranslationY(Utils.getScreenHeight(this));
-        money.animate().translationY(0).setDuration(1200).start();
+        money.animate().translationY(0).setDuration(1100).start();
         divider.setTranslationY(Utils.getScreenHeight(this));
-        divider.animate().translationY(0).setDuration(1400).start();
+        divider.animate().translationY(0).setDuration(1200).start();
         rules.setTranslationY(Utils.getScreenHeight(this));
-        rules.animate().translationY(0).setDuration(1500).start();
+        rules.animate().translationY(0).setDuration(1300).start();
+        points.setTranslationY(Utils.getScreenHeight(this));
+        points.animate().translationY(0).setDuration(1400).start();
+        participants.setTranslationY(Utils.getScreenHeight(this));
+        participants.animate().translationY(0).setDuration(1500).start();
     }
 }

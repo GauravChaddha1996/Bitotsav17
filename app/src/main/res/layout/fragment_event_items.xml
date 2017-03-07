@@ -28,6 +28,6 @@
             android:text="Day 1 (17th March)"
             android:textColor="@color/card_text"
             android:textSize="36sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
+            app:font="oswald/oswald_regular.ttf" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

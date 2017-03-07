@@ -30,5 +30,5 @@
         android:text="Loading..."
         android:textColor="@color/colorAccent"
         android:textSize="40sp"
-        app:font="Lato/Lato_Regular.ttf" />
+        app:font="lato/lato_regular.ttf" />
 </RelativeLayout>

@@ -3,7 +3,6 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.R;
-import com.bitmesra.bitotsav.database.models.details.EventDto;
 import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
@@ -46,14 +45,14 @@ public class DataManager {
      */
     public List<EventItem> getEventList() {
         List<EventItem> list = new ArrayList<>();
-        list.add(new EventItem("Day 1 (17th Mar)", R.drawable.home1));
-        list.add(new EventItem("Day 2 (18th Mar)", R.drawable.home2));
-        list.add(new EventItem("Day 3 (19th Mar)", R.drawable.home1));
-        list.add(new EventItem("Day 4 (20th Mar)", R.drawable.home2));
+        list.add(new EventItem("Day 1\n(17th Mar)", R.drawable.home1));
+        list.add(new EventItem("Day 2\n(18th Mar)", R.drawable.home2));
+        list.add(new EventItem("Day 3\n(19th Mar)", R.drawable.home1));
+        list.add(new EventItem("Day 4\n(20th Mar)", R.drawable.home2));
         return list;
     }
 
-    public Observable<List<EventDto>> getTimelineList(Context context, int dayNumber) {
+    public Observable<List<ExampleModel>> getTimelineList(Context context, int dayNumber) {
         createNetworkManager(context);
         return networkManager.getTimelineEvents(dayNumber);
     }

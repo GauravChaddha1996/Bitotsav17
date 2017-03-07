@@ -1,6 +1,6 @@
 package com.bitmesra.bitotsav.network.timeline;
 
-import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 
 import java.util.List;
 
@@ -14,5 +14,5 @@ import rx.Observable;
 
 public interface TimelineAPI {
     @GET("/events/day")
-    Observable<List<EventDto>> getTimeline(@Query("day") int dayNumber);
+    Observable<List<ExampleModel>> getTimeline(@Query("day") int dayNumber);
 }

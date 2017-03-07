@@ -38,7 +38,7 @@
             android:text="Ashish Gaurav"
             android:textColor="@color/colorAccent"
             android:textSize="36sp"
-            app:font="Oswald/Oswald_Regular.ttf" />
+            app:font="oswald/oswald_regular.ttf" />
 
         <com.bitmesra.bitotsav.ui.CustomTextView
             android:id="@+id/praneet_desc"
@@ -50,7 +50,7 @@
             android:text="Developer"
             android:textColor="@color/card_text"
             android:textSize="30sp"
-            app:font="Lato/Lato_Light.ttf" />
+            app:font="lato/lato_light.ttf" />
     </RelativeLayout>
 
 

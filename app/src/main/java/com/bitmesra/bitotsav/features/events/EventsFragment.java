@@ -61,19 +61,19 @@ public class EventsFragment extends BaseFragment implements EventViewInterface {
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener((recyclerView1, position, v) ->
         {
             switch (adapter.getItem(position).getType()) {
-                case "Day 1 (17th Mar)":
+                case "Day 1\n(17th Mar)":
                     ((MainActivity) getActivity()).dayNumber = 1;
                     ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
-                case "Day 2 (18th Mar)":
+                case "Day 2\n(18th Mar)":
                     ((MainActivity) getActivity()).dayNumber = 2;
                     ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
-                case "Day 3 (19th Mar)":
+                case "Day 3\n(19th Mar)":
                     ((MainActivity) getActivity()).dayNumber = 3;
                     ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;
-                case "Day 4 (20th Mar)":
+                case "Day 4\n(20th Mar)":
                     ((MainActivity) getActivity()).dayNumber = 4;
                     ((MainActivity) getActivity()).setFragment(IdForFragment.TIMELINE);
                     break;

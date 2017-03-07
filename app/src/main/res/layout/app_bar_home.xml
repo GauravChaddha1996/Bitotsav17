@@ -28,7 +28,7 @@
                 android:textColor="@color/toolbar_text"
                 android:gravity="center_vertical"
                 android:text="Toolbar Title"
-                app:font="Oswald/Oswald_SemiBold.ttf" />
+                app:font="oswald/oswald_semibold.ttf" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

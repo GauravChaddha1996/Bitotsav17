@@ -4,7 +4,11 @@ import android.content.Context;
 
 import com.bitmesra.bitotsav.database.DataManager;
 import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.details.ExampleModel;
+import com.bitmesra.bitotsav.features.EventDtoType;
+import com.bitmesra.bitotsav.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,12 +38,22 @@ public class TimelinePresenter implements TimelinePresenterInterface {
                 .doOnSubscribe(() -> viewInterface.showAchievment())
                 .doOnNext(items -> {
                     if (items != null || !items.isEmpty()) {
-                        dataManager.getRealmManager().saveTimelineEvents(items, dayNumber);
+                        List<EventDto> list = new ArrayList<EventDto>();
+                        for (ExampleModel model : items) {
+                            list.add(eventDtoFromExampleModel(model.getName(),
+                                    Utils.findEventDtoDayType(dayNumber), model));
+                        }
+                        dataManager.getRealmManager().saveTimelineEvents(list, dayNumber);
                     }
                 })
                 .subscribe(items -> {
                     viewInterface.hideAchievment();
-                    viewInterface.updateTimelineEvents(items);
+                    List<EventDto> list = new ArrayList<>();
+                    for (ExampleModel model : items) {
+                        list.add(eventDtoFromExampleModel(model.getName(),
+                                Utils.findEventDtoDayType(dayNumber), model));
+                    }
+                    viewInterface.updateTimelineEvents(list);
                 }, throwable -> viewInterface.errorAchievment());
     }
 
@@ -48,5 +62,21 @@ public class TimelinePresenter implements TimelinePresenterInterface {
         if (list.size() > 0) {
             viewInterface.updateTimelineEvents(list);
         }
+    }
+
+    private EventDto eventDtoFromExampleModel(String name, int eventDtoType, ExampleModel exampleModel) {
+        return new EventDto()
+                .setName(name)
+                .set_id(exampleModel.getId())
+                .setEventDtoType(eventDtoType)
+                .setTime(exampleModel.getTime())
+                .setVenue(exampleModel.getVenue())
+                .setDescription(exampleModel.getAbout())
+                .setRules(exampleModel.getDescription())
+                .setEventDtoType(EventDtoType.TYPE_FLAGSHIP)
+                .setMoney(exampleModel.getMoney())
+                .setImageurl(exampleModel.getImage())
+                .setPoints(exampleModel.getPoints())
+                .setParticipantsCount(exampleModel.getParticipantsCount());
     }
 }

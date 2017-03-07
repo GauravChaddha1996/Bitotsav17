@@ -28,10 +28,10 @@
             <ImageView
                 android:id="@+id/background_image"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="300dp"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitCenter"
-                android:src="@drawable/mun"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_logo"
                 android:transitionName="event_image"
                 app:layout_collapseMode="parallax" />
 
@@ -65,7 +65,7 @@
                 android:textColor="@color/toolbar_text"
                 android:textSize="30sp"
                 android:transitionName="event_title"
-                app:font="Oswald/Oswald_SemiBold.ttf" />
+                app:font="oswald/oswald_semibold.ttf" />
         </android.support.design.widget.CollapsingToolbarLayout>
 
 
@@ -112,7 +112,7 @@
                     android:textColor="@color/card_text"
                     android:textSize="21sp"
                     android:transitionName="event_title_time_venue"
-                    app:font="Lato/Lato_Regular.ttf" />
+                    app:font="lato/lato_regular.ttf" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:id="@+id/detail_desc"
@@ -122,9 +122,9 @@
                     android:padding="4dp"
                     android:text="@string/sample_desc"
                     android:textColor="@color/darker_white"
-                    android:textSize="21sp"
+                    android:textSize="20sp"
                     android:transitionName="event_desc"
-                    app:font="Lato/Lato_Regular.ttf"
+                    app:font="lato/lato_regular.ttf"
                     tools:text="@string/sample_desc_small" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
@@ -136,7 +136,7 @@
                     android:text="Prize money"
                     android:textColor="@color/colorAccent"
                     android:textSize="24sp"
-                    app:font="Lato/Lato_Regular.ttf" />
+                    app:font="lato/lato_regular.ttf" />
 
                 <View
                     android:id="@+id/divider"
@@ -155,8 +155,8 @@
                     android:layout_marginTop="16dp"
                     android:text="@string/sample_desc"
                     android:textColor="@color/darker_white"
-                    android:textSize="20sp"
-                    app:font="Lato/Lato_Regular.ttf"
+                    android:textSize="18sp"
+                    app:font="lato/lato_regular.ttf"
                     tools:text="These are some rules" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
@@ -166,8 +166,8 @@
                     android:layout_marginTop="16dp"
                     android:text="No. of points:"
                     android:textColor="@color/darker_white"
-                    android:textSize="21sp"
-                    app:font="Lato/Lato_Regular.ttf" />
+                    android:textSize="20sp"
+                    app:font="lato/lato_regular.ttf" />
 
                 <com.bitmesra.bitotsav.ui.CustomTextView
                     android:id="@+id/detail_participants"
@@ -176,8 +176,8 @@
                     android:layout_marginTop="16dp"
                     android:text="No. of Participants"
                     android:textColor="@color/darker_white"
-                    android:textSize="21sp"
-                    app:font="Lato/Lato_Regular.ttf" />
+                    android:textSize="20sp"
+                    app:font="lato/lato_regular.ttf" />
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
