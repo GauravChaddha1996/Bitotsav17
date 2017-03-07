@@ -81,5 +81,6 @@ dependencies {
     compile 'com.google.firebase:firebase-core:10.0.1'
     compile 'io.realm:android-adapters:1.4.0'
     compile 'com.github.ganfra:material-spinner:1.1.1'
+    compile 'com.jaredrummler:material-spinner:1.1.0'
 }
 apply plugin: 'com.google.gms.google-services'

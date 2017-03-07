@@ -10,6 +10,7 @@ import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.registration.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.support.SupportResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
 
@@ -190,6 +191,17 @@ public class DataManager {
         createNetworkManager(context);
         return networkManager.getTShirtPaymentUrl(teeId, email, size);
     }
+
+
+    /**
+     * SUpport
+     * */
+    public Observable<SupportResponse> donate(Context context, String email, String firstName, String
+            lastName, String amount, String phone, String batch, String message) {
+        createNetworkManager(context);
+        return networkManager.donate(email, firstName, lastName, amount, phone, batch, message);
+    }
+
 
     /**
      * Helpers classes and functions

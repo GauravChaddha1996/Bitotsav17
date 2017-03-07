@@ -7,12 +7,14 @@ import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
 import com.bitmesra.bitotsav.database.models.registration.RegistrationResponse;
+import com.bitmesra.bitotsav.database.models.support.SupportResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
 import com.bitmesra.bitotsav.network.payment.PaymentAPI;
 import com.bitmesra.bitotsav.network.register.RegistrationAPI;
+import com.bitmesra.bitotsav.network.support.SupportAPI;
 import com.bitmesra.bitotsav.network.timeline.TimelineAPI;
 import com.bitmesra.bitotsav.network.tshirt.TShirtAPI;
 
@@ -97,14 +99,22 @@ public class NetworkManager {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
+
     public Observable<TeeinfoResponse> getTeeInfo(String teeid, String email) {
-        return retrofit.create(TShirtAPI.class).getTeeInfo(teeid,email)
+        return retrofit.create(TShirtAPI.class).getTeeInfo(teeid, email)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }
 
     public Observable<PaymentResponse> getTShirtPaymentUrl(String teeId, String email, String size) {
         return retrofit.create(TShirtAPI.class).getPaymentUrl(teeId, email, size)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<SupportResponse> donate(String email, String firstName, String
+            lastName, String amount, String phone, String batch, String message) {
+        return retrofit.create(SupportAPI.class).donate(email, firstName, lastName, amount, phone, batch, message)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

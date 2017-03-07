@@ -28,6 +28,8 @@ import com.bitmesra.bitotsav.features.register.PaymentFragment;
 import com.bitmesra.bitotsav.features.register.RegisterFragment;
 import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
 import com.bitmesra.bitotsav.features.register.WebviewFragment;
+import com.bitmesra.bitotsav.features.support.SupportFragment;
+import com.bitmesra.bitotsav.features.support.SupportWebviewFragment;
 import com.bitmesra.bitotsav.features.tshirt.BookTShirtFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtDemoFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
@@ -94,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.EVENTS);
         } else if (id == R.id.nav_register) {
             setFragment(IdForFragment.REGISTER);
+        } else if (id == R.id.nav_support) {
+            setFragment(IdForFragment.SUPPORT);
         } else if (id == R.id.nav_tshirt) {
             setFragment(IdForFragment.TSHIRT);
         } else if (id == R.id.nav_contact_about_sponsor) {
@@ -156,6 +160,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 toolbarTitle.setText("Registration");
                 toReturnFragment = new RegisterFragment();
                 break;
+            case SUPPORT:
+                navView.setCheckedItem(R.id.nav_support);
+                toolbarTitle.setText("Support Us");
+                toReturnFragment = new SupportFragment();
+                break;
             case INSTRUCTIONS:
                 navView.setCheckedItem(R.id.nav_register);
                 toolbarTitle.setText("General Instructions");
@@ -185,6 +194,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_tshirt);
                 toolbarTitle.setText("T-Shirt Payment");
                 toReturnFragment = new TShirtWebviewFragment();
+                break;
+            case SUPPORTWEBVIEW:
+                navView.setCheckedItem(R.id.nav_support);
+                toolbarTitle.setText("Support Us");
+                toReturnFragment = new SupportWebviewFragment();
                 break;
             case TSHIRT:
                 navView.setCheckedItem(R.id.nav_tshirt);

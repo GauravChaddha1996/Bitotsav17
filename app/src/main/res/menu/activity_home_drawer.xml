@@ -23,6 +23,10 @@
             android:icon="@drawable/ic_tshirts"
             android:title="@string/t_shirt" />
         <item
+            android:id="@+id/nav_support"
+            android:icon="@drawable/ic_flagship"
+            android:title="@string/support" />
+        <item
             android:id="@+id/nav_contact_about_sponsor"
             android:icon="@drawable/ic_csa"
             android:title="@string/contact_us_sponsors_about_us" />
