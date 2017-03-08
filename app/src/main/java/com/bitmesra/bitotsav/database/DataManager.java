@@ -6,6 +6,7 @@ import com.bitmesra.bitotsav.R;
 import com.bitmesra.bitotsav.database.models.details.ExampleModel;
 import com.bitmesra.bitotsav.database.models.events.EventItem;
 import com.bitmesra.bitotsav.database.models.flagship.FlagshipItem;
+import com.bitmesra.bitotsav.database.models.nights.NightsModel;
 import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
@@ -71,6 +72,23 @@ public class DataManager {
         list.add(new FlagshipItem("B-Plan", "", R.drawable.bplan));
         list.add(new FlagshipItem("CNC", "", R.drawable.cnc));
         return list;
+    }
+
+    /**
+     * Nights
+     */
+
+    public List<NightsModel> getNightsList() {
+        return realmManager.getNightEvents();
+    }
+
+    public NightsModel getNightEvent(int id) {
+        return realmManager.getNightEvent(id);
+    }
+
+    public Observable<List<NightsModel>> fetchNightList(Context context) {
+        createNetworkManager(context);
+        return networkManager.getNightsList();
     }
 
     /**
@@ -195,7 +213,7 @@ public class DataManager {
 
     /**
      * SUpport
-     * */
+     */
     public Observable<SupportResponse> donate(Context context, String email, String firstName, String
             lastName, String amount, String phone, String batch, String message) {
         createNetworkManager(context);

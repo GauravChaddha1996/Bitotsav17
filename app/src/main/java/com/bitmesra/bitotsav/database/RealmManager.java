@@ -2,9 +2,10 @@ package com.bitmesra.bitotsav.database;
 
 import android.util.Log;
 
-import com.bitmesra.bitotsav.database.models.subscribedtopics.SubscribedTopics;
 import com.bitmesra.bitotsav.database.models.details.EventDto;
+import com.bitmesra.bitotsav.database.models.nights.NightsModel;
 import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
+import com.bitmesra.bitotsav.database.models.subscribedtopics.SubscribedTopics;
 
 import java.util.List;
 
@@ -99,5 +100,21 @@ public class RealmManager {
     public void removeSubscribedTopic(String name) {
         realm.executeTransactionAsync(realm1 -> realm1.where(SubscribedTopics.class)
                 .equalTo("topic", name).findFirst().deleteFromRealm());
+    }
+
+    /**
+     * Nights
+     */
+    public List<NightsModel> getNightEvents() {
+        return realm.where(NightsModel.class)
+                .findAllSorted("id");
+    }
+
+    public NightsModel getNightEvent(int id) {
+        return realm.where(NightsModel.class).equalTo("id", id).findFirst();
+    }
+
+    public void saveNightEvents(List<NightsModel> nightsModels) {
+        realm.executeTransactionAsync(realm1 -> realm1.insertOrUpdate(nightsModels));
     }
 }

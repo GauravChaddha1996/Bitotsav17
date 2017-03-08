@@ -23,6 +23,7 @@ import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.howtoreach.HowToReachFragment;
+import com.bitmesra.bitotsav.features.nights.NightFragment;
 import com.bitmesra.bitotsav.features.register.InstructionsFragment;
 import com.bitmesra.bitotsav.features.register.MultiplayerFragment;
 import com.bitmesra.bitotsav.features.register.PaymentFragment;
@@ -109,6 +110,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.TODORANCHI);
         } else if (id == R.id.nav_howtoreach) {
             setFragment(IdForFragment.HOWTOREACH);
+        } else if (id == R.id.nav_nights) {
+            setFragment(IdForFragment.NIGHTS);
         } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -253,6 +256,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_howtoreach);
                 toolbarTitle.setText("How to reach");
                 toReturnFragment = new HowToReachFragment();
+                break;
+            case NIGHTS:
+                navView.setCheckedItem(R.id.nav_nights);
+                toolbarTitle.setText("Nights");
+                toReturnFragment = new NightFragment();
                 break;
         }
         return toReturnFragment;

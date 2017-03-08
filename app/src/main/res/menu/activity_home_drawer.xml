@@ -15,6 +15,11 @@
             android:icon="@drawable/ic_events"
             android:title="@string/events" />
         <item
+            android:id="@+id/nav_nights"
+            android:icon="@drawable/ic_events"
+            android:title="@string/nigths"
+            />
+        <item
             android:id="@+id/nav_register"
             android:icon="@drawable/ic_register"
             android:title="@string/register" />

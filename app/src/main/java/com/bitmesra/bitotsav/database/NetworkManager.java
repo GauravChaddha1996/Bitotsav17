@@ -3,6 +3,7 @@ package com.bitmesra.bitotsav.database;
 import android.content.Context;
 
 import com.bitmesra.bitotsav.database.models.details.ExampleModel;
+import com.bitmesra.bitotsav.database.models.nights.NightsModel;
 import com.bitmesra.bitotsav.database.models.notification.NotificationItem;
 import com.bitmesra.bitotsav.database.models.payment.PayinfoResponse;
 import com.bitmesra.bitotsav.database.models.payment.PaymentResponse;
@@ -12,6 +13,7 @@ import com.bitmesra.bitotsav.database.models.tshirt.TShirtBookResponse;
 import com.bitmesra.bitotsav.database.models.tshirt.TeeinfoResponse;
 import com.bitmesra.bitotsav.network.details.DetailsAPI;
 import com.bitmesra.bitotsav.network.home.NotificationAPI;
+import com.bitmesra.bitotsav.network.nights.NightsAPI;
 import com.bitmesra.bitotsav.network.payment.PaymentAPI;
 import com.bitmesra.bitotsav.network.register.RegistrationAPI;
 import com.bitmesra.bitotsav.network.support.SupportAPI;
@@ -115,6 +117,12 @@ public class NetworkManager {
     public Observable<SupportResponse> donate(String email, String firstName, String
             lastName, String amount, String phone, String batch, String message) {
         return retrofit.create(SupportAPI.class).donate(email, firstName, lastName, amount, phone, batch, message)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io());
+    }
+
+    public Observable<List<NightsModel>> getNightsList() {
+        return retrofit.create(NightsAPI.class).getNightsList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

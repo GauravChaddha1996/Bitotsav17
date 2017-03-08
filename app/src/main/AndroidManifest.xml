@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".features.start.StartActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/StartTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +22,22 @@
         <activity
             android:name=".features.MainActivity"
             android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".features.csa.CSAActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CSAStyle" />
         <activity
             android:name=".features.details.DetailsActivity"
             android:parentActivityName=".features.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".features.nights.NightDetailsActivity"
+            android:parentActivityName=".features.MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".features.push.MyFirebaseMessagingService">
