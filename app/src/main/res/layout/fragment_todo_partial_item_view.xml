@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/card_background"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/todo_partial_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/mun"
+            android:visibility="gone" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/todo_partial_item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todo_partial_item_image"
+            android:layout_margin="4dp"
+            android:text="Dassam Falls"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/todo_partial_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todo_partial_item_title"
+            android:layout_margin="4dp"
+            android:text="The Dassam Falls is situated at 34 km from the city of Ranchi on Ranchi-Tata road near the Taimara village. The place is also known as Dassam Garh. The major water source of this waterfall is River Kanchi, which falls here from an altitude of 144 feet. The unique feature of this fall is that when the waterfall is seen, 10 water streams are also seen falling."
+            android:textColor="@color/card_text"
+            android:textSize="18sp"
+            app:font="lato/lato_regular.ttf" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

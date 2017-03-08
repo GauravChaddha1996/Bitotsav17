@@ -1,0 +1,25 @@
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nav_background"
+    tools:context="com.bitmesra.bitotsav.features.events.EventsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opaque_black">
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:id="@+id/instructions_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/how_to_reach"
+            android:textColor="@color/card_text"
+            android:textSize="21sp" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

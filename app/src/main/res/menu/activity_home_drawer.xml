@@ -23,6 +23,14 @@
             android:icon="@drawable/ic_tshirts"
             android:title="@string/t_shirt" />
         <item
+            android:id="@+id/nav_todo_ranchi"
+            android:icon="@drawable/ic_csa"
+            android:title="@string/todo_ranchi" />
+        <item
+            android:id="@+id/nav_howtoreach"
+            android:icon="@drawable/ic_csa"
+            android:title="@string/todo_howtoreach" />
+        <item
             android:id="@+id/nav_support"
             android:icon="@drawable/ic_flagship"
             android:title="@string/support" />

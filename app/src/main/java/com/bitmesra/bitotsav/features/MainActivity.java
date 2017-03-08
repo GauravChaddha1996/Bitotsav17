@@ -22,6 +22,7 @@ import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
+import com.bitmesra.bitotsav.features.howtoreach.HowToReachFragment;
 import com.bitmesra.bitotsav.features.register.InstructionsFragment;
 import com.bitmesra.bitotsav.features.register.MultiplayerFragment;
 import com.bitmesra.bitotsav.features.register.PaymentFragment;
@@ -30,6 +31,10 @@ import com.bitmesra.bitotsav.features.register.SinglePlayerFragment;
 import com.bitmesra.bitotsav.features.register.WebviewFragment;
 import com.bitmesra.bitotsav.features.support.SupportFragment;
 import com.bitmesra.bitotsav.features.support.SupportWebviewFragment;
+import com.bitmesra.bitotsav.features.todo_ranchi.TodoEatFragment;
+import com.bitmesra.bitotsav.features.todo_ranchi.TodoGamingFragment;
+import com.bitmesra.bitotsav.features.todo_ranchi.TodoRanchiFragment;
+import com.bitmesra.bitotsav.features.todo_ranchi.TodoSIghtFragment;
 import com.bitmesra.bitotsav.features.tshirt.BookTShirtFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtDemoFragment;
 import com.bitmesra.bitotsav.features.tshirt.TShirtFragment;
@@ -100,6 +105,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.SUPPORT);
         } else if (id == R.id.nav_tshirt) {
             setFragment(IdForFragment.TSHIRT);
+        } else if (id == R.id.nav_todo_ranchi) {
+            setFragment(IdForFragment.TODORANCHI);
+        } else if (id == R.id.nav_howtoreach) {
+            setFragment(IdForFragment.HOWTOREACH);
         } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -219,6 +228,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_tshirt);
                 toolbarTitle.setText("Pay for T-Shirt");
                 toReturnFragment = new TShirtPaymentFragment();
+                break;
+            case TODORANCHI:
+                navView.setCheckedItem(R.id.nav_todo_ranchi);
+                toolbarTitle.setText("Discover Ranchi");
+                toReturnFragment = new TodoRanchiFragment();
+                break;
+            case TODOEAT:
+                navView.setCheckedItem(R.id.nav_todo_ranchi);
+                toolbarTitle.setText("Places to eat");
+                toReturnFragment = new TodoEatFragment();
+                break;
+            case TODOSIGHT:
+                navView.setCheckedItem(R.id.nav_todo_ranchi);
+                toolbarTitle.setText("SightSeeing");
+                toReturnFragment = new TodoSIghtFragment();
+                break;
+            case TODOGAMING:
+                navView.setCheckedItem(R.id.nav_todo_ranchi);
+                toolbarTitle.setText("Gaming");
+                toReturnFragment = new TodoGamingFragment();
+                break;
+            case HOWTOREACH:
+                navView.setCheckedItem(R.id.nav_howtoreach);
+                toolbarTitle.setText("How to reach");
+                toReturnFragment = new HowToReachFragment();
                 break;
         }
         return toReturnFragment;
