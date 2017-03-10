@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="16dp"
-            android:text="@string/how_to_reach"
+            android:text="@string/how_to_reach_1"
             android:textColor="@color/card_text"
             android:textSize="21sp" />
 

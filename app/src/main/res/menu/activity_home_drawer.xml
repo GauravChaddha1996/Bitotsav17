@@ -17,8 +17,7 @@
         <item
             android:id="@+id/nav_nights"
             android:icon="@drawable/ic_events"
-            android:title="@string/nigths"
-            />
+            android:title="@string/nigths" />
         <item
             android:id="@+id/nav_register"
             android:icon="@drawable/ic_register"
@@ -29,7 +28,7 @@
             android:title="@string/t_shirt" />
         <item
             android:id="@+id/nav_todo_ranchi"
-            android:icon="@drawable/ic_csa"
+            android:icon="@drawable/ic_flagship"
             android:title="@string/todo_ranchi" />
         <item
             android:id="@+id/nav_howtoreach"
@@ -43,6 +42,10 @@
             android:id="@+id/nav_contact_about_sponsor"
             android:icon="@drawable/ic_csa"
             android:title="@string/contact_us_sponsors_about_us" />
+        <item
+            android:id="@+id/nav_faq"
+            android:icon="@android:drawable/ic_menu_help"
+            android:title="@string/faq" />
     </group>
 
 </menu>

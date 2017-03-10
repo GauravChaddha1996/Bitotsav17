@@ -117,7 +117,32 @@ Address: Mahatma Gandhi Marg and Main Road, Ranchi, Jharkhand 834001
     <string name="todo_fun">It is a very well equipped video game parlour located in Galaxia mall, Ratu Road. It is one of the most happening places in Ranchi. One should really go there to enjoy with their friends. </string>
     <string name="todo_ranchi">Discover Ranchi</string>
     <string name="todo_howtoreach">How to reach</string>
-    <string name="how_to_reach">Reaching ranchi</string>
+    <string name="how_to_reach_1">Birla Institute of Technology (BIT) is located at Mesra, Ranchi, the Jharkhand state-capital. Ranchi is well-connected to the rest of the country through regular flights from major airports as well as through well developed rail and road networks.</string>
+    <string name="how_to_reach_2">- Ranchi is well linked to important airports in India, including Patna, Lucknow, Mumbai, Delhi and Kolkata. Ranchi airport is located at Hinoo, nearly 7 km away from the city centre. From the airport taxi and auto services are available directly to the BIT campus.</string>
+    <string name="how_to_reach_3">- Ranchi railhead is well connected to important cities all over the country. All the trains to Ranchi halt at either the Ranchi Junction or the Hatia Railway Station. From both these stations, BIT can be reached by taxi or auto.</string>
+    <string name="how_to_reach_4">- The roadways leading to Ranchi have made the city easily accessible from different parts of the country. Ranchi is situated on the National Highway 23 and 33. Ranchi is well connected to cities like Patna, Jamshedpur, Daltonganj, Dhanbad, Gaya, Bokaro, Durgapur, Asansol, Rourkela, Cuttack, Siliguri and Kolkata. If your bus passes the BIT more , it is suggested to get down there as BIT is five minutes away. From the Bus stand , taxi or auto service could be used to reach BIT.</string>
+    <string name="how_to_reach_5">: BIT also runs buses from outside St. Xavier’s college at regular intervals. Also, for the teams participating from outside ranchi , team Bitosav may arrange for  transport to the BIT campus after your arrival into the city on prior information .(If the number of people is considerable)</string>
     <string name="nigths">Nights</string>
+    <string name="faq">FAQ</string>
+    <string name="faq_q_1">Q1. Is it necessary/mandatory to report to the very first day for the collection of passes?</string>
+    <string name="faq_a_1">It is not mandatory to report on the very first day. Participants can report on any of 4 days of the fest.</string>
+    <string name="faq_q_2">Q2. Can the registration fees be paid on after reaching the campus?</string>
+    <string name="faq_a_2">The fees can be paid on reaching the campus but the payment still needs to paid online through the app or by swiping cards. This Bitotsav we go cashless.</string>
+    <string name="faq_q_3">Q3. If someone wants to collect the passes the pro nite then is it necessary to come on 20th only ...can the passes be collected before also ?</string>
+    <string name="faq_a_3">The passes for the pro night can be collected beforehand as long as all the registration and payment procedures are complete.</string>
+    <string name="faq_q_4">Q4.  What is the process of getting a room and what are the charges?</string>
+    <string name="faq_a_4">Participants need to register regarding rooms at the info desk. For accommodation one needs to pay Rs.200 extra apart from the registration fees. Rs.100 will be refunded back once the person vacates the room.</string>
+    <string name="faq_q_5">Q5.  Can team registration be made without payment ?</string>
+    <string name="faq_a_5">Team registration can be made without payment with the condition that the payment procedure is completed before the team participates in its respective events. The team will not be allowed to participate if the payment is incomplete.</string>
+    <string name="faq_q_6">Q6.   Is the money refundable in case we have made the payment and fail to turn up ?</string>
+    <string name="faq_a_6">The payment once made is non refundable in any case.</string>
+    <string name="faq_q_7">Q7.  If someone wants to collect pass for a particular day then is it necessary the he/she should purchase it on that day only ?</string>
+    <string name="faq_a_7">No it not necessary to report on that day only. Passes of all the four days will be available at the info desk and passes for any night can be collected anyday from info desk</string>
+    <string name="faq_q_8">Q8. Fooding and accommodation facilities in BIT</string>
+    <string name="faq_a_8">Hostel accommodation will be provided separately for boys and girls on the first come first served basis. Bitotsav arena will have various food stalls all around the campus added with some avenues in the premium area of BIT. This includes \'HOT n COLD\' and Apni Rasoi in IC Arena, Lakshmi Canteen along the OC Road and Amrit Dhara in Techno. Mess food coupons will be available for purchase. Every hostelhas canteen facilities in the premises.</string>
+    <string name="faq_q_9">Q9. Which Day to report?</string>
+    <string name="faq_a_9">Participants can report on any of the 4 days of the fest at the INFO DESK for the registration. They must carry a valid college id at all times.</string>
+    <string name="faq_q_10">Q10. Can registration be done without payment?</string>
+    <string name="faq_a_10">Every person coming to Bitotsav needs to register under the \"single player registration column\" and then any one member from team can register their team under \"multiplayer registration. It is not a compulsion to pay the registration fee at the time of online registration. It can be done later in due time or at the info desk on the day the team arrives at BIT.</string>
 
 </resources>

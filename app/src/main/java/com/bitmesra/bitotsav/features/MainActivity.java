@@ -20,6 +20,7 @@ import com.bitmesra.bitotsav.base.BaseFragment;
 import com.bitmesra.bitotsav.features.csa.CSAActivity;
 import com.bitmesra.bitotsav.features.events.EventsFragment;
 import com.bitmesra.bitotsav.features.events.timeline.TimelineFragment;
+import com.bitmesra.bitotsav.features.faq.FAQFragment;
 import com.bitmesra.bitotsav.features.flagships.FlagshipFragment;
 import com.bitmesra.bitotsav.features.home.HomeFragment;
 import com.bitmesra.bitotsav.features.howtoreach.HowToReachFragment;
@@ -112,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             setFragment(IdForFragment.HOWTOREACH);
         } else if (id == R.id.nav_nights) {
             setFragment(IdForFragment.NIGHTS);
+        } else if (id == R.id.nav_faq) {
+            setFragment(IdForFragment.FAQ);
         } else if (id == R.id.nav_contact_about_sponsor) {
             startActivity(new Intent(MainActivity.this, CSAActivity.class),
                     ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
@@ -261,6 +264,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 navView.setCheckedItem(R.id.nav_nights);
                 toolbarTitle.setText("Nights");
                 toReturnFragment = new NightFragment();
+                break;
+            case FAQ:
+                navView.setCheckedItem(R.id.nav_faq);
+                toolbarTitle.setText("FAQ");
+                toReturnFragment = new FAQFragment();
                 break;
         }
         return toReturnFragment;

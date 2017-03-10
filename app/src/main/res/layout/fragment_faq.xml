@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registration_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/opaque_black"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_1"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_1"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_2"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_2"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_3"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_3"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_4"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_4"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_5"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_5"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_6"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_6"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_7"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_7"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_8"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_8"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_9"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_9"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_q_10"
+            android:textColor="@color/card_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="oswald/oswald_regular.ttf" />
+
+        <com.bitmesra.bitotsav.ui.CustomTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/faq_a_10"
+            android:textColor="@color/card_text"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorAccent" />
+    </LinearLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
