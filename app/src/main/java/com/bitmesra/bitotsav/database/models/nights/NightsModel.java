@@ -16,17 +16,20 @@ public class NightsModel extends RealmObject {
     String links;
     @SerializedName("image1")
     String image1;
+    @SerializedName("day")
+    int day;
     @SerializedName("description")
     String desc;
 
     public NightsModel() {
     }
 
-    public NightsModel(int id, String name, String links, String image1, String desc) {
+    public NightsModel(int id, String name, String links, String image1, int day, String desc) {
         this.id = id;
         this.name = name;
         this.links = links;
         this.image1 = image1;
+        this.day = day;
         this.desc = desc;
     }
 
@@ -60,6 +63,14 @@ public class NightsModel extends RealmObject {
 
     public void setImage1(String image1) {
         this.image1 = image1;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public String getDesc() {

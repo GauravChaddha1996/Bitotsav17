@@ -120,6 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:padding="4dp"
+                    android:autoLink="web"
                     android:text="@string/sample_desc"
                     android:textColor="@color/darker_white"
                     android:textSize="20sp"

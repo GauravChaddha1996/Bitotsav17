@@ -24,11 +24,12 @@ public class EventDto extends RealmObject {
     private String participantsCount = " participants : 2";
     private String rules = "rules";
     private String image = "";
+    private String reg = "";
 
     public EventDto() {
     }
 
-    public EventDto(String name, int eventDtoType, String time, String venue, String money, String points, String participantsCount, String rules) {
+    public EventDto(String name, int eventDtoType, String time, String venue, String money, String points, String participantsCount, String rules, String reg) {
         this.name = name;
         this.eventDtoType = eventDtoType;
         this.time = time;
@@ -37,6 +38,7 @@ public class EventDto extends RealmObject {
         this.points = points;
         this.participantsCount = participantsCount;
         this.rules = rules;
+        this.reg = reg;
     }
 
     public String getName() {
@@ -139,6 +141,23 @@ public class EventDto extends RealmObject {
 
     public EventDto setImageurl(String imageurl) {
         this.image = imageurl;
+        return this;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getReg() {
+        return reg;
+    }
+
+    public EventDto setReg(String reg) {
+        this.reg = reg;
         return this;
     }
 }

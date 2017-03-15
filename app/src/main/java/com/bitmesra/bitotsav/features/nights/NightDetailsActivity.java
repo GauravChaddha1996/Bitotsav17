@@ -39,6 +39,8 @@ public class NightDetailsActivity extends AppCompatActivity {
     CustomTextView detailLinks;
     int nightId;
     NightsModel model;
+    @BindView(R.id.detail_day)
+    CustomTextView detailDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,11 +79,25 @@ public class NightDetailsActivity extends AppCompatActivity {
         String linksArray[] = links.split("\n");
         StringBuilder builder = new StringBuilder("Links:\n");
         for (int i = 0; i < linksArray.length; i++) {
-            builder.append("\n").append(i+1).append(". ").append(linksArray[i]);
+            builder.append("\n").append(i + 1).append(". ").append(linksArray[i]);
         }
         detailLinks.setText(builder.toString());
         for (int i = 0; i < linksArray.length; i++) {
             Linkify.addLinks(detailLinks, Pattern.compile(linksArray[i]), linksArray[i]);
+        }
+        switch (model.getDay()) {
+            case 1:
+                detailDay.setText("17th March");
+                break;
+            case 2:
+                detailDay.setText("18th March");
+                break;
+            case 3:
+                detailDay.setText("19th March");
+                break;
+            case 4:
+                detailDay.setText("20th March");
+                break;
         }
     }
 

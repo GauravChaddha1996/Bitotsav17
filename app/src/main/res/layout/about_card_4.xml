@@ -47,7 +47,7 @@
             android:layout_below="@+id/praneet_name"
             android:layout_marginBottom="16dp"
             android:gravity="center"
-            android:text="Developer"
+            android:text="Front End Developer"
             android:textColor="@color/card_text"
             android:textSize="30sp"
             app:font="lato/lato_light.ttf" />

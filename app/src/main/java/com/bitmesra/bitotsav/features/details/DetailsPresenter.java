@@ -109,6 +109,7 @@ public class DetailsPresenter implements DetailsPresenterInterface {
                 .setMoney(exampleModel.getMoney())
                 .setImageurl(exampleModel.getImage())
                 .setPoints(exampleModel.getPoints())
-                .setParticipantsCount(exampleModel.getParticipantsCount());
+                .setParticipantsCount(exampleModel.getParticipantsCount())
+                .setReg(exampleModel.getRegistration());
     }
 }

@@ -145,7 +145,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/card_text"
-                android:hint="Enter your branch, banch(If BITian)"
+                android:hint="Enter your branch, batch(If BITian)"
                 android:inputType="text"
                 android:selectAllOnFocus="true"
                 android:textColor="@color/card_text" />

@@ -181,6 +181,11 @@ public class DetailsActivity extends AppCompatActivity implements DetailsViewInt
                 participants.setVisibility(View.GONE);
             }
         }
+        if (eventDto.getReg() != null) {
+            if (!eventDto.getReg().trim().isEmpty()) {
+                desc.setText(desc.getText() + "\n\n" + eventDto.getReg());
+            }
+        }
         if (eventDto.getImageurl() != null) {
             if (!eventDto.getImageurl().trim().isEmpty()) {
                 String imageurl = eventDto.getImageurl();

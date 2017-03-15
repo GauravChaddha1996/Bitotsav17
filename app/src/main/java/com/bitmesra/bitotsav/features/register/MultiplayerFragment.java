@@ -73,7 +73,7 @@ public class MultiplayerFragment extends BaseFragment {
                 "18th March Day-2 Rs.350/-",
                 "19th March Day-3 Rs.400/-", "20th March Day-4 Rs.450/-",
                 "All Day Pass without accommodation Rs.900/-",
-                "All Day Pass with accommodation (Rs.100/- Security) Rs.1100/-"
+                "All Day Pass with accommodation Rs.1100/-"
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

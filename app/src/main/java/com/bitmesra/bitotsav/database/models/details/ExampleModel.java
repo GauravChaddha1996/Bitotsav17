@@ -65,6 +65,30 @@ public class ExampleModel {
     @SerializedName("money")
     @Expose
     private String money;
+    @SerializedName("reg")
+    @Expose
+    private String registration;
+
+    public ExampleModel(String id, String name, String type, String club, String about, String participantsCount, String image, String description, String points, Integer v, String time, String uniqueId, Boolean isActive, Boolean flagship, List<String> rules, String venue, String money, String registration) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.club = club;
+        this.about = about;
+        this.participantsCount = participantsCount;
+        this.image = image;
+        this.description = description;
+        this.points = points;
+        this.v = v;
+        this.time = time;
+        this.uniqueId = uniqueId;
+        this.isActive = isActive;
+        this.flagship = flagship;
+        this.rules = rules;
+        this.venue = venue;
+        this.money = money;
+        this.registration = registration;
+    }
 
     public String getId() {
         return id;
@@ -112,6 +136,14 @@ public class ExampleModel {
 
     public void setParticipantsCount(String participantsCount) {
         this.participantsCount = participantsCount;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDescription() {
@@ -194,12 +226,12 @@ public class ExampleModel {
         this.money = money;
     }
 
-    public String getImage() {
-        return image;
+    public String getRegistration() {
+        return registration;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setRegistration(String registration) {
+        this.registration = registration;
     }
 }
 
