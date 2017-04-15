@@ -50,61 +50,11 @@ public class TShirtWebviewFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_webview, container, false);
         ButterKnife.bind(this, view);
-        setUpWebView();
+//        setUpWebView();
+//  	  set the payment method here in the function as you like
         return view;
     }
 
-    void setUpWebView() {
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if (request.getUrl().toString().contains("/response/success")) {
-                    String amount = request.getUrl().getQueryParameter("amount");
-                    paymentStatus.setVisibility(View.VISIBLE);
-                    paymentStatusImage.setImageDrawable(getResources().getDrawable(R.drawable.success));
-
-                    paymentStatusText.setText("Payment Successful");
-                    paymentStatusAmount.setText("Amount: " + amount);
-                    Handler handler = new Handler() {
-                        @Override
-                        public void handleMessage(Message msg) {
-                            ((MainActivity) getActivity()).setFragment(IdForFragment.HOME);
-                        }
-                    };
-                    handler.sendEmptyMessageDelayed(0, 2000);
-                    return true;
-                } else if (request.getUrl().toString().contains("/response/failed")) {
-                    paymentStatus.setVisibility(View.VISIBLE);
-                    paymentStatusImage.setImageDrawable(getResources().getDrawable(R.drawable.failed));
-                    paymentStatusAmount.setVisibility(View.GONE);
-                    paymentStatusText.setText("Payment Failed");
-                    Handler handler = new Handler() {
-                        @Override
-                        public void handleMessage(Message msg) {
-                            ((MainActivity) getActivity()).setFragment(IdForFragment.PAYTSHIRT);
-                        }
-                    };
-                    handler.sendEmptyMessageDelayed(0, 2000);
-                    return true;
-                }
-                return super.shouldOverrideUrlLoading(view, request);
-            }
-
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                paymentProgressBarHolder.setVisibility(View.VISIBLE);
-                super.onPageStarted(view, url, favicon);
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                paymentProgressBarHolder.setVisibility(View.GONE);
-                super.onPageFinished(view, url);
-            }
-        });
-        webView.loadUrl(((MainActivity) getActivity()).url);
-    }
 
     @Override
     public IdForFragment getFragmentId() {
