@@ -10,3 +10,9 @@ fest registration,payment and alumni support using Zup Payment SDK using webview
 ## [Play store link](https://play.google.com/store/apps/details?id=com.bitmesra.bitotsav)
 
 ## Screenshots
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav1.png)
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav2.png)
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav3.png)
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav4.png)
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav5.png)
+![](https://github.com/GauravChaddha1996/Bitotsav17/blob/develop/bitotsav6.png)
